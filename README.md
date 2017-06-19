@@ -1,1 +1,1 @@
-This repository was created for traing
+This repository was created for training
