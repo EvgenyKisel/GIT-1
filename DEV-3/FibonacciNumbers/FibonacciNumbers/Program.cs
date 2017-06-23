@@ -20,26 +20,8 @@ namespace FibonacciNumbers
                     }
                     else
                     {
-                        int fibNumb1 = 1, fibNumb2 = 1, fibNumbN = 1;
-                        bool checkFibonacci = false;
-                        for (int i = 0; i < number; i++)
-                        {
-                            fibNumb1 = fibNumb2;
-                            fibNumb2 = fibNumbN;
-                            fibNumbN = fibNumb1 + fibNumb2;
-                            if (number == fibNumbN || number == 1)
-                            {
-                                checkFibonacci = true;
-                            }
-                        }
-                        if (checkFibonacci)
-                        {
-                            Console.WriteLine("This is the Fibonacci number.");
-                        }
-                        else
-                        {
-                            Console.WriteLine("This is not the Fibonacci number.");
-                        }
+                        FibonacciNumber fibonacciNumber = new FibonacciNumber();
+                        fibonacciNumber.DetectFibonacciNumber(number);
                         Console.WriteLine("\nPress any key to exit.");
                         Console.ReadKey();
                     }
@@ -53,4 +35,34 @@ namespace FibonacciNumbers
             }
         }
     }
+
+    class FibonacciNumber
+    {
+        public void DetectFibonacciNumber(int number)
+        {
+            int fibNumb1 = 1, fibNumb2 = 1, fibNumbN = 1;
+            bool checkFibonacci = false;
+            for (int i = 0; i < number; i++)
+            {
+                fibNumb1 = fibNumb2;
+                fibNumb2 = fibNumbN;
+                fibNumbN = fibNumb1 + fibNumb2;
+                if (number == fibNumbN || number == 1)
+                {
+                    checkFibonacci = true;
+                    break;
+                }
+            }
+            if (checkFibonacci)
+            {
+                Console.WriteLine("This is the Fibonacci number.");
+            }
+            else
+            {
+                Console.WriteLine("This is not the Fibonacci number.");
+            }
+
+        }
+    }
+
 }
