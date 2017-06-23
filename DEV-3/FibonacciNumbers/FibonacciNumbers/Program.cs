@@ -61,8 +61,6 @@ namespace FibonacciNumbers
             {
                 Console.WriteLine("This is not the Fibonacci number.");
             }
-
         }
     }
-
 }
