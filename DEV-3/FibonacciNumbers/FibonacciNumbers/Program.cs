@@ -6,7 +6,8 @@ namespace FibonacciNumbers
     {
         static void Main(string[] args)
         {
-            while (true)
+            bool duration = true;
+            while (duration)
             {
                 try
                 {
@@ -33,11 +34,11 @@ namespace FibonacciNumbers
                         }
                         if (checkFibonacci)
                         {
-                            Console.WriteLine("This is the number of Fibonacci.");
+                            Console.WriteLine("This is the Fibonacci number.");
                         }
                         else
                         {
-                            Console.WriteLine("This is not the number of Fibonacci.");
+                            Console.WriteLine("This is not the Fibonacci number.");
                         }
                         Console.WriteLine("\nPress any key to exit.");
                         Console.ReadKey();
@@ -48,7 +49,7 @@ namespace FibonacciNumbers
                     Console.WriteLine("It is not a number. Try again");
                     continue;
                 }
-                break;
+                duration = false;
             }
         }
     }
