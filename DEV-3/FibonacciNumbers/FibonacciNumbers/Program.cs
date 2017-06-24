@@ -20,8 +20,8 @@ namespace FibonacciNumbers
                     }
                     else
                     {
-                        FibonacciNumber fibonacciNumber = new FibonacciNumber();
-                        fibonacciNumber.DetectFibonacciNumber(number);
+                        FibonacciSequence fibonacciSequence = new FibonacciSequence();
+                        fibonacciSequence.DetectFibonacciNumber(number);
                         Console.WriteLine("\nPress any key to exit.");
                         Console.ReadKey();
                     }
@@ -36,7 +36,7 @@ namespace FibonacciNumbers
         }
     }
 
-    class FibonacciNumber
+    class FibonacciSequence
     {
         public void DetectFibonacciNumber(int number)
         {
