@@ -5,9 +5,10 @@ namespace NondecreasingSequence
     //This class was created to input smth 
     class Input
     {
+        const string ENTERSEQUENCE = "Enter a sequence: ";
+
         public int[] InputSequence()
         {
-            const string ENTERSEQUENCE = "Enter a sequence: ";
             Console.Write(ENTERSEQUENCE);
             string[] inputNumbers = Console.ReadLine().Split();
             int[] sequence = new int[inputNumbers.Length];

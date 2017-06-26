@@ -5,6 +5,7 @@
     {
         const string NONDECREASING = "It is nondecreasing sequence of integers";
         const string NOTNONDECREASING = "It is not nondecreasing sequence of integers";
+
         //check sequence for nondecreasing
         public string DetermineSequenceTipe(int[] sequence)
         {
