@@ -7,7 +7,8 @@ namespace NondecreasingSequence
     {
         public int[] InputSequence()
         {
-            Console.Write("Enter a sequence: ");
+            const string ENTERSEQUENCE = "Enter a sequence: ";
+            Console.Write(ENTERSEQUENCE);
             string[] inputNumbers = Console.ReadLine().Split();
             int[] sequence = new int[inputNumbers.Length];
             for (int i = 0; i < inputNumbers.Length; i++)
