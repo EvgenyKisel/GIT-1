@@ -29,7 +29,7 @@ namespace NondecreasingSequence
                     else
                     {
                         SequenceType sequenceType = new SequenceType();
-                        Console.WriteLine(sequenceType.DetermineSequenceTipe(sequence));
+                        Console.WriteLine(sequenceType.DetermineSequenceType(sequence));
                         Console.WriteLine(RESTART);
                         if (Console.ReadLine().Equals(YES))
                         {

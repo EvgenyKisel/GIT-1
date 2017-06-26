@@ -7,7 +7,7 @@
         const string NOTNONDECREASING = "It is not nondecreasing sequence of integers";
 
         //check sequence for nondecreasing
-        public string DetermineSequenceTipe(int[] sequence)
+        public string DetermineSequenceType(int[] sequence)
         {
             for (int i = 1; i < sequence.Length; i++)
             {
