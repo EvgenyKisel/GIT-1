@@ -9,18 +9,17 @@ namespace NondecreasingSequence
         const string NUMBERERROR = "It is not a number. Try again";
         const string EXIT = "Press any key to exit.";
         const string YES = "y";
-        const string RESTART = "Do you want to try again? (y - try again / other key - no)";
+        const string RESTART = "Do you want to try again? (Esc - try again / other key - restart)";
 
         //Entrypoint to program
         static void Main(string[] args)
         {
-            bool reenter = true;
-            while (reenter)
+            do
             {
                 try
                 {
-                    Input input = new Input();
-                    int[] sequence = input.InputSequence();
+                    Inputer inputer = new Inputer();
+                    int[] sequence = inputer.InputSequence(args);
                     if (sequence.Length <= 1)
                     {
                         Console.WriteLine(LENGTHERROR);
@@ -30,16 +29,6 @@ namespace NondecreasingSequence
                     {
                         SequenceType sequenceType = new SequenceType();
                         Console.WriteLine(sequenceType.DetermineSequenceType(sequence));
-                        Console.WriteLine(RESTART);
-                        if (Console.ReadLine().Equals(YES))
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            Console.WriteLine(EXIT);
-                            Console.ReadKey();
-                        }
                     }
                 }
                 catch (Exception)
@@ -47,8 +36,9 @@ namespace NondecreasingSequence
                     Console.WriteLine(NUMBERERROR);
                     continue;
                 }
-                reenter = false;
+                Console.WriteLine(RESTART);
             }
+            while (Console.ReadKey(true).Key != ConsoleKey.Escape);
         }
     }
 }
