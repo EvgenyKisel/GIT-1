@@ -9,18 +9,18 @@ namespace NondecreasingSequence
 
         public int[] InputSequence(string[] inputLine)
         {
+            int[] sequence = null;
             if (inputLine.Length != 0)
             {
                 foreach (var args in inputLine)
                 {
                     Console.Write(args + " ");
                 }
-                int[] sequence = new int[inputLine.Length];
+                sequence = new int[inputLine.Length];
                 for (int i = 0; i < inputLine.Length; i++)
                 {
                     sequence[i] = int.Parse(inputLine[i]);
                 }
-                return sequence;
             }
             else
             {
@@ -30,13 +30,13 @@ namespace NondecreasingSequence
                 {
                     Console.Write(args + " ");
                 }
-                int[] sequence = new int[inputNumbers.Length];
+                sequence = new int[inputNumbers.Length];
                 for (int i = 0; i < inputNumbers.Length; i++)
                 {
                     sequence[i] = int.Parse(inputNumbers[i]);
                 }
-                return sequence;
             }
+            return sequence;
         }
     }
 }
