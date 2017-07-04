@@ -3,7 +3,7 @@
 namespace NondecreasingSequence
 {
     //This class was made to start a program
-    class Runner
+    class Starter
     {
         const string LENGTHERROR = "\nThis willn't be a sequence. Try again";
         const string NUMBERERROR = "\nIt is not a number. Try again";
@@ -31,7 +31,7 @@ namespace NondecreasingSequence
                         Console.WriteLine(sequenceType.DetermineSequenceType(sequence));
                     }
                 }
-                catch (Exception)
+                catch (FormatException)
                 {
                     Console.WriteLine(NUMBERERROR);
                     continue;
