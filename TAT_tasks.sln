@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NondecreasingSequence", "DE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FibonacciNumbers", "DEV-3\FibonacciNumbers\FibonacciNumbers.csproj", "{E1D48B9F-5319-4FAB-B6D0-2F49E504F8C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangleType", "DEV-7\TriangleType\TriangleType.csproj", "{906405D9-88A8-4699-BEE2-48DFC52154C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E1D48B9F-5319-4FAB-B6D0-2F49E504F8C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1D48B9F-5319-4FAB-B6D0-2F49E504F8C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1D48B9F-5319-4FAB-B6D0-2F49E504F8C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{906405D9-88A8-4699-BEE2-48DFC52154C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{906405D9-88A8-4699-BEE2-48DFC52154C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{906405D9-88A8-4699-BEE2-48DFC52154C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{906405D9-88A8-4699-BEE2-48DFC52154C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
