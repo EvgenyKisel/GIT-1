@@ -4,7 +4,7 @@ namespace TriangleType
 {
     class Inputer
     {
-        const string POSITIVITYERROR = "Use only positive numbers. Try again";
+        const string POSITIVITYERROR = " !!! Use only positive numbers. Try again";
         const string ENTERSIDE = "Enter triangle side : ";
 
         public double InputSide()
