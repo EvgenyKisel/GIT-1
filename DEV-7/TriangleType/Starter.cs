@@ -2,7 +2,7 @@
 
 namespace TriangleType
 {
-    class Runner
+    class Starter
     {
         const string FORMATEXCEPTION = " !!! It's not a number. Try again";
         const string RESTART = "\nDo you want to try again? (Esc - try again / other key - restart)";
@@ -18,7 +18,10 @@ namespace TriangleType
                     triangle.SideA = inputer.InputSide();
                     triangle.SideB = inputer.InputSide();
                     triangle.SideC = inputer.InputSide();
-                    triangle.CheckTriangleExistence();
+                    if (triangle.CheckTriangleExistence())
+                    {
+                        continue;
+                    }
                     Console.WriteLine(triangle.DetectTriangleType());
                 }
                 catch (FormatException)
