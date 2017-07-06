@@ -35,11 +35,11 @@ namespace TriangleType
 
         public string DetectTriangleType()
         {
-            string TriangleType = COMMON;
+            string triangleType = COMMON;
             if (Math.Abs(SideA - SideB) < EPSILON &&
                     Math.Abs(SideB - SideC) < EPSILON)
             {
-                TriangleType = EQUILATERALOR;
+                triangleType = EQUILATERALOR;
             }
             else
             {
@@ -47,10 +47,10 @@ namespace TriangleType
                         Math.Abs(SideA - SideC) < EPSILON ||
                         Math.Abs(SideB - SideC) < EPSILON)
                 {
-                    TriangleType = ISOSCELES;
+                    triangleType = ISOSCELES;
                 }
             }
-            return TriangleType;
+            return triangleType;
         }
     }
 }

@@ -5,7 +5,7 @@ namespace TriangleType
     class Starter
     {
         const string FORMATEXCEPTION = " !!! It's not a number. Try again";
-        const string RESTART = "\nDo you want to try again? (Esc - try again / other key - restart)";
+        const string RESTART = "\nDo you want to try again? (Esc - exit / other key - restart)";
 
         static void Main(string[] args)
         {
