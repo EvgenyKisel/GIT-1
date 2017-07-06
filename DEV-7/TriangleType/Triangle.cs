@@ -19,9 +19,6 @@ namespace TriangleType
         public double SideC
         { get; set; }
 
-        public string TriangleType
-        { get; set; }
-
         public bool CheckTriangleExistence()
         {
             bool checker = false; 
@@ -38,7 +35,7 @@ namespace TriangleType
 
         public string DetectTriangleType()
         {
-            TriangleType = COMMON;
+            string TriangleType = COMMON;
             if (Math.Abs(SideA - SideB) < EPSILON &&
                     Math.Abs(SideB - SideC) < EPSILON)
             {
