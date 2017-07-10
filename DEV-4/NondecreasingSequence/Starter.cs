@@ -3,10 +3,10 @@
 namespace NondecreasingSequence
 {
     //This class was made to start a program
-    class Runner
+    class Starter
     {
-        const string LENGTHERROR = "This willn't be a sequence. Try again";
-        const string NUMBERERROR = "It is not a number. Try again";
+        const string LENGTHERROR = "\nThis willn't be a sequence. Try again";
+        const string NUMBERERROR = "\nIt is not a number. Try again";
         const string EXIT = "Press any key to exit.";
         const string YES = "y";
         const string RESTART = "Do you want to try again? (Esc - try again / other key - restart)";
@@ -31,7 +31,7 @@ namespace NondecreasingSequence
                         Console.WriteLine(sequenceType.DetermineSequenceType(sequence));
                     }
                 }
-                catch (Exception)
+                catch (FormatException)
                 {
                     Console.WriteLine(NUMBERERROR);
                     continue;
