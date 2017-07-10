@@ -6,14 +6,12 @@ namespace TriangleType
     {
         public bool NegativityCheck(Sides sides)
         {
+            bool checker = true;
             if (sides.sideA > 0 && sides.sideB > 0 && sides.sideC > 0)
             {
-                return false;
+                checker = false;
             }
-            else
-            {
-                return true;
-            }
+            return checker;
         }
 
         public bool CheckTriangleNotExistence(Sides sides)
