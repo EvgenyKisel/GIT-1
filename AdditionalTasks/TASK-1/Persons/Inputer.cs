@@ -18,7 +18,7 @@ namespace Persons
         {
             if (!int.TryParse(Console.ReadLine(), out int number))
             {
-                throw new InputIntegerException();
+                throw new InputPositiveIntegerException();
             }
             return number;
         }

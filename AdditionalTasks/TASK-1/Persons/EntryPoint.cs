@@ -5,7 +5,7 @@ namespace Persons
     class EntryPoint
     {
         const string INPUTCOUNT = "Input integer count : ";
-        const string FORMATEXCEPTION = "\n ! It's not a number. Try again";
+        const string FORMATEXCEPTION = "\n ! It's not a number. Try again\n";
         const string RESTART = "\nDo you want to try again? (Esc - exit / other key - restart)";
 
         static void Main(string[] args)
@@ -16,9 +16,11 @@ namespace Persons
                 {
                     Inputer inputer = new Inputer();
                     Console.Write(INPUTCOUNT);
-                    int count = inputer.InputIntegerNumber();
-                    Person[] person = new Person[count];
-                    for (int i = 0; i < count; i++)
+                    int personsCount = inputer.InputIntegerNumber();
+                    Checker checker = new Checker();
+                    checker.CheckForNegativity(personsCount);
+                    Person[] person = new Person[personsCount];
+                    for (int i = 0; i < personsCount; i++)
                     {
                         PersonBuilder personBuilder = new PersonBuilder();
                         bool reenter = true;
@@ -47,7 +49,7 @@ namespace Persons
                     Outputer outputer = new Outputer();
                     outputer.PrintListOfPeople(person);
                 }
-                catch (InputIntegerException)
+                catch (InputPositiveIntegerException)
                 {
                     continue;
                 }

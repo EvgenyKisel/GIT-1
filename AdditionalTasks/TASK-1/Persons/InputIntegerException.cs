@@ -2,13 +2,13 @@
 
 namespace Persons
 {
-    class InputIntegerException : Exception
+    class InputPositiveIntegerException : Exception
     {
-        const string INPUTINTEGEREXCEPTION = "\n ! It's not an integer number. Try again";
+        const string INPUTPOSITIVEINTEGEREXCEPTION = "\n ! It's not a positive integer number. Try again\n";
 
-        public InputIntegerException() : base()
+        public InputPositiveIntegerException() : base()
         {
-            Console.WriteLine(INPUTINTEGEREXCEPTION);
+            Console.WriteLine(INPUTPOSITIVEINTEGEREXCEPTION);
         }
     }
 }

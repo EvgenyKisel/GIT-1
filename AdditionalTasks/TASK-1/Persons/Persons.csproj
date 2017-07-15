@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Checker.cs" />
     <Compile Include="InputAgeException.cs" />
     <Compile Include="Inputer.cs" />
     <Compile Include="InputIntegerException.cs" />
