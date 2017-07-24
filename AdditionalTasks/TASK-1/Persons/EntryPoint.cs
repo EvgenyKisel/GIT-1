@@ -30,17 +30,9 @@ namespace Persons
                             {
                                 person[i] = personBuilder.CreatePerson(i);
                             }
-                            catch (InputNameException)
+                            catch (Exception ex)
                             {
-                                continue;
-                            }
-                            catch (InputAgeException)
-                            {
-                                continue;
-                            }
-                            catch (FormatException)
-                            {
-                                Console.WriteLine(FORMATEXCEPTION);
+                                Console.WriteLine(ex.Message);
                                 continue;
                             }
                             reenter = false;

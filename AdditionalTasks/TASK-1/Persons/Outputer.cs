@@ -4,16 +4,12 @@ namespace Persons
 {
     class Outputer
     {
-        const string PRINTPERSONSNAME = "\nPerson's name: ";
-        const string PRINTPERSONSAGE = "Person's age: ";
-
-        public void PrintListOfPeople(Person[] person)
+        public void PrintListOfPeople(Person[] persons)
         {
             Console.Clear();
-            foreach (Person man in person)
+            for (int i = 0; i < persons.Length; i++)
             {
-                Console.WriteLine(PRINTPERSONSNAME + man.Name);
-                Console.WriteLine(PRINTPERSONSAGE + man.Age);
+                Console.WriteLine(String.Format("\nPerson №{0} : ", i + 1) + persons[i].ToString());
             }
         }
     }

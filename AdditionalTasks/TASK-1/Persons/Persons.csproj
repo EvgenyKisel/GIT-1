@@ -43,10 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Checker.cs" />
-    <Compile Include="InputAgeException.cs" />
+    <Compile Include="InputException.cs" />
     <Compile Include="Inputer.cs" />
-    <Compile Include="InputIntegerException.cs" />
-    <Compile Include="InputNameException.cs" />
+    <Compile Include="InputPositiveIntegerException.cs" />
     <Compile Include="Outputer.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonBuilder.cs" />
