@@ -6,7 +6,8 @@ namespace Shop
     {
         const string INPUTTYPEEXCEPTION = "\n ! Uncorrect type. Use only letters. Try again";
         const string INPUTCOUNTEXCEPTION = "\n ! Uncorrect count. Count can't be negative. Try again";
-        
+        const string INPUTPRICEEXCEPTION = "\n ! Uncorrect price. Price can't be negative. Try again";
+
         private string type;
         private string name;
         private int count;
@@ -34,7 +35,7 @@ namespace Shop
         public string Name
         {
             get => name;
-            set => name = value; 
+            set => name = value;
         }
 
         public int Count
@@ -53,7 +54,14 @@ namespace Shop
         public double Price
         {
             get => price;
-            set => price = value;
+            set
+            {
+                if (price < 0)
+                {
+                    throw new InputException(INPUTPRICEEXCEPTION);
+                }
+                price = value;
+            }
         }
     }
 }
