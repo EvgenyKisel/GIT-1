@@ -8,7 +8,7 @@
         public Node(T value)
         {
             Value = value;
-            Next = null;
+           // Next = null;
         }
     }
 }

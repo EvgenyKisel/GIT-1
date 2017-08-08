@@ -5,6 +5,13 @@
         private Node<T> head;
         private Node<T> tail;
 
+        public LinkedList(T value)
+        {
+            Node<T> node = new Node<T>(value);
+            head = node;
+            tail = node;
+        }
+
         public void Add(T value)
         {
             Node<T> node = new Node<T>(value);
