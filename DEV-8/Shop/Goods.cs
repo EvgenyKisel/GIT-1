@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Shop
 {
@@ -62,6 +63,21 @@ namespace Shop
                 }
                 price = value;
             }
+        }
+
+        public Goods(string type, string name, int count, double price)
+        {
+            Type = type;
+            Name = name;
+            Count = count;
+            Price = price;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder goods = new StringBuilder();
+            goods.AppendLine(type + " " + name + " " + count + " " + price);
+            return goods.ToString();
         }
     }
 }
