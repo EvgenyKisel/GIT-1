@@ -44,8 +44,11 @@
   <ItemGroup>
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Goods.cs" />
+    <Compile Include="GoodsBuilder.cs" />
     <Compile Include="Inputer.cs" />
     <Compile Include="InputException.cs" />
+    <Compile Include="InputPositiveIntegerException.cs" />
+    <Compile Include="Outputer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

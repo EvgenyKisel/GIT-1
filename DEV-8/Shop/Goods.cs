@@ -76,7 +76,7 @@ namespace Shop
         public override string ToString()
         {
             StringBuilder goods = new StringBuilder();
-            goods.AppendLine(type + " " + name + " " + count + " " + price);
+            goods.AppendLine(Type + " " + Name + " " + Count + " " + Price);
             return goods.ToString();
         }
     }
