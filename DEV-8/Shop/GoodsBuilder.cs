@@ -12,7 +12,7 @@ namespace Shop
         public Goods CreateGoods(int i)
         {
             Inputer inputer = new Inputer();
-            Console.WriteLine(String.Format("\nGoods №{0}", i + 1));
+            Console.WriteLine(String.Format("\nGoods №{0}", i));
             Console.Write(INPUTTYPE);
             string type = inputer.InputString();
             Console.Write(INPUTNAME);

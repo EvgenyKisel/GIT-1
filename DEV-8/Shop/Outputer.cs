@@ -1,15 +1,19 @@
 ﻿using System;
+using System.Collections;
 
 namespace Shop
 {
     class Outputer
     {
-        public void PrintListOfGoods(Goods[] goods)
+        public void PrintListOfGoods(ArrayList goods)
         {
             Console.Clear();
-            for (int i = 0; i < goods.Length; i++)
+            int i = 1;
+            foreach(Goods good in goods)
             {
-                Console.WriteLine(String.Format("\nGoods №{0} : ", i + 1) + goods[i].ToString());
+                
+                Console.WriteLine(String.Format("\nGoods №{0} : ", i) + good.ToString());
+                i++;
             }
         }
     }

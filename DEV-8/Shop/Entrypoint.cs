@@ -1,44 +1,41 @@
 ﻿using System;
+using System.Collections;
 
 namespace Shop
 {
     class EntryPoint
     {
         const string RESTART = "\nDo you want to try again? (Esc - exit / other key - restart)";
-        const string INPUTCOUNT = "Input integer amount of goods : ";
-
+        const string CONTINUEINPUTORNOT = "\nDo you want to add one more product? (Esc - no / other key - yes)";
+       
         static void Main(string[] args)
         {
             do
             {
                 try
                 {
-                    Console.WriteLine(INPUTCOUNT);
-                    Inputer inputer = new Inputer();
-                    int goodsCount = inputer.InputInteger();
-                    Goods[] goods = new Goods[goodsCount];
-                    for (int i = 0; i < goods.Length; i++)
+                    ArrayList goods = new ArrayList();
+                    int goodsNumber = 1;
+                    do
                     {
-                        GoodsBuilder goodsBuilder = new GoodsBuilder();
-                        bool reenter = true;
-                        while (reenter)
+                        try
                         {
-                            try
-                            {
-                                goods[i] = goodsBuilder.CreateGoods(i);
-                            }
-                            catch (Exception ex)
-                            {
-                                Console.WriteLine(ex.Message);
-                                continue;
-                            }
-                            reenter = false;
+                            GoodsBuilder goodsBuilder = new GoodsBuilder();
+                            goods.Add(goodsBuilder.CreateGoods(goodsNumber));
+                            goodsNumber++;
                         }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                            continue;
+                        }
+                        Console.WriteLine(CONTINUEINPUTORNOT);
                     }
+                    while (Console.ReadKey(true).Key != ConsoleKey.Escape);
                     Outputer outputer = new Outputer();
                     outputer.PrintListOfGoods(goods);
                 }
-                catch (InputPositiveIntegerException)
+                catch (Exception)
                 {
                     continue;
                 }
