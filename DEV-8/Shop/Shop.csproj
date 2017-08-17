@@ -47,6 +47,7 @@
     <Compile Include="GoodsBuilder.cs" />
     <Compile Include="Inputer.cs" />
     <Compile Include="InputException.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Outputer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
