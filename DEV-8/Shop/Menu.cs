@@ -5,6 +5,8 @@ namespace Shop
 {
     class Menu
     {
+        const string PRODUCTEXCEPTION = "There is no such product!";
+
         public void DisplayMenu()
         {
             Console.WriteLine("Available commands: ");
@@ -15,11 +17,12 @@ namespace Shop
             Console.WriteLine("  exit - quit the program\n");
         }
 
-        public void DoTheCommand(ArrayList goods)
+        public void DoTheCommand(ArrayList list)
         {
             const string COUNTTYPES = "count types";
             const string COUNTALL = "count all";
             const string AVERAGEPRICE = "average price";
+            const string AVERAGEPRICEFORTYPE = "average price ";
             const string EXIT = "exit";
             Console.WriteLine("Press any key to enter menu");
             Console.ReadKey();
@@ -34,19 +37,26 @@ namespace Shop
                 switch (command)
                 {
                     case COUNTTYPES:
-                        Console.WriteLine(menu.CountTypes(goods));
+                        Console.WriteLine(menu.CountTypes(list));
                         break;
                     case COUNTALL:
-                        Console.WriteLine(menu.CountAll(goods));
+                        Console.WriteLine(menu.CountAll(list));
                         break;
                     case AVERAGEPRICE:
-                        Console.WriteLine(menu.GetAveragePrice(goods));
+                        Console.WriteLine(menu.GetAveragePrice(list));
                         break;
                     case EXIT:
                         continueInput = false;
                         break;
                     default:
-                        Console.WriteLine("");
+                        if (command.Contains(AVERAGEPRICEFORTYPE))
+                        {
+                            Console.WriteLine(menu.GetAveragePriceForType(list, command));
+                        }
+                        else
+                        {
+                            Console.WriteLine("Shit happens");
+                        }
                         break;
                 }
             }
@@ -79,9 +89,25 @@ namespace Shop
             return averagePrice;
         }
 
-        public double GetAveragePriceForType(ArrayList list)
+        public double GetAveragePriceForType(ArrayList list, string command)
         {
-            return 0;
+            string type = command.Substring(14);
+            double totalPriceForOneType = 0;
+            int typeCount = 0;
+            foreach (Goods goods in list)
+            {
+                if (type.Equals(goods.Type))
+                {
+                    totalPriceForOneType += goods.Price;
+                    typeCount++;
+                }
+                else
+                {
+                    throw new ProductException(PRODUCTEXCEPTION);
+                }
+            }
+            double averagePriceForOneType = totalPriceForOneType / typeCount;
+            return averagePriceForOneType;
         }
     }
 }

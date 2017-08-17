@@ -49,6 +49,7 @@
     <Compile Include="InputException.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Outputer.cs" />
+    <Compile Include="ProductException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
