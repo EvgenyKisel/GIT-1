@@ -42,7 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrayListCommands.cs" />
+    <Compile Include="Commands.cs" />
+    <Compile Include="CountAllCommand.cs" />
+    <Compile Include="CountTypesCommand.cs" />
     <Compile Include="EntryPoint.cs" />
+    <Compile Include="ExitCommand.cs" />
+    <Compile Include="GetAveragePriceCommand.cs" />
+    <Compile Include="GetAveragePriceOfTheTypeCommand.cs" />
     <Compile Include="Goods.cs" />
     <Compile Include="GoodsBuilder.cs" />
     <Compile Include="Inputer.cs" />

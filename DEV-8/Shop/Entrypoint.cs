@@ -35,8 +35,36 @@ namespace Shop
                     while (Console.ReadKey(true).Key != ConsoleKey.Escape);
                     Outputer outputer = new Outputer();
                     outputer.PrintListOfGoods(goods);
-                    Menu menu = new Menu();
-                    menu.DoTheCommand(goods);
+                    bool reenterCommands = true;
+                    while (reenterCommands == true)
+                    {
+                        try
+                        {
+                            Menu menu = new Menu();
+                            menu.DisplayMenu();
+                            Inputer inputer = new Inputer();
+                            bool continueInputCommands = true;
+                            while (continueInputCommands == true)
+                            {
+                                string command = inputer.InputString();
+                                if (command.Equals("exit"))
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    ArrayListCommands commands = new ArrayListCommands();
+                                    commands.CallCommand(command, commands.AddToHashOfCommands(), goods);
+                                }
+                            }
+                        }
+                        catch (Exception exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            continue;
+                        }
+                        reenterCommands = false;
+                    }
                 }
                 catch (Exception exception)
                 {
