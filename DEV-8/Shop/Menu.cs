@@ -4,7 +4,7 @@ namespace Shop
 {
     class Menu
     {
-        const string MENU = "Press any key to enter menu";
+        const string MENU = "Press any key to start enter commands";
 
         public void DisplayMenu()
         {

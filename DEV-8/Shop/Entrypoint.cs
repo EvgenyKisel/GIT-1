@@ -58,7 +58,7 @@ namespace Shop
                                 }
                             }
                         }
-                        catch (Exception exception)
+                        catch (FormatException exception)
                         {
                             Console.WriteLine(exception.Message);
                             continue;
@@ -66,7 +66,7 @@ namespace Shop
                         reenterCommands = false;
                     }
                 }
-                catch (Exception exception)
+                catch (FormatException exception)
                 {
                     Console.WriteLine(exception.Message);
                     continue;

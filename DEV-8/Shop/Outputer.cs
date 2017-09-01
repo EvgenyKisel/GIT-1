@@ -9,9 +9,8 @@ namespace Shop
         {
             Console.Clear();
             int i = 1;
-            foreach(Goods good in goods)
+            foreach (Goods good in goods)
             {
-                
                 Console.WriteLine(String.Format("\nGoods №{0} : ", i) + good.ToString());
                 i++;
             }

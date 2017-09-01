@@ -47,7 +47,6 @@
     <Compile Include="CountAllCommand.cs" />
     <Compile Include="CountTypesCommand.cs" />
     <Compile Include="EntryPoint.cs" />
-    <Compile Include="ExitCommand.cs" />
     <Compile Include="GetAveragePriceCommand.cs" />
     <Compile Include="GetAveragePriceOfTheTypeCommand.cs" />
     <Compile Include="Goods.cs" />

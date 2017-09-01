@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Text;
 
 namespace Shop
 {
@@ -11,8 +10,6 @@ namespace Shop
 
         public override void DoCommand(string command, ArrayList list)
         {
-            //string[] words = inputCommand.Split(' ');
-            // string command = words[0] + words[1];
             if (command.Contains(AVERAGEPRICE))
             {
                 string type = command.Substring(14);
@@ -25,10 +22,10 @@ namespace Shop
                         totalPriceForOneType += goods.Price;
                         typeCount++;
                     }
-                    else
-                    {
-                        throw new ProductException(PRODUCTEXCEPTION);
-                    }
+                }
+                if (typeCount == 0)
+                {
+                    throw new ProductException(PRODUCTEXCEPTION);
                 }
                 double averagePriceForOneType = totalPriceForOneType / typeCount;
                 Console.WriteLine(averagePriceForOneType);
