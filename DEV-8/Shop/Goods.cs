@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace Shop
 {
-    class Goods
+    public class Goods
     {
         const string INPUTTYPEEXCEPTION = "\n ! Uncorrect type. Use only letters. Try again";
         const string INPUTCOUNTEXCEPTION = "\n ! Uncorrect count. Count can't be negative. Try again";
@@ -63,6 +63,14 @@ namespace Shop
                 }
                 price = value;
             }
+        }
+
+        public Goods()
+        {
+            Type = string.Empty;
+            Name = string.Empty;
+            Count = 0;
+            Price = 0;
         }
 
         public Goods(string type, string name, int count, double price)

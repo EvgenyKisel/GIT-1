@@ -7,6 +7,7 @@ namespace Shop
     {
         const string RESTART = "\nDo you want to try again? (Esc - exit / other key - restart)";
         const string CONTINUEINPUTORNOT = "\nDo you want to add one more product? (Esc - no / other key - yes)";
+        const string EXIT = "exit";
 
         static void Main(string[] args)
         {
@@ -44,10 +45,10 @@ namespace Shop
                             menu.DisplayMenu();
                             Inputer inputer = new Inputer();
                             bool continueInputCommands = true;
-                            while (continueInputCommands == true)
+                            while (continueInputCommands == true)   
                             {
                                 string command = inputer.InputString();
-                                if (command.Equals("exit"))
+                                if (command.Equals(EXIT))
                                 {
                                     break;
                                 }

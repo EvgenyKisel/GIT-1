@@ -18,5 +18,7 @@ namespace Shop
             Console.WriteLine("  average price type - display average product type price;");
             Console.WriteLine("  exit - quit the program\n");
         }
+
+        public 
     }
 }

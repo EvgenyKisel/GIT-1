@@ -2,7 +2,7 @@
 
 namespace Shop
 {
-    class Inputer
+    public class Inputer
     {
         public string InputString()
         {

@@ -6,11 +6,13 @@ namespace Shop
     {
         public ArrayList AddToHashOfCommands()
         {
-            ArrayList commands = new ArrayList();
-            commands.Add(new CountTypesCommand());
-            commands.Add(new CountAllCommand());
-            commands.Add(new GetAveragePriceCommand());
-            commands.Add(new GetAveragePriceOfTheTypeCommand());
+            ArrayList commands = new ArrayList
+            {
+                new CountTypesCommand(),
+                new CountAllCommand(),
+                new GetAveragePriceCommand(),
+                new GetAveragePriceOfTheTypeCommand()
+            };
             return commands;
         }
 
