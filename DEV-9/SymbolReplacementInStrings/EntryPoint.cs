@@ -8,6 +8,7 @@ namespace SymbolReplacementInStrings
         {
             const string FIRSTSTRING = "qwertyuiop";
             const string SECONDSTRING = "asdfghjkl";
+
             string firstString = FIRSTSTRING;
             string secondString = SECONDSTRING;
             string stringAfterReplacement = new RandomExchangeInStrings().SwapSymbolsInStrings(firstString, secondString);
