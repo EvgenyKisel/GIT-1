@@ -45,7 +45,7 @@
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomExchangeInStrings.cs" />
-    <Compile Include="WorkLine.cs" />
+    <Compile Include="StringLine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

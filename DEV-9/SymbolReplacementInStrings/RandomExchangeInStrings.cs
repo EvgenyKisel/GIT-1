@@ -11,11 +11,11 @@ namespace SymbolReplacementInStrings
              int startIndexInSecondString = new Random().Next(secondString.Length - 1);
              int replacementLengthOfFirstString = new Random().Next(firstString.Length - startIndexInFirstString);
              int replacementLengthOfSecondString = new Random().Next(secondString.Length - startIndexInSecondString);*/
-            WorkLine firstLine = new WorkLine(firstString);
+            StringLine firstLine = new StringLine(firstString);
             string replacementSymbolsInFirstString = firstString.Substring(firstLine.StartIndex, firstLine.ReplacementLength);
-            WorkLine secondLine = new WorkLine(secondString);
+            StringLine secondLine = new StringLine(secondString);
             string replacementSymbolsInSecondString = secondString.Substring(secondLine.StartIndex, secondLine.ReplacementLength);
-            return Regex.Replace(firstString, replacementSymbolsInFirstString, replacementSymbolsInSecondString);
+            return firstString.Replace(replacementSymbolsInFirstString, replacementSymbolsInSecondString);
         }
     }
 }

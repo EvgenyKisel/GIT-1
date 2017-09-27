@@ -2,13 +2,13 @@
 
 namespace SymbolReplacementInStrings
 {
-    class WorkLine
+    class StringLine
     {
         public string Line { get; }
         public int StartIndex { get; }
         public int ReplacementLength { get; }
 
-        public WorkLine(string inputLine)
+        public StringLine(string inputLine)
         {
             Line = inputLine;
             StartIndex = new Random().Next(Line.Length - 1);
