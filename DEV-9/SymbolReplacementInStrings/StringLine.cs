@@ -7,12 +7,14 @@ namespace SymbolReplacementInStrings
         public string Line { get; }
         public int StartIndex { get; }
         public int ReplacementLength { get; }
+        Random random = new Random();
 
+        // This constructor gives replacement index and length for input string.
         public StringLine(string inputLine)
         {
             Line = inputLine;
-            StartIndex = new Random().Next(Line.Length - 1);
-            ReplacementLength = new Random().Next(Line.Length - StartIndex);
+            StartIndex = random.Next(Line.Length - 1);
+            ReplacementLength = random.Next(1, Line.Length - StartIndex);
         }
     }
 }

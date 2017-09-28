@@ -1,21 +1,18 @@
-﻿using System;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace SymbolReplacementInStrings
 {
     class RandomExchangeInStrings
     {
+        // This method calls string constructor, allocates substrings for replacement,
+        // returns modified line by regex method, that takes line and two substrings for replacement.
         public string SwapSymbolsInStrings(string firstString, string secondString)
         {
-            /* int startIndexInFirstString = new Random().Next(firstString.Length - 1);
-             int startIndexInSecondString = new Random().Next(secondString.Length - 1);
-             int replacementLengthOfFirstString = new Random().Next(firstString.Length - startIndexInFirstString);
-             int replacementLengthOfSecondString = new Random().Next(secondString.Length - startIndexInSecondString);*/
             StringLine firstLine = new StringLine(firstString);
             string replacementSymbolsInFirstString = firstString.Substring(firstLine.StartIndex, firstLine.ReplacementLength);
             StringLine secondLine = new StringLine(secondString);
             string replacementSymbolsInSecondString = secondString.Substring(secondLine.StartIndex, secondLine.ReplacementLength);
-            return firstString.Replace(replacementSymbolsInFirstString, replacementSymbolsInSecondString);
+            return Regex.Replace(firstString, replacementSymbolsInFirstString, replacementSymbolsInSecondString);
         }
     }
 }
