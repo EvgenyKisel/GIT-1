@@ -14,7 +14,6 @@ namespace SymbolReplacementInStrings
             try
             {
                 List<string> lines = new List<string>();
-                TextReader textReader = new TextReader();
                 lines = new TextReader().ReadFile(args[0]);
                 string firstString = lines[0];
                 string secondString = lines[1];
