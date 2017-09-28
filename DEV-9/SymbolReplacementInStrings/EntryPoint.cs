@@ -1,28 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace SymbolReplacementInStrings
 {
     class EntryPoint
     {
-        // This method reads two strings from the file,
-        // calls method to randomly replace symbols in strings.
+        // This method calls one method, that reads two strings from the file
+        // and another method, that randomly replaces symbols in strings.
         // Argument contains the path to the file with strings.
         static void Main(string[] args)
         {
             try
             {
-                string firstString = string.Empty;
-                string secondString = string.Empty;
-                using (StreamReader file = new StreamReader(args[0]))
-                {
-                    if (file.ReadLine() == null)
-                    {
-                        throw new FileLoadException();
-                    }
-                    firstString = file.ReadLine();
-                    secondString = file.ReadLine();
-                }
+                List<string> lines = new List<string>();
+                TextReader textReader = new TextReader();
+                lines = new TextReader().ReadFile(args[0]);
+                string firstString = lines[0];
+                string secondString = lines[1];
                 string stringAfterReplacement = new RandomExchangeInStrings().SwapSymbolsInStrings(firstString, secondString);
                 Console.WriteLine(firstString);
                 Console.WriteLine(secondString);

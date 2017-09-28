@@ -42,10 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmptyFileException.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomExchangeInStrings.cs" />
     <Compile Include="StringLine.cs" />
+    <Compile Include="TextReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
