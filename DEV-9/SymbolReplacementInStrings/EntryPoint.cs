@@ -16,6 +16,10 @@ namespace SymbolReplacementInStrings
                 string secondString = string.Empty;
                 using (StreamReader file = new StreamReader(args[0]))
                 {
+                    if (file.ReadLine() == null)
+                    {
+                        throw new FileLoadException();
+                    }
                     firstString = file.ReadLine();
                     secondString = file.ReadLine();
                 }
