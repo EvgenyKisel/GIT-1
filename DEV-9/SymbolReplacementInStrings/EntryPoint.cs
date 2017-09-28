@@ -4,6 +4,7 @@ using System.IO;
 
 namespace SymbolReplacementInStrings
 {
+    // Entrypoint to program.
     class EntryPoint
     {
         // This method calls one method, that reads two strings from the file
