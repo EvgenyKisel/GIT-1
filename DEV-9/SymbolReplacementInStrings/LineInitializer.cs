@@ -8,8 +8,11 @@ namespace SymbolReplacementInStrings
         public int StartIndex { get; }
         public int ReplacementLength { get; }
         Random random = new Random();
-
-        // This constructor gives replacement index and length for input string.
+        
+        /// <summary>
+        /// This constructor gives replacement index and length for input string.
+        /// </summary>
+        /// <param name="inputLine">input string</param>
         public LineInitializer(string inputLine)
         {
             Line = inputLine;

@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace SymbolReplacementInStrings
 {
-    // Entrypoint to program.
+    /// <summary>
+    /// Entrypoint to program.
+    /// </summary>
     class EntryPoint
     {
-        // This method calls one method, that reads two strings from the file
-        // and another method, that randomly replaces symbols in strings.
-        // Argument contains the path to the file with strings.
+        /// <summary>
+        /// This method calls one method, that reads two strings from the file
+        /// and another method, that randomly replaces symbols in strings.
+        /// </summary>
+        /// <param name="args">Argument contains the path to the file with strings.</param>
         static void Main(string[] args)
         {
             const int linesCount = 2;

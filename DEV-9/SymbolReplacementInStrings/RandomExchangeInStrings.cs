@@ -4,8 +4,14 @@ namespace SymbolReplacementInStrings
 {
     class RandomExchangeInStrings
     {
-        // This method calls string constructor, allocates substrings for replacement,
-        // returns modified line by regex method, that takes line and two substrings for replacement.
+        /// <summary>
+        /// This method swaps symbols in two strings. 
+        /// It calls string constructor, allocates substrings for replacement
+        /// and use regex for replacement.
+        /// </summary>
+        /// <param name="firstString">one of the lines to swap symbols</param>
+        /// <param name="secondString">another of the lines to swap symbols</param>
+        /// <returns>modified line by regex method, that takes line and two substrings for replacement</returns>
         public string SwapSymbolsInStrings(string firstString, string secondString)
         {
             LineInitializer firstLine = new LineInitializer(firstString);

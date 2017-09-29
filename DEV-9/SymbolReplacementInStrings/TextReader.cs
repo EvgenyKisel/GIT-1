@@ -5,8 +5,11 @@ namespace SymbolReplacementInStrings
 {
     class TextReader
     {
-        // This method takes path of the file, gets information from this file
-        // and return collection of strings.
+        /// <summary>
+        /// This method gets information from the file.
+        /// </summary>
+        /// <param name="path">path of the file</param>
+        /// <returns>collection of strings</returns>
         public List<string> ReadFile(string path)
         {
             if (path == null)
