@@ -8,9 +8,9 @@ namespace SymbolReplacementInStrings
         // returns modified line by regex method, that takes line and two substrings for replacement.
         public string SwapSymbolsInStrings(string firstString, string secondString)
         {
-            StringLine firstLine = new StringLine(firstString);
+            LineInitializer firstLine = new LineInitializer(firstString);
             string replacementSymbolsInFirstString = firstString.Substring(firstLine.StartIndex, firstLine.ReplacementLength);
-            StringLine secondLine = new StringLine(secondString);
+            LineInitializer secondLine = new LineInitializer(secondString);
             string replacementSymbolsInSecondString = secondString.Substring(secondLine.StartIndex, secondLine.ReplacementLength);
             return Regex.Replace(firstString, replacementSymbolsInFirstString, replacementSymbolsInSecondString);
         }

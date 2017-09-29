@@ -5,9 +5,7 @@ namespace SymbolReplacementInStrings
 {
     class TextReader
     {
-        const string EMPTYFILE = "The file is empty.";
-
-        // This method takes path of the file, gets information dron this file
+        // This method takes path of the file, gets information from this file
         // and return collection of strings.
         public List<string> ReadFile(string path)
         {
@@ -20,10 +18,6 @@ namespace SymbolReplacementInStrings
             {
                 lines.Add(file.ReadLine());
                 lines.Add(file.ReadLine());
-            }
-            if (lines == null)
-            {
-                throw new EmptyFileException(EMPTYFILE);
             }
             return lines;
         }

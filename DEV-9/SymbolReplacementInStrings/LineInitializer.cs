@@ -2,7 +2,7 @@
 
 namespace SymbolReplacementInStrings
 {
-    class StringLine
+    class LineInitializer
     {
         public string Line { get; }
         public int StartIndex { get; }
@@ -10,7 +10,7 @@ namespace SymbolReplacementInStrings
         Random random = new Random();
 
         // This constructor gives replacement index and length for input string.
-        public StringLine(string inputLine)
+        public LineInitializer(string inputLine)
         {
             Line = inputLine;
             StartIndex = random.Next(Line.Length - 1);
