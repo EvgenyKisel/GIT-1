@@ -13,6 +13,7 @@ namespace SymbolReplacementInStrings
         static void Main(string[] args)
         {
             const int linesCount = 2;
+            const string NOTENOUGHLINESINTHEFILE = "There is't not enough lines. Please, add two lines in the file.";
 
             try
             {
@@ -29,9 +30,9 @@ namespace SymbolReplacementInStrings
                 Console.WriteLine(secondString);
                 Console.WriteLine(stringAfterReplacement);
             }
-            catch (Exception ex)
+            catch (ArgumentNullException)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(NOTENOUGHLINESINTHEFILE);
             }
             Console.ReadKey();
         }
