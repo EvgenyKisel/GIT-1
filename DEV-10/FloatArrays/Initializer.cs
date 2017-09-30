@@ -8,8 +8,11 @@ namespace FloatArrays
         const int RANDOMMAXSIZEVALUE = 10;
         const int RANDOMMINELEMENTVALUE = -20;
         const int RANDOMMAXELEMENTVALUE = 50;
-
-        // This method declares and initializes array of arrays with random length and elements.
+        
+        /// <summary>
+        /// This method declares and initializes array of arrays with random length and elements.
+        /// </summary>
+        /// <param name="floatArrays"> array of arrays </param>
         public void InitializeFloatArrays(out float[][] floatArrays)
         {
             Random random = new Random();

@@ -4,8 +4,12 @@ namespace FloatArrays
 {
     class NewArrayCreator
     {
-        // This method finds elements, that belong to at least two arrays,
-        // and then writes them in new array.
+        /// <summary>
+        /// This method finds elements, that belong to at least two arrays,
+        /// and then writes them in new array.
+        /// </summary>
+        /// <param name="floatArrays"> array of arrays </param>
+        /// <returns> new array with special elements </returns>
         public ArrayList CreateNewArray(float[][] floatArrays)
         {
             ArrayList newArray = new ArrayList();
