@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NondecreasingSequence", "DEV-4\NondecreasingSequence\NondecreasingSequence.csproj", "{C1B78646-AB28-4ED5-9954-8DBDDAEC404D}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangleType", "DEV-7\TriangleType\TriangleType.csproj", "{906405D9-88A8-4699-BEE2-48DFC52154C7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeNumbersOutput", "DEV-1\ChangeNumbersOutput\ChangeNumbersOutput.csproj", "{10301F94-95D9-4C89-8D0C-22A637249C3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringTransformation", "DEV-11\StringTransformation\StringTransformation.csproj", "{00FB741D-46C7-41FF-956D-1A0A91D2B9C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,8 +35,15 @@ Global
 		{10301F94-95D9-4C89-8D0C-22A637249C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10301F94-95D9-4C89-8D0C-22A637249C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10301F94-95D9-4C89-8D0C-22A637249C3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00FB741D-46C7-41FF-956D-1A0A91D2B9C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00FB741D-46C7-41FF-956D-1A0A91D2B9C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00FB741D-46C7-41FF-956D-1A0A91D2B9C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00FB741D-46C7-41FF-956D-1A0A91D2B9C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21D75ECC-AC3A-4DA2-8667-1A13F117A027}
 	EndGlobalSection
 EndGlobal
