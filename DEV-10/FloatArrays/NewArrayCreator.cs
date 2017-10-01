@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 
 namespace FloatArrays
 {
     class NewArrayCreator
     {
+        const float EPSILON = float.Epsilon;
+
         /// <summary>
         /// This method finds elements, that belong to at least two arrays,
         /// and then writes them in new array.
@@ -22,7 +25,7 @@ namespace FloatArrays
                     {
                         for (int k = 0; k < floatArrays[l].Length; k++)
                         {
-                            if (floatArrays[i][j] == floatArrays[l][k])
+                            if (Math.Abs(floatArrays[i][j] - floatArrays[l][k]) < EPSILON)
                             {
                                 count++;
                                 break;
