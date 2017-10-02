@@ -9,9 +9,9 @@ namespace FloatArrays
         /// This method prints on console array of arrays.
         /// </summary>
         /// <param name="floatArrays"> array of arrays </param>
-        public void OutputFloatArrays(float[][] floatArrays)
+        public void OutputFloatArrays(double[][] floatArrays)
         {
-            foreach (float[] row in floatArrays)
+            foreach (double[] row in floatArrays)
             {
                 foreach (float element in row)
                 {
@@ -28,7 +28,7 @@ namespace FloatArrays
         public void OutputNewFloatArray(ArrayList newFloatArray)
         {
             Console.WriteLine();
-            foreach (float element in newFloatArray)
+            foreach (double element in newFloatArray)
             {
                 Console.Write($"{element} \t");
             }

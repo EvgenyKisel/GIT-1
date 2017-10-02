@@ -19,7 +19,7 @@ namespace FloatArrays
             try
             {
                 Initializer initializer = new Initializer();
-                initializer.InitializeFloatArrays(out float[][] floatArrays);
+                initializer.InitializeFloatArrays(out double[][] floatArrays);
                 Outputer outputer = new Outputer();
                 outputer.OutputFloatArrays(floatArrays);
                 ArrayList newFloatArray = new NewArrayCreator().CreateNewArray(floatArrays);

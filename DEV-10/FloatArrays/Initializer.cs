@@ -13,16 +13,16 @@ namespace FloatArrays
         /// This method declares and initializes array of arrays with random length and elements.
         /// </summary>
         /// <param name="floatArrays"> array of arrays </param>
-        public void InitializeFloatArrays(out float[][] floatArrays)
+        public void InitializeFloatArrays(out double[][] floatArrays)
         {
             Random random = new Random();
-            floatArrays = new float[random.Next(RANDOMMINSIZEVALUE, RANDOMMAXSIZEVALUE)][];
+            floatArrays = new double[random.Next(RANDOMMINSIZEVALUE, RANDOMMAXSIZEVALUE)][];
             for (int i = 0; i < floatArrays.Length; i++)
             {
-                floatArrays[i] = new float[random.Next(RANDOMMINSIZEVALUE, RANDOMMAXSIZEVALUE)];
+                floatArrays[i] = new double[random.Next(RANDOMMINSIZEVALUE, RANDOMMAXSIZEVALUE)];
                 for (int j = 0; j < floatArrays[i].Length; j++)
                 {
-                    floatArrays[i][j] = random.Next(RANDOMMINELEMENTVALUE, RANDOMMAXELEMENTVALUE);
+                    floatArrays[i][j] = random.NextDouble()*random.Next(RANDOMMINELEMENTVALUE, RANDOMMAXELEMENTVALUE);
                 }
             }
         }

@@ -13,7 +13,7 @@ namespace FloatArrays
         /// </summary>
         /// <param name="floatArrays"> array of arrays </param>
         /// <returns> new array with special elements </returns>
-        public ArrayList CreateNewArray(float[][] floatArrays)
+        public ArrayList CreateNewArray(double[][] floatArrays)
         {
             ArrayList newArray = new ArrayList();
             for (int i = 0; i < floatArrays.Length - 1; i++)
