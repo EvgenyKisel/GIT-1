@@ -9,27 +9,34 @@ namespace FloatArrays
     class EntryPoint
     {
         const string NEWARRAYISEMPTY = "There is no such elements.";
-        
+
         /// <summary>
         /// This method calls one method, that initializes array of arrays, another method,
         /// that prints this array on console, and method, that create new array of special values, and then displayed on console.
         /// </summary>
         static void Main()
         {
-            Initializer initializer = new Initializer();
-            initializer.InitializeFloatArrays(out float[][] floatArrays);
-            Outputer outputer = new Outputer();
-            outputer.OutputFloatArrays(floatArrays);
-            ArrayList newFloatArray = new NewArrayCreator().CreateNewArray(floatArrays);
-            if (new Checker().CheckForNonEmpty(newFloatArray) == true)
+            try
             {
-                outputer.OutputNewFloatArray(newFloatArray);
+                Initializer initializer = new Initializer();
+                initializer.InitializeFloatArrays(out float[][] floatArrays);
+                Outputer outputer = new Outputer();
+                outputer.OutputFloatArrays(floatArrays);
+                ArrayList newFloatArray = new NewArrayCreator().CreateNewArray(floatArrays);
+                if (new Checker().CheckForNonEmpty(newFloatArray) == true)
+                {
+                    outputer.OutputNewFloatArray(newFloatArray);
+                }
+                else
+                {
+                    Console.WriteLine(NEWARRAYISEMPTY);
+                }
+                Console.ReadKey();
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine(NEWARRAYISEMPTY);
+                Console.WriteLine(ex.Message);
             }
-            Console.ReadKey();
         }
     }
 }
