@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace StringTransformation
 {
@@ -15,17 +16,21 @@ namespace StringTransformation
       {
         string pathToLatinSymbols = args[0];
         string pathToCyrillicSymbols = args[1];
-        string str = "ТатРф";
+        string inputString = Console.ReadLine();
+        List<string> wordList = new WordList().MakeWordList(inputString);
         DictionaryMaker dictionaryMaker = new DictionaryMaker();
         Dictionary<string, string> latinSymbols = dictionaryMaker.CreateDictionary(pathToLatinSymbols);
         //Dictionary<string, string> cyrillicLowerSymbols = dictionaryMaker.CreateDictionary(pathToCyrillicSymbols);
 
-        foreach (KeyValuePair<string, string> pair in latinSymbols)
+        /*foreach (KeyValuePair<string, string> pair in latinSymbols)
         {
           Console.WriteLine("Key: {0} - Value: {1}", pair.Key, pair.Value);
-        }
+        }*/
         StringConverter stringConverter = new StringConverter();
-        Console.WriteLine(stringConverter.TransformString(str,latinSymbols));
+        foreach (string word in wordList)
+        {
+          Console.Write(stringConverter.TransformString(word, latinSymbols) + " ");
+        }
       }
       catch (Exception ex)
       {

@@ -24,6 +24,7 @@
 ö-ts
 ÷-ch
 ø-sh
+ù-shch
 û-y
 ý-e
 þ-yu
