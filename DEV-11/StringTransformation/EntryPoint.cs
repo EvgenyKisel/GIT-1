@@ -14,8 +14,12 @@ namespace StringTransformation
     {
       try
       {
+        if (args.Equals(null))
+        {
+          throw new ArgumentNullException();
+        }
         string pathToLatinSymbols = args[0];
-        string pathToCyrillicSymbols = args[1];
+        string pathToCyrillicSymbols = args[1];        
         StringBuilder line = new StringBuilder();
         line.Append(Console.ReadLine());
         DictionaryMaker dictionaryMaker = new DictionaryMaker();
