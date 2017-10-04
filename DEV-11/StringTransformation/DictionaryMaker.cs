@@ -6,11 +6,16 @@ namespace StringTransformation
 {
   class DictionaryMaker
   {
-    public Dictionary<string, string> CreateDictionary(string path)
+    /// <summary>
+    /// This method makes a dictionary for translation. Keys - one language, values - another.
+    /// </summary>
+    /// <param name="filePath"> path to the file with symbols </param>
+    /// <returns> ready for translation dictionary </returns>
+    public Dictionary<string, string> CreateDictionary(string filePath)
     {
       string line = string.Empty;
       Dictionary<string, string> dictionary = new Dictionary<string, string>();
-      using (StreamReader symbolsReader = new StreamReader(path, Encoding.GetEncoding(1251)))
+      using (StreamReader symbolsReader = new StreamReader(filePath, Encoding.Default))
       {
         while (line != null)
         {

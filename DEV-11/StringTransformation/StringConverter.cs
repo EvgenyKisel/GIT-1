@@ -5,34 +5,27 @@ namespace StringTransformation
 {
   class StringConverter
   {
-    public StringBuilder TransformString(string inputString, Dictionary<string, string> dictionary)
+    /// <summary>
+    /// This method translates a string from one language to another using a dictionary.
+    /// </summary>
+    /// <param name="line"> transferred to translate string </param>
+    /// <param name="dictionary"> transfared collection for translation. Contains symbols translit </param>
+    /// <returns></returns>
+    public StringBuilder TransformString(StringBuilder line, Dictionary<string, string> dictionary)
     {
-      StringBuilder convertedString = new StringBuilder();
-      convertedString.Append(inputString);
-      for (int i = 0; i < inputString.Length; i++)
+      for (int i = 0; i < line.Length; i++)
       {
         foreach (KeyValuePair<string, string> pair in dictionary)
         {
-          /* if (inputString[i].ToString().Equals(pair.Key))
-           {
-             convertedString.Append(pair.Value);
-           }
-           else
-           {
-             if (inputString[i].ToString().ToUpper().Equals(pair.Key.ToUpper()))
-             {
-               convertedString.Append(pair.Value);
-               convertedString.Replace(pair.Value[0].ToString(), pair.Value[0].ToString().ToUpper());
-             }
-           }*/
-          convertedString.Replace(pair.Key, pair.Value);
-          if (inputString[i].ToString().ToUpper().Equals(pair.Key.ToUpper()) && !inputString[i].ToString().Equals(pair.Key))
+          line.Replace(pair.Key, pair.Value);
+          if (line[i].ToString().ToUpper().Equals(pair.Key.ToUpper()) && !line[i].ToString().Equals(pair.Key))
           {
-            convertedString.Replace(pair.Value[0].ToString(), pair.Value[0].ToString().ToUpper());
+            line.Remove(i, pair.Key.Length);
+            line.Insert(i, pair.Value[0].ToString().ToUpper());
           }
         }
       }
-      return convertedString;
+      return line;
     }
   }
 }

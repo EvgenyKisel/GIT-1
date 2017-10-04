@@ -16,21 +16,14 @@ namespace StringTransformation
       {
         string pathToLatinSymbols = args[0];
         string pathToCyrillicSymbols = args[1];
-        string inputString = Console.ReadLine();
-        List<string> wordList = new WordList().MakeWordList(inputString);
+        StringBuilder line = new StringBuilder();
+        line.Append(Console.ReadLine());
         DictionaryMaker dictionaryMaker = new DictionaryMaker();
         Dictionary<string, string> latinSymbols = dictionaryMaker.CreateDictionary(pathToLatinSymbols);
-        //Dictionary<string, string> cyrillicLowerSymbols = dictionaryMaker.CreateDictionary(pathToCyrillicSymbols);
-
-        /*foreach (KeyValuePair<string, string> pair in latinSymbols)
-        {
-          Console.WriteLine("Key: {0} - Value: {1}", pair.Key, pair.Value);
-        }*/
+        Dictionary<string, string> cyrillicSymbols = dictionaryMaker.CreateDictionary(pathToCyrillicSymbols);
         StringConverter stringConverter = new StringConverter();
-        foreach (string word in wordList)
-        {
-          Console.Write(stringConverter.TransformString(word, latinSymbols) + " ");
-        }
+        Console.WriteLine(stringConverter.TransformString(line, latinSymbols));
+        Console.WriteLine(stringConverter.TransformString(line, cyrillicSymbols));
       }
       catch (Exception ex)
       {
