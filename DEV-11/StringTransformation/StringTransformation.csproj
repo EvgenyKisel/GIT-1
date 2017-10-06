@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="DictionaryMaker.cs" />
     <Compile Include="EntryPoint.cs" />
+    <Compile Include="TranslationFilePath.cs" />
     <Compile Include="LanguageAnalyzer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringConverter.cs" />

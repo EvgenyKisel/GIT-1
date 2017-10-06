@@ -1,55 +1,39 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace StringTransformation
 {
   enum Language
   {
     latin,
-    cyrillic
+    cyrillic,
+    none
   }
 
   class LanguageAnalyzer
   {
     /// <summary>
-    /// This method detect the language of inputted line.
+    /// This method detect the language of inputted line by regex method.
     /// </summary>
     /// <param name="line"> inputted line </param>
-    /// <param name="latinDictionary"> one dictionary </param>
-    /// <param name="cyrillicDictionary"> another dictionary </param>
-    /// <returns> inputted line language </returns>
-    public Language DetectLanguage(StringBuilder line, Dictionary<string, string> latinDictionary, Dictionary<string, string> cyrillicDictionary)
+    /// <returns> language of inputted line </returns>
+    public Language DetectLanguage(StringBuilder line)
     {
-      Language language = Language.latin;
-      int latinSymbolsCount = 0;
-      foreach (KeyValuePair<string, string> pair in latinDictionary)
+      Language language = Language.none;
+      if (Regex.IsMatch(line.ToString(), "[a-zA-Z]+"))
       {
-        if (line.ToString().Contains(pair.Value.ToString()))
-        {
-          latinSymbolsCount++;
-        }
-      }
-      int cyrillicSymbolsCount = 0;
-      foreach (KeyValuePair<string, string> pair in cyrillicDictionary)
-      {
-        if (line.ToString().Contains(pair.Value.ToString()))
-        {
-          cyrillicSymbolsCount++;
-        }
-      }
-      if (cyrillicSymbolsCount > 0)
-      {
-        language = Language.cyrillic;
+        language = Language.latin;
       }
       else
       {
-        if (latinSymbolsCount > 0)
+        if (Regex.IsMatch(line.ToString(), "[а-яА-Я]+"))
         {
-          language = Language.latin;
+          language = Language.cyrillic;
         }
         else
         {
-          throw new KeyNotFoundException();
+          throw new FormatException();
         }
       }
       return language;

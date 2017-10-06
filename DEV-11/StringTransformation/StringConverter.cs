@@ -9,7 +9,7 @@ namespace StringTransformation
     /// This method translates a string from one language to another using a dictionary.
     /// </summary>
     /// <param name="line"> transferred to translate string </param>
-    /// <param name="dictionary"> transfared collection for translation. Contains symbols translit </param>
+    /// <param name="dictionary"> transferred collection for translation. Contains symbols translit </param>
     /// <returns> converted line </returns>
     public StringBuilder TransformString(StringBuilder line, Dictionary<string, string> dictionary)
     {
