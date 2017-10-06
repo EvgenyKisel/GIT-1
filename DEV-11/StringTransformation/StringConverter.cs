@@ -13,17 +13,10 @@ namespace StringTransformation
     /// <returns></returns>
     public StringBuilder TransformString(StringBuilder line, Dictionary<string, string> dictionary)
     {
-      for (int i = 0; i < line.Length; i++)
+      foreach (KeyValuePair<string, string> pair in dictionary)
       {
-        foreach (KeyValuePair<string, string> pair in dictionary)
-        {
-          line.Replace(pair.Key, pair.Value);
-          if (line[i].ToString().ToUpper().Equals(pair.Key.ToUpper()) && !line[i].ToString().Equals(pair.Key))
-          {
-            line.Remove(i, pair.Key.Length);
-            line.Insert(i, pair.Value[0].ToString().ToUpper());
-          }
-        }
+        line.Replace(pair.Key, pair.Value);
+        line.Replace(pair.Key.ToUpper(), pair.Value.ToUpper());
       }
       return line;
     }

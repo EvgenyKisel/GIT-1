@@ -1,3 +1,42 @@
+союз-union
+ќјќ-OJSC
+«јќ-CJSC
+ќќќ-LLC
+фонд-Fund
+√ќ”-SEE
+ћќ”-MEE
+Ќќ”-NEE
+ь€-ia
+ий -iy 
+ый -iy 
+ е- ye
+ Є- ye
+уе-uye
+ее-eye
+ъе-ye
+ае-aye
+ое-oye
+эе-eye
+€е-iaye
+ие-iye
+ье-ye
+юе-uye
+уЄ-uye
+еЄ-eye
+ъЄ-ye
+аЄ-aye
+оЄ-oye
+эЄ-eye
+€Є-yaye
+иЄ-iye
+ьЄ-ye
+юЄ-yuye
+х-kh
+ц-ts
+ч-ch
+ш-sh
+щ-shch
+ж-zh
 а-a
 б-b
 в-v
@@ -5,7 +44,6 @@
 д-d
 е-e
 Є-e
-ж-zh
 з-z
 и-i
 й-y
@@ -20,11 +58,6 @@
 т-t
 у-u
 ф-f
-х-kh
-ц-ts
-ч-ch
-ш-sh
-щ-shch
 ы-y
 э-e
 ю-yu
