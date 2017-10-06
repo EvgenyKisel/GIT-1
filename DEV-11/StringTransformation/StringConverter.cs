@@ -10,7 +10,7 @@ namespace StringTransformation
     /// </summary>
     /// <param name="line"> transferred to translate string </param>
     /// <param name="dictionary"> transfared collection for translation. Contains symbols translit </param>
-    /// <returns></returns>
+    /// <returns> converted line </returns>
     public StringBuilder TransformString(StringBuilder line, Dictionary<string, string> dictionary)
     {
       foreach (KeyValuePair<string, string> pair in dictionary)

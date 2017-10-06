@@ -7,7 +7,9 @@ namespace StringTransformation
   class EntryPoint
   {
     /// <summary>
-    /// Entrypoint to program.
+    /// Entrypoint to program. This method takes pathes to files with translation,
+    /// takes string from console, puts translations to dictionaries, calls methods, that translate string
+    /// and out this translations on console.
     /// </summary>
     /// <param name="args"> contains pathes to the files </param>
     static void Main(string[] args)
