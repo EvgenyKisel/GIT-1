@@ -25,11 +25,24 @@ namespace StringTransformation
         StringBuilder line = new StringBuilder();
         line.Append(Console.ReadLine());
         DictionaryMaker dictionaryMaker = new DictionaryMaker();
-        Dictionary<string, string> latinSymbols = dictionaryMaker.CreateDictionary(pathToLatinSymbols);
-        Dictionary<string, string> cyrillicSymbols = dictionaryMaker.CreateDictionary(pathToCyrillicSymbols);
+        Dictionary<string, string> latinDictionary = dictionaryMaker.CreateDictionary(pathToLatinSymbols);
+        Dictionary<string, string> cyrillicDictionary = dictionaryMaker.CreateDictionary(pathToCyrillicSymbols);
+        Language language = new LanguageAnalyzer().DetectLanguage(line, latinDictionary, cyrillicDictionary);
         StringConverter stringConverter = new StringConverter();
-        Console.WriteLine(stringConverter.TransformString(line, latinSymbols));
-        Console.WriteLine(stringConverter.TransformString(line, cyrillicSymbols));
+        switch (language)
+        {
+          case Language.latin:
+            {
+              Console.WriteLine(stringConverter.TransformString(line, cyrillicDictionary));
+              break;
+            }
+           
+          case Language.cyrillic:
+            {
+              Console.WriteLine(stringConverter.TransformString(line, latinDictionary));
+              break;
+            }
+        }
       }
       catch (Exception ex)
       {
