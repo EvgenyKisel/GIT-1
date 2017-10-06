@@ -45,7 +45,7 @@
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomExchangeInStrings.cs" />
-    <Compile Include="LineInitializer.cs" />
+    <Compile Include="LineCreator.cs" />
     <Compile Include="TextReader.cs" />
   </ItemGroup>
   <ItemGroup>

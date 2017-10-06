@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangleType", "DEV-7\Trian
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeNumbersOutput", "DEV-1\ChangeNumbersOutput\ChangeNumbersOutput.csproj", "{10301F94-95D9-4C89-8D0C-22A637249C3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SymbolReplacementInStrings", "DEV-9\SymbolReplacementInStrings\SymbolReplacementInStrings.csproj", "{FB1DA8AB-FF8B-49D7-9C36-18E1D6EECB8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{10301F94-95D9-4C89-8D0C-22A637249C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10301F94-95D9-4C89-8D0C-22A637249C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10301F94-95D9-4C89-8D0C-22A637249C3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB1DA8AB-FF8B-49D7-9C36-18E1D6EECB8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB1DA8AB-FF8B-49D7-9C36-18E1D6EECB8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB1DA8AB-FF8B-49D7-9C36-18E1D6EECB8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB1DA8AB-FF8B-49D7-9C36-18E1D6EECB8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

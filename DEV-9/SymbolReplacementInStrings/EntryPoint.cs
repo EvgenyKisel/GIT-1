@@ -20,8 +20,7 @@ namespace SymbolReplacementInStrings
 
             try
             {
-                List<string> lines = new List<string>();
-                lines = new TextReader().ReadFile(args[0]);
+                List<string> lines = new TextReader().ReadFile(args[0]);
                 if (lines.Count < linesCount)
                 {
                     throw new ArgumentNullException();

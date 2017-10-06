@@ -14,9 +14,9 @@ namespace SymbolReplacementInStrings
         /// <returns>modified line by regex method, that takes line and two substrings for replacement</returns>
         public string SwapSymbolsInStrings(string firstString, string secondString)
         {
-            LineInitializer firstLine = new LineInitializer(firstString);
+            LineCreator firstLine = new LineCreator(firstString);
             string replacementSymbolsInFirstString = firstString.Substring(firstLine.StartIndex, firstLine.ReplacementLength);
-            LineInitializer secondLine = new LineInitializer(secondString);
+            LineCreator secondLine = new LineCreator(secondString);
             string replacementSymbolsInSecondString = secondString.Substring(secondLine.StartIndex, secondLine.ReplacementLength);
             return Regex.Replace(firstString, replacementSymbolsInFirstString, replacementSymbolsInSecondString);
         }
