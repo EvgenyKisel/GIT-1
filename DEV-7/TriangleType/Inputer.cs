@@ -2,12 +2,11 @@
 
 namespace TriangleType
 {
-    class Inputer
+  class Inputer
+  {
+    public double InputSide()
     {
-        public double InputSide()
-        {
-            double side = Double.Parse(Console.ReadLine());
-            return side;
-        }
+      return Double.Parse(Console.ReadLine());
     }
+  }
 }

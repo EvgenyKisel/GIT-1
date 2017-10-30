@@ -1,22 +1,22 @@
 ﻿namespace TriangleType
 {
-    enum Type
+  enum Type
+  {
+    EQUILATERALOR,
+    ISOSCELES,
+    COMMON
+  }
+
+  abstract class Triangle
+  {
+    public Sides Sides
+    { get; }
+
+    public Triangle(Sides sides)
     {
-        EQUILATERALOR,
-        ISOSCELES,
-        COMMON
+      Sides = sides;
     }
 
-    abstract class Triangle
-    {
-        public Sides Sides
-        { get; }
-
-        public Triangle(Sides sides)
-        {
-            Sides = sides;
-        }
-
-        public abstract string GetTriangleType();
-    }
+    public abstract string GetTriangleType();
+  }
 }
