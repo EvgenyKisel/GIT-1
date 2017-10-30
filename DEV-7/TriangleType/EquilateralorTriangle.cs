@@ -1,6 +1,6 @@
 ﻿namespace TriangleType
 {
-  class EquilateralorTriangle : Triangle
+  public class EquilateralorTriangle : Triangle
   {
     const string EQUILATERALOR = "Triangle is equilateralor.";
 

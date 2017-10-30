@@ -1,6 +1,6 @@
 ﻿namespace TriangleType
 {
-  class IsoscelesTriangle : Triangle
+  public class IsoscelesTriangle : Triangle
   {
     const string ISOSCELES = "Triangle is isosceles.";
 

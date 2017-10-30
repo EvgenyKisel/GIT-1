@@ -1,6 +1,6 @@
 ﻿namespace TriangleType
 {
-  class CommonTriangle : Triangle
+  public class CommonTriangle : Triangle
   {
     const string COMMON = "Triangle is common.";
 
