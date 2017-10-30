@@ -23,12 +23,12 @@ namespace TriangleType
           sides.sideB = inputer.InputSide();
           sides.sideC = inputer.InputSide();
           Checker checker = new Checker();
-          if (checker.NegativityCheck(sides))
+          if (checker.PositivityCheck(sides))
           {
             Console.WriteLine(NEGATIVITYERROR);
             continue;
           }
-          if (checker.CheckTriangleNotExistence(sides))
+          if (checker.CheckTriangleExistence(sides) == false)
           {
             Console.WriteLine(DONOTEXIST);
             continue;

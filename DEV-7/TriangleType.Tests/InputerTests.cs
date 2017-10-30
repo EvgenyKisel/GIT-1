@@ -11,7 +11,7 @@ namespace TriangleType.Tests
     public void InputSide_stringValue_doubleExpected()
     {
       //arrange
-      string input = "5.5";
+      string input = "5,5";
       double expected = 5.5;
 
       //act

@@ -2,7 +2,7 @@
 
 namespace TriangleType
 {
-  class Inputer
+  public class Inputer
   {
     public double InputSide()
     {

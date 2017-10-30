@@ -4,25 +4,25 @@ namespace TriangleType
 {
   public class Checker
   {
-    public bool NegativityCheck(Sides sides)
+    public bool PositivityCheck(Sides sides)
     {
-      bool checker = true;
+      bool checker = false;
       if (sides.sideA > 0 && sides.sideB > 0 && sides.sideC > 0)
       {
-        checker = false;
+        checker = true;
       }
       return checker;
     }
 
-    public bool CheckTriangleNotExistence(Sides sides)
+    public bool CheckTriangleExistence(Sides sides)
     {
-      bool checker = false;
+      bool checker = true;
       double maxSide = Math.Max(Math.Max(sides.sideA, sides.sideB), sides.sideC);
       double minSide = Math.Min(Math.Min(sides.sideA, sides.sideB), sides.sideC);
       double meanSide = sides.sideA + sides.sideB + sides.sideC - maxSide - minSide;
       if (minSide + meanSide <= maxSide)
       {
-        checker = true;
+        checker = false;
       }
       return checker;
     }
