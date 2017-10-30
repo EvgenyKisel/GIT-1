@@ -2,7 +2,7 @@
 
 namespace TriangleType
 {
-  class Checker
+  public class Checker
   {
     public bool NegativityCheck(Sides sides)
     {

@@ -8,14 +8,14 @@ namespace TriangleType.Tests
   {
 
     [TestMethod]
-    public void InputSide_string5_int5expected()
+    public void InputSide_stringValue_doubleExpected()
     {
       //arrange
-      string input = "5";
-      int expected = 5;
+      string input = "5.5";
+      double expected = 5.5;
 
       //act
-      int actual = int.Parse(input);
+      double actual = double.Parse(input);
 
       //assert
       Assert.AreEqual(expected, actual);
@@ -23,10 +23,10 @@ namespace TriangleType.Tests
 
     [ExpectedException(typeof(FormatException))]
     [TestMethod]
-    public void InputSide_string5_expectedException()
+    public void InputSide_anyString_expectedException()
     {
       string input = " ";
-      int actual = int.Parse(input);
+      double actual = double.Parse(input);
     }
   }
 }
