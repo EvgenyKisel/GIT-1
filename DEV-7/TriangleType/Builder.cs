@@ -2,7 +2,7 @@
 
 namespace TriangleType
 {
-  class Builder
+  public class Builder
   {
     const double EPSILON = Double.Epsilon;
 
@@ -22,7 +22,7 @@ namespace TriangleType
       }
     }
 
-    Type DetermineTriangleType(Sides sides)
+    public Type DetermineTriangleType(Sides sides)
     {
       Type type = Type.COMMON;
       if (Math.Abs(sides.sideA - sides.sideB) < EPSILON &&

@@ -1,13 +1,13 @@
 ﻿namespace TriangleType
 {
-  enum Type
+  public enum Type
   {
     EQUILATERALOR,
     ISOSCELES,
     COMMON
   }
 
-  abstract class Triangle
+  public abstract class Triangle
   {
     public Sides Sides
     { get; }
