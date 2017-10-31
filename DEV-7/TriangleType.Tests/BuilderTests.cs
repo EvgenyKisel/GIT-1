@@ -77,14 +77,13 @@ namespace TriangleType.Tests
         sideB = 4,
         sideC = 6
       };
-      Triangle expected = new IsoscelesTriangle(sides);
 
       //act
       Builder triangleBuilder = new Builder();
       Triangle actual = triangleBuilder.Build(sides);
 
       //assert
-      Assert.AreEqual(expected, actual);
+      Assert.IsInstanceOfType(actual, typeof(IsoscelesTriangle));
     }
 
     [TestMethod]
@@ -97,14 +96,13 @@ namespace TriangleType.Tests
         sideB = 4,
         sideC = 4
       };
-      Triangle expected = new EquilateralorTriangle(sides);
 
       //act
       Builder triangleBuilder = new Builder();
       Triangle actual = triangleBuilder.Build(sides);
 
       //assert
-      Assert.AreEqual(expected, actual);
+      Assert.IsInstanceOfType(actual, typeof(EquilateralorTriangle));
     }
 
     [TestMethod]
@@ -117,14 +115,13 @@ namespace TriangleType.Tests
         sideB = 5,
         sideC = 6
       };
-      Triangle expected = new CommonTriangle(sides);
 
       //act
       Builder triangleBuilder = new Builder();
       Triangle actual = triangleBuilder.Build(sides);
 
       //assert
-      Assert.AreEqual(expected, actual);
+      Assert.IsInstanceOfType(actual, typeof(CommonTriangle));
     }
   }
 }
