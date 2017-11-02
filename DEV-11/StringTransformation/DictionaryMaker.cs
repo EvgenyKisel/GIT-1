@@ -17,13 +17,8 @@ namespace StringTransformation
       Dictionary<string, string> dictionary = new Dictionary<string, string>();
       using (StreamReader symbolsReader = new StreamReader(filePath, Encoding.Default))
       {
-        while (line != null)
+        while ((line = symbolsReader.ReadLine()) != null)
         {
-          line = symbolsReader.ReadLine();
-          if (line == null)
-          {
-            break;
-          }
           string[] symbols = line.Split('-');
           dictionary.Add(symbols[0], symbols[1]);
         }
