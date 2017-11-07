@@ -14,6 +14,7 @@ namespace ITCompany
         double productivity = double.Parse(Console.ReadLine());
         CriterionSelection criterionSelection = new CriterionSelection();
         criterionSelection.DisplayMenu();
+        criterionSelection.ChooseRightAction();
       }
       catch (Exception exception)
       {
