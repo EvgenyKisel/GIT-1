@@ -1,9 +1,9 @@
 ﻿namespace ITCompany
 {
-  class Senior
+  class Senior : Employees
   {
     private double salary;
-    private int productivity;
+    private double productivity;
 
     public double Salary
     {
@@ -21,7 +21,7 @@
       }
     }
 
-    public int Productivity
+    public double Productivity
     {
       get
       {
@@ -35,6 +35,12 @@
         }
         productivity = value;
       }
+    }
+
+    public Senior()
+    {
+      Salary = 1000;
+      productivity = 2.5;
     }
   }
 }

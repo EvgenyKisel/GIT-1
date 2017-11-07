@@ -6,6 +6,6 @@ namespace ITCompany
   {
     public const string INVALIDSALARYMESSAGE = "Salary must be above 0.";
 
-    public InvalidSalaryException(string message = INVALIDSALARYMESSAGE) : base(message){}
+    public InvalidSalaryException(string message = INVALIDSALARYMESSAGE) : base(message) { }
   }
 }

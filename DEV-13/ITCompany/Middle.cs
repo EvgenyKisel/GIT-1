@@ -1,9 +1,9 @@
 ﻿namespace ITCompany
 {
-  class Middle
+  class Middle : Employees
   {
     private double salary;
-    private int productivity;
+    private double productivity;
 
     public double Salary
     {
@@ -21,7 +21,7 @@
       }
     }
 
-    public int Productivity
+    public double Productivity
     {
       get
       {
@@ -29,12 +29,18 @@
       }
       set
       {
-        if (value < 0 || value > 10)
+        if (value < 0 || value > 5)
         {
           throw new InvalidSalaryException();
         }
         productivity = value;
       }
+    }
+
+    public Middle()
+    {
+      Salary = 500;
+      Productivity = 1.0;
     }
   }
 }
