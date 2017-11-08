@@ -28,7 +28,7 @@ namespace ITCompany
         };
         CriterionSelection criterionSelection = new CriterionSelection();
         criterionSelection.DisplayMenu();
-        criterionSelection.ChooseRightAction(team, money);
+        criterionSelection.ChooseRightAction(team, money, productivity);
       }
       catch (Exception exception)
       {
