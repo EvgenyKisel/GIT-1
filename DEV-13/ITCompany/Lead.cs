@@ -1,6 +1,6 @@
 ﻿namespace ITCompany
 {
-  class Lead : Employees
+  public class Lead : Employees
   {
     public Lead()
     {

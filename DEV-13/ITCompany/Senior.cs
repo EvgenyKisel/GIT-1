@@ -1,6 +1,6 @@
 ﻿namespace ITCompany
 {
-  class Senior : Employees
+  public class Senior : Employees
   {
     public Senior()
     {

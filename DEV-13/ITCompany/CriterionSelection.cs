@@ -9,7 +9,7 @@ namespace ITCompany
     MINIMUMEMPLOYEESHIGHERJUNIORFORFIXEDPRODUCTIVITY
   }
 
-  class CriterionSelection
+  public class CriterionSelection
   {
     /// <summary>
     /// This method displays menu on console.
@@ -36,7 +36,7 @@ namespace ITCompany
         try
         {
           int criterion = int.Parse(Console.ReadLine());
-          Criteria criteria;
+          Criteria criteria; 
           switch (criterion)
           {
             case 1:

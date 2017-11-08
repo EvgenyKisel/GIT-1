@@ -1,6 +1,6 @@
 ﻿namespace ITCompany
 {
-  class Middle : Employees
+  public class Middle : Employees
   {
     public Middle()
     {

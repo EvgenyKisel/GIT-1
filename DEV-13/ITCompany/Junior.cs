@@ -1,6 +1,6 @@
 ﻿namespace ITCompany
 {
-  class Junior : Employees
+  public class Junior : Employees
   {
     public Junior()
     {
