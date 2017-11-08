@@ -22,6 +22,10 @@ namespace ITCompany
         double money = double.Parse(Console.ReadLine());
         Console.WriteLine(INPUTPRODUCTIVITYMESSAGE);
         double productivity = double.Parse(Console.ReadLine());
+        if (money < 0 || productivity < 0)
+        {
+          throw new InputValuesException();
+        }
         Employees junior = new Junior();
         Employees middle = new Middle();
         Employees senior = new Senior();

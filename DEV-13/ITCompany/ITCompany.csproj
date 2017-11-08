@@ -46,6 +46,7 @@
     <Compile Include="Employees.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="FirstCriterion.cs" />
+    <Compile Include="InputValuesException.cs" />
     <Compile Include="InvalidCriterionException.cs" />
     <Compile Include="InvalidSalaryException.cs" />
     <Compile Include="Junior.cs" />
