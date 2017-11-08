@@ -5,7 +5,7 @@
     public Junior()
     {
       Salary = 200;
-      Productivity = 0.4;
+      Productivity = 0.7;
     }
   }
 }

@@ -41,6 +41,9 @@ namespace ITCompany
               criteria.PrintResults();
               break;
             case 3:
+              criteria = new ThirdCriterion();
+              criteria.CountNeededEmployees(employees, productivity);
+              criteria.PrintResults();
               break;
             default:
               throw new InvalidCriterionException();

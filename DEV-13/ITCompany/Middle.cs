@@ -5,7 +5,7 @@
     public Middle()
     {
       Salary = 500;
-      Productivity = 1.0;
+      Productivity = 1.1;
     }
   }
 }
