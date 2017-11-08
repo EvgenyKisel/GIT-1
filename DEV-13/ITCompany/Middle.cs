@@ -2,7 +2,7 @@
 {
   class Middle : Employees
   {
-    private double salary;
+   /* private double salary;
     private double productivity;
 
     public double Salary
@@ -36,7 +36,7 @@
         productivity = value;
       }
     }
-
+    */
     public Middle()
     {
       Salary = 500;

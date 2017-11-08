@@ -1,10 +1,7 @@
-﻿namespace ITCompany
+﻿/*namespace ITCompany
 {
   class ThirdCriterion : Criteria
   {
-    public override void CountNeeded()
-    {
-
-    }
+    public override List<List<int>> CountNeeded(Employees[] employees) { }
   }
-}
+}*/

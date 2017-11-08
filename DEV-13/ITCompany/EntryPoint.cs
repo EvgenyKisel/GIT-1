@@ -15,6 +15,20 @@ namespace ITCompany
         CriterionSelection criterionSelection = new CriterionSelection();
         criterionSelection.DisplayMenu();
         criterionSelection.ChooseRightAction();
+        Employees junior = new Junior();
+        Employees middle = new Middle();
+        Employees senior = new Senior();
+        Employees lead = new Lead();
+        Employees[] team = 
+        {
+          junior,
+          middle,
+          senior,
+          lead
+        };
+        FirstCriterion f = new FirstCriterion();
+        f.CountNeeded(team, money);
+        f.PrintResults();
       }
       catch (Exception exception)
       {

@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Criteria.cs" />
     <Compile Include="Employees.cs" />
     <Compile Include="EntryPoint.cs" />
+    <Compile Include="FirstCriterion.cs" />
     <Compile Include="InvalidCriterionException.cs" />
     <Compile Include="InvalidSalaryException.cs" />
     <Compile Include="Junior.cs" />
@@ -51,7 +53,9 @@
     <Compile Include="Middle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CriterionSelection.cs" />
+    <Compile Include="SecondCriterion.cs" />
     <Compile Include="Senior.cs" />
+    <Compile Include="ThirdCriterion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
