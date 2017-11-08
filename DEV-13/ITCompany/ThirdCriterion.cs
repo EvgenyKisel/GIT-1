@@ -9,37 +9,14 @@ namespace ITCompany
     public int IndexOfMaxJuniors { get; set; }
     public List<List<int>> PossibleCases { get; set; }
 
+    /// <summary>
+    /// This method calculate all possible cases to number of employees, count employees according to entered productivity
+    /// with less employees higher than junior.
+    /// </summary>
+    /// <param name="employees"> junior, middle, senior and lead </param>
+    /// <param name="productivity"> inputted productivity </param>
     public override void CountNeededEmployees(Employees[] employees, double productivity)
     {
-      /*int countJuniors = 0;
-      double commonProductivity = 0;
-      while (productivity - commonProductivity > employees[0].Productivity)
-      {
-        commonProductivity += employees[0].Productivity;
-        countJuniors++;
-      }
-      double productivityAfterJuniors = productivity - commonProductivity;
-      int countMiddles = 0;
-      while(productivity - productivityAfterJuniors > employees[1].Productivity)
-      {
-        productivityAfterJuniors += employees[1].Productivity;
-        countMiddles++;
-      }
-      double productivityAfterMiddles = productivity - productivityAfterJuniors;
-      int countSeniors = 0;
-      while (productivity - productivityAfterMiddles > employees[2].Productivity)
-      {
-        productivityAfterMiddles += employees[2].Productivity;
-        countSeniors++;
-      }
-      double productivityAfterSeniors = productivity - productivityAfterMiddles;
-      int countLeads = 0;
-      while (productivity - productivityAfterJuniors > employees[3].Productivity)
-      {
-        productivityAfterJuniors += employees[3].Productivity;
-        countLeads++;
-      }
-      List<int> employeesCount = new List<int>();*/
       PossibleCases = new List<List<int>>();
       int minEmployeesCount = (int)(productivity / employees[3].Productivity);
       int maxEmployeesCount = (int)(productivity / employees[0].Productivity);
@@ -71,13 +48,17 @@ namespace ITCompany
       int maxCountJuniors = EmployeeCountList[0][0];
       for (int i = 0; i < EmployeeCountList.Count; i++)
       {
-        if (EmployeeCountList[i][0] > EmployeeCountList[0][0])
+        if (EmployeeCountList[i][0] > maxCountJuniors)
         {
+          maxCountJuniors = EmployeeCountList[i][0];
           IndexOfMaxJuniors = i;
         }
       }
     }
 
+    /// <summary>
+    /// This method prints result on console.
+    /// </summary>
     public override void PrintResults()
     {
       if (EmployeeCountList.Capacity == 0)

@@ -2,11 +2,18 @@
 
 namespace ITCompany
 {
+  /// <summary>
+  /// Entry point to program.
+  /// </summary>
   class EntryPoint
   {
     const string INPUTMONEYMESSAGE = "Please, enter amount of money.";
     const string INPUTPRODUCTIVITYMESSAGE = "Please, enter needed productivity.";
 
+    /// <summary>
+    /// This method takes two values from console, chooses right criterion, counts employees according to all entered data.
+    /// </summary>
+    /// <param name="args"></param>
     static void Main(string[] args)
     {
       try

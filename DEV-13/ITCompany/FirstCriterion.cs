@@ -10,6 +10,11 @@ namespace ITCompany
     public int IndexOfMaxProductivity { get; set; }
     public List<List<int>> PossibleCases { get; set; }
 
+    /// <summary>
+    /// This method calculate all possible cases to number of employees, count employees according to entered money and max productivity.
+    /// </summary>
+    /// <param name="employees"> junior, middle, senior and lead </param>
+    /// <param name="money"> entered money </param>
     public override void CountNeededEmployees(Employees[] employees, double money)
     {
       PossibleCases = new List<List<int>>();
@@ -56,6 +61,9 @@ namespace ITCompany
       }
     }
 
+    /// <summary>
+    /// This method prints result on console.
+    /// </summary>
     public override void PrintResults()
     {
       if (EmployeeCountList.Capacity == 0)

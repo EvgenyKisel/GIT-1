@@ -11,6 +11,9 @@ namespace ITCompany
 
   class CriterionSelection
   {
+    /// <summary>
+    /// This method displays menu on console.
+    /// </summary>
     public void DisplayMenu()
     {
       Console.WriteLine("Please, select the right criterion: ");
@@ -19,6 +22,12 @@ namespace ITCompany
       Console.WriteLine("  3 - The minimum number of employees higher than Junior for fixed productivity.");
     }
 
+    /// <summary>
+    /// This method chooses right criterion accordint to the entered value.
+    /// </summary>
+    /// <param name="employees"> junior, middle, senior, lead </param>
+    /// <param name="money"> inputted money </param>
+    /// <param name="productivity"> inputted productivity </param>
     public void ChooseRightAction(Employees[] employees, double money, double productivity)
     {
       bool rightActionChecker = true;
@@ -27,7 +36,7 @@ namespace ITCompany
         try
         {
           int criterion = int.Parse(Console.ReadLine());
-          Criteria criteria; 
+          Criteria criteria;
           switch (criterion)
           {
             case 1:
