@@ -1,12 +1,9 @@
-﻿/*using System.Collections.Generic;
-
-namespace ITCompany
+﻿namespace ITCompany
 {
   class SecondCriterion : Criteria
   {
-    public override List<List<int>> CountNeeded(Employees[] employees)
-    {
-      return 0;
-    }
+    public override void CountNeededEmployees(Employees[] employees, double money) { }
+
+    public override void PrintResults() { }
   }
-}*/
+}

@@ -4,31 +4,31 @@ namespace ITCompany
 {
   class EntryPoint
   {
+    const string INPUTMONEYMESSAGE = "Please, enter amount of money.";
+    const string INPUTPRODUCTIVITYMESSAGE = "Please, enter needed productivity.";
+
     static void Main(string[] args)
     {
       try
       {
-        Console.WriteLine();
+        Console.WriteLine(INPUTMONEYMESSAGE);
         double money = double.Parse(Console.ReadLine());
-        Console.WriteLine();
+        Console.WriteLine(INPUTPRODUCTIVITYMESSAGE);
         double productivity = double.Parse(Console.ReadLine());
-        CriterionSelection criterionSelection = new CriterionSelection();
-        criterionSelection.DisplayMenu();
-        criterionSelection.ChooseRightAction();
         Employees junior = new Junior();
         Employees middle = new Middle();
         Employees senior = new Senior();
         Employees lead = new Lead();
-        Employees[] team = 
+        Employees[] team =
         {
           junior,
           middle,
           senior,
           lead
         };
-        FirstCriterion f = new FirstCriterion();
-        f.CountNeeded(team, money);
-        f.PrintResults();
+        CriterionSelection criterionSelection = new CriterionSelection();
+        criterionSelection.DisplayMenu();
+        criterionSelection.ChooseRightAction(team, money);
       }
       catch (Exception exception)
       {

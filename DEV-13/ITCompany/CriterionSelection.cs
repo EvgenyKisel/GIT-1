@@ -20,7 +20,7 @@ namespace ITCompany
       Console.WriteLine("  exit - quit the program\n");
     }
 
-    public void ChooseRightAction()
+    public void ChooseRightAction(Employees[] employees, double money)
     {
       bool rightActionChecker = true;
       while (rightActionChecker)
@@ -28,9 +28,13 @@ namespace ITCompany
         try
         {
           int criterion = int.Parse(Console.ReadLine());
+          Criteria criteria; 
           switch (criterion)
           {
             case 1:
+              criteria = new FirstCriterion();
+              criteria.CountNeeded(employees, money);
+              criteria.PrintResults();
               break;
             case 2:
               break;

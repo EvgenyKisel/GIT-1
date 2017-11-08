@@ -51,6 +51,7 @@
     <Compile Include="Junior.cs" />
     <Compile Include="Lead.cs" />
     <Compile Include="Middle.cs" />
+    <Compile Include="NoSuitableOptionsException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CriterionSelection.cs" />
     <Compile Include="SecondCriterion.cs" />

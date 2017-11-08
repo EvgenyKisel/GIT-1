@@ -6,10 +6,13 @@ namespace ITCompany
   class FirstCriterion : Criteria
   {
     public List<List<int>> EmployeeCountList { get; set; }
+    public List<double> ProductivityList { get; set; }
+    public int IndexOfMaxProductivity { get; set; }
+    public List<List<int>> PossibleCases { get; set; }
 
-    public override void CountNeeded(Employees[] employees, double money)
+    public override void CountNeededEmployees(Employees[] employees, double money)
     {
-      List<List<int>> possibleCases = new List<List<int>>();
+      PossibleCases = new List<List<int>>();
       int minEmployeesCount = (int)(money / employees[3].Salary);
       int maxEmployeesCount = (int)(money / employees[0].Salary);
       for (int q = minEmployeesCount; q < maxEmployeesCount; q++)
@@ -20,32 +23,47 @@ namespace ITCompany
           {
             for (int k = j; k < ((q - j) / 2) + 1; k++)
             {
-              possibleCases.Add(new List<int> { i, j, k, (q - i - j - k) });
-              possibleCases.Add(new List<int> { (q - i - j - k), k, j, i });
+              PossibleCases.Add(new List<int> { i, j, k, (q - i - j - k) });
+              PossibleCases.Add(new List<int> { (q - i - j - k), k, j, i });
             }
           }
         }
       }
       EmployeeCountList = new List<List<int>>();
-      foreach (List<int> list in possibleCases)
+      ProductivityList = new List<double>();
+      foreach (List<int> list in PossibleCases)
       {
         double commonSalary = 0;
+        double commonProductivity = 0;
         commonSalary += list[0] * employees[0].Salary + list[1] * employees[1].Salary +
           list[2] * employees[2].Salary + list[3] * employees[3].Salary;
+        commonProductivity += list[0] * employees[0].Productivity + list[1] * employees[1].Productivity +
+          list[2] * employees[2].Productivity + list[3] * employees[3].Productivity;
         if (commonSalary == money)
         {
+          ProductivityList.Add(commonProductivity);
           EmployeeCountList.Add(list);
+        }
+      }
+      double maxProductivity = 0;
+      for (int i = 0; i < ProductivityList.Count; i++)
+      {
+        if (ProductivityList[i] > maxProductivity)
+        {
+          maxProductivity = ProductivityList[i];
+          IndexOfMaxProductivity = i;
         }
       }
     }
 
-    public void PrintResults()
+    public override void PrintResults()
     {
-      foreach (List<int> employeeCount in EmployeeCountList)
+      if (EmployeeCountList.Capacity == 0)
       {
-        Console.WriteLine("{0} Juniors, {1} Middles, {2} Seniors, {3} Leads", employeeCount[0],
-          employeeCount[1], employeeCount[2], employeeCount[3]);
+        throw new NoSuitableOptionsException();
       }
+      Console.WriteLine("{0} Juniors, {1} Middles, {2} Seniors, {3} Leads", EmployeeCountList[IndexOfMaxProductivity][0],
+        EmployeeCountList[IndexOfMaxProductivity][1], EmployeeCountList[IndexOfMaxProductivity][2], EmployeeCountList[IndexOfMaxProductivity][3]);
     }
   }
 }

@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace ITCompany
+﻿namespace ITCompany
 {
-  public abstract class Criteria
+  abstract class Criteria
   {
-    public abstract void CountNeeded(Employees[] employees, double money);
+    public abstract void CountNeededEmployees(Employees[] employees, double money);
+
+    public abstract void PrintResults();
   }
 }
