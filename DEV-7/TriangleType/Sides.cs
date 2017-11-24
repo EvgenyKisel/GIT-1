@@ -1,9 +1,9 @@
 ﻿namespace TriangleType
 {
-    struct Sides
-    {
-        public double sideA;
-        public double sideB;
-        public double sideC;
-    }
+  public struct Sides
+  {
+    public double sideA;
+    public double sideB;
+    public double sideC;
+  }
 }

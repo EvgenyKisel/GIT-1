@@ -1,14 +1,14 @@
 ﻿namespace TriangleType
 {
-    class EquilateralorTriangle : Triangle
+  public class EquilateralorTriangle : Triangle
+  {
+    const string EQUILATERALOR = "Triangle is equilateralor.";
+
+    public EquilateralorTriangle(Sides sides) : base(sides) { }
+
+    public override string GetTriangleType()
     {
-        const string EQUILATERALOR = "Triangle is equilateralor.";
-
-        public EquilateralorTriangle(Sides sides) : base(sides) { }
-
-        public override string GetTriangleType()
-        {
-            return EQUILATERALOR;
-        }
+      return EQUILATERALOR;
     }
+  }
 }

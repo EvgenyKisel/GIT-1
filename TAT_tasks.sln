@@ -23,6 +23,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.Tests", "DEV-8\Shop.Tests\Shop.Tests.csproj", "{668666E4-6EDC-43EB-8D37-BA546245E38C}"
 >>>>>>> 41f83ea2e9577bf324c3114139cba6b97aea1223
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangleType.Tests", "DEV-7\TriangleType.Tests\TriangleType.Tests.csproj", "{1D04C34A-19B3-41E9-80CB-6F9649CF963D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,7 +69,14 @@ Global
 		{668666E4-6EDC-43EB-8D37-BA546245E38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{668666E4-6EDC-43EB-8D37-BA546245E38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{668666E4-6EDC-43EB-8D37-BA546245E38C}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
+		{1D04C34A-19B3-41E9-80CB-6F9649CF963D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D04C34A-19B3-41E9-80CB-6F9649CF963D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D04C34A-19B3-41E9-80CB-6F9649CF963D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D04C34A-19B3-41E9-80CB-6F9649CF963D}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
 >>>>>>> 41f83ea2e9577bf324c3114139cba6b97aea1223
+>>>>>>> 3fc7241ccddfd75157e0e1e73f191fefc6ca03df
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
