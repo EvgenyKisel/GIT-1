@@ -9,7 +9,7 @@ namespace WordPress
   /// </summary>
   class InstallPage
   {
-    private static readonly string SITETITLELOCATOR = "//input[@name='weblog_title']";
+    private By siteTitleBy = By.XPath("//input[@name='weblog_title']");
     private static readonly string USERNAMELOCATOR = "//input[@name ='user_name']";
     private static readonly string PASSWORDLOCATOR = "[type=password]"; ////input[@type='password']
     private static readonly string EMAILLOCATOR = "//input[contains(@name,'email')]";
@@ -44,7 +44,7 @@ namespace WordPress
     /// </summary>
     public void EnterSiteTitle()
     {
-      Browser.FindElement(By.XPath(SITETITLELOCATOR)).SendKeys(SITETITLE);      
+      Browser.FindElement(siteTitleBy).SendKeys(SITETITLE);
     }
 
     /// <summary>
