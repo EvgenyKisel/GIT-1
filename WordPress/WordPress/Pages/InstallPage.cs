@@ -10,11 +10,11 @@ namespace WordPress
   class InstallPage
   {
     private By siteTitleBy = By.XPath("//input[@name='weblog_title']");
-    private static readonly string USERNAMELOCATOR = "//input[@name ='user_name']";
-    private static readonly string PASSWORDLOCATOR = "[type=password]"; ////input[@type='password']
-    private static readonly string EMAILLOCATOR = "//input[contains(@name,'email')]";
-    private static readonly string PRIVACYLOCATOR = "//input[@type='checkbox']";
-    private static readonly string INSTALLBUTTONLOCATOR = "//input[@type='submit']";
+    private By userNameBy = By.XPath("//input[@name ='user_name']");
+    private By passwordBy = By.CssSelector("[type=password]");
+    private By emailBy = By.XPath("//input[contains(@name,'email')]");
+    private By privacyCheckBoxBy = By.XPath("//input[@type='checkbox']");
+    private By installButtonBy = By.XPath("//input[@type='submit']");
 
     private static readonly string URLPART = "install";
     private static readonly string SITETITLE = "Site 1";
@@ -52,7 +52,7 @@ namespace WordPress
     /// </summary>
     public void EnterUserName()
     {
-      WebElement = Browser.FindElement(By.XPath(USERNAMELOCATOR));
+      WebElement = Browser.FindElement(userNameBy);
       WebElement.Clear();
       WebElement.SendKeys(USERNAME);
     }
@@ -62,7 +62,7 @@ namespace WordPress
     /// </summary>
     public void EnterPasswords()
     {
-      ReadOnlyCollection<IWebElement> passwordsPathes = Browser.FindElements(By.CssSelector(PASSWORDLOCATOR));
+      ReadOnlyCollection<IWebElement> passwordsPathes = Browser.FindElements(passwordBy);
       foreach (IWebElement passwordPath in passwordsPathes)
       {
         passwordPath.SendKeys(PASSWORD);
@@ -74,12 +74,12 @@ namespace WordPress
     /// </summary>
     public void EnterEmail()
     {
-      Browser.FindElement(By.XPath(EMAILLOCATOR)).SendKeys(EMAIL);
+      Browser.FindElement(emailBy).SendKeys(EMAIL);
     }
 
     public void AcceptPrivacy()
     {
-      Browser.FindElement(By.XPath(PRIVACYLOCATOR));
+      Browser.FindElement(privacyCheckBoxBy);
     }
 
     /// <summary>
@@ -87,7 +87,7 @@ namespace WordPress
     /// </summary>
     public void PushSubmitButton()
     {
-      Browser.FindElement(By.XPath(INSTALLBUTTONLOCATOR)).Click();
+      Browser.FindElement(installButtonBy).Click();
     }
   }
 }
