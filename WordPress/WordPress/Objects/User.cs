@@ -6,7 +6,7 @@ namespace WordPress
   /// <summary>
   /// This is class, that contains user information.
   /// </summary>
-  class User
+  public class User
   {
     private string userName;
     private string email;
