@@ -9,6 +9,8 @@ namespace WordPress
   /// </summary>
   class InstallPage
   {
+    private static readonly string URL_INSTALL_PAGE = "http://localhost:8080/wp-admin/install.php";
+
     private By siteTitleBy = By.XPath("//input[@name='weblog_title']");
     private By userNameBy = By.XPath("//input[@name ='user_name']");
     private By passwordBy = By.CssSelector("[type=password]");
@@ -17,10 +19,7 @@ namespace WordPress
     private By installButtonBy = By.XPath("//input[@type='submit']");
 
     private static readonly string URLPART = "install";
-    private static readonly string SITETITLE = "Site 1";
-    private static readonly string USERNAME = "admin";
-    private static readonly string PASSWORD = "password";
-    private static readonly string EMAIL = "evgeny@gmail.com";
+    private static readonly string SITE_TITLE = "Site 1";
 
     public IWebDriver Browser { get; set; }
     public IWebElement WebElement { get; set; }
@@ -28,58 +27,68 @@ namespace WordPress
     /// <summary>
     /// This is constructor for install page.
     /// </summary>
-    /// <param name="browser">  </param>
+    /// <param name="browser"> Driver, with wich works </param>
     public InstallPage(IWebDriver browser)
     {
-      if (!browser.Url.Contains(URLPART))
-      {
-        throw new NoSuchFrameException();
-      }
       PageFactory.InitElements(browser, this);
       Browser = browser;
     }
 
     /// <summary>
-    /// This method finds position for site title and inputted it.
+    /// This method opens install page.
     /// </summary>
-    public void EnterSiteTitle()
+    public void OpenInstallPage()
     {
-      Browser.FindElement(siteTitleBy).SendKeys(SITETITLE);
+      Browser.Navigate().GoToUrl(URL_INSTALL_PAGE);
     }
 
     /// <summary>
-    /// This method finds position for user name and inputted it.
+    /// This method finds position for site title and inputs it.
     /// </summary>
-    public void EnterUserName()
+    public void InputSiteTitle()
+    {
+      Browser.FindElement(siteTitleBy).SendKeys(SITE_TITLE);
+    }
+
+    /// <summary>
+    /// This method finds position for user name and inputs it.
+    /// </summary>
+    /// <param name="user"> Concrete user </param>
+    public void InputUserName(User user)
     {
       WebElement = Browser.FindElement(userNameBy);
       WebElement.Clear();
-      WebElement.SendKeys(USERNAME);
+      WebElement.SendKeys(user.UserName);
     }
 
     /// <summary>
-    /// This method finds two positions for passwords and inputted them.
+    /// This method finds two positions for passwords and inputs them.
     /// </summary>
-    public void EnterPasswords()
+    /// <param name="user"> Concrete user </param>
+    public void InputPasswords(User user)
     {
       ReadOnlyCollection<IWebElement> passwordsPathes = Browser.FindElements(passwordBy);
       foreach (IWebElement passwordPath in passwordsPathes)
       {
-        passwordPath.SendKeys(PASSWORD);
+        passwordPath.SendKeys(user.Password);
       }
     }
 
     /// <summary>
-    /// This method finds position for email and inputted it.
+    /// This method finds position for email and inputs it.
     /// </summary>
-    public void EnterEmail()
+    /// <param name="user"> Concrete user </param>
+    public void InputEmail(User user)
     {
-      Browser.FindElement(emailBy).SendKeys(EMAIL);
+      Browser.FindElement(emailBy).SendKeys(user.Email);
     }
 
-    public void AcceptPrivacy()
+    /// <summary>
+    /// This method clicks on privacy check box.
+    /// </summary>
+    public void ClickOnAcceptPrivacyCheckBox()
     {
-      Browser.FindElement(privacyCheckBoxBy);
+      Browser.FindElement(privacyCheckBoxBy).Click();
     }
 
     /// <summary>

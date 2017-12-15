@@ -12,16 +12,14 @@ namespace WordPress
     static void Main(string[] args)
     {
       IWebDriver browser = new ChromeDriver();
-      browser.Navigate().GoToUrl("http://localhost:8080/wp-admin/install.php");
       browser.Manage().Window.Maximize();
       browser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-      InstallPage installPage = new InstallPage(browser);
-      installPage.EnterSiteTitle();
-      installPage.EnterUserName();
-      installPage.EnterPasswords();
-      installPage.EnterEmail();
-      installPage.AcceptPrivacy();
-      installPage.PushSubmitButton();
+      User user = new User("admin", "password", "evgeny@gmail.com");
+      LoginPage loginPage = new LoginPage(browser);
+      loginPage.OpenLoginPage();
+      loginPage.InputUserName(user);
+      loginPage.InputPassword(user);
+      loginPage.PushLogInButton();
     }
   }
 }
