@@ -15,11 +15,12 @@ namespace WordPress.Tests
         "user*",
         "us+er"
     };
+
     [ExpectedException(typeof(FormatException))]
-    [Test, TestCaseSource("sourseList")]
-    public void UserConstructor_invalidSymbols_expectedErrors(string[] sourseList)
+    [TestMethod, TestCaseSource("sourseList")]
+    public void UserConstructor_invalidSymbols_expectedErrors(string sourseList)
     {
-      //new User(sourseList, "password", "email@email.com");
+      new User(sourseList, "password", "email@email.com");
     }
   }
 }

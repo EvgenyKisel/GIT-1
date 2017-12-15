@@ -51,11 +51,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\EditPage.cs" />
     <Compile Include="Pages\InstallPage.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Objects\Post.cs" />
+    <Compile Include="Pages\NewPostPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Objects\User.cs" />
   </ItemGroup>
