@@ -2,7 +2,7 @@
 
 namespace WordPress.Pages
 {
-  public class EditorPostPage
+  public class PostPage
   {
     private By titleBy = By.CssSelector("#title");
     private By contentBy = By.XPath("//body[@id='tinymce']/p");
@@ -11,7 +11,7 @@ namespace WordPress.Pages
 
     public IWebDriver Browser { get; set; }
 
-    public EditorPostPage(IWebDriver browser)
+    public PostPage(IWebDriver browser)
     {
       Browser = browser;
     }

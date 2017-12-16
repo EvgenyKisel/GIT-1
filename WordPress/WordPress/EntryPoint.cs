@@ -20,7 +20,7 @@ namespace WordPress
       loginPage.InputUserName();
       loginPage.InputPassword();
       Pages.AuthorHomePage homePage = loginPage.PushLogInButton();
-      AuthorEditPostPage editPostPage = homePage.PushPostsButton();
+      EditPostPage editPostPage = homePage.PushPostsButton();
      // Pages.AuthorPostPage postPage = editPostPage.GoToPost();
      // postPage.DeletePost();
     //  Console.WriteLine(editPostPage.GetDeletionInfirmation());

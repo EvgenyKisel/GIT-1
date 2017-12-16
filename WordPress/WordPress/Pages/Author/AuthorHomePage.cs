@@ -33,10 +33,10 @@ namespace WordPress.Pages
     /// <summary>
     /// This method clicks on posts button.
     /// </summary>
-    public AuthorEditPostPage PushPostsButton()
+    public EditPostPage PushPostsButton()
     {
       Browser.FindElement(postsBy).Click();
-      return new AuthorEditPostPage(Browser);
+      return new EditPostPage(Browser);
     }
 
     /// <summary>

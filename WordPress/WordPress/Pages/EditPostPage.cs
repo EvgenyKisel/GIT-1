@@ -2,7 +2,7 @@
 
 namespace WordPress
 {
-  public class AuthorEditPostPage
+  public class EditPostPage
   {
     public IWebDriver Browser { get; set; }
 
@@ -10,7 +10,7 @@ namespace WordPress
     private By postButtonBy = By.XPath("//tbody[@id='the-list']/tr[1]//a[@class='row-title']");
     private By deletionMessageBy = By.XPath("//div[@id='message']/p");
 
-    public AuthorEditPostPage(IWebDriver browser)
+    public EditPostPage(IWebDriver browser)
     {
       Browser = browser;
     }
@@ -18,19 +18,19 @@ namespace WordPress
     /// <summary>
     /// This method clicks on posts button.
     /// </summary>
-    public Pages.AuthorPostPage GoToPost()
+    public Pages.PostPage GoToPost()
     {
       Browser.FindElement(postButtonBy).Click();
-      return new Pages.AuthorPostPage(Browser);
+      return new Pages.PostPage(Browser);
     }
 
     /// <summary>
     /// This method clicks on submit post button.
     /// </summary>
-    public Pages.AuthorPostPage PushAddNewButton()
+    public Pages.PostPage PushAddNewButton()
     {
       Browser.FindElement(addNewButtonBy).Click();
-      return new Pages.AuthorPostPage(Browser);
+      return new Pages.PostPage(Browser);
     }
 
     /// <summary>
