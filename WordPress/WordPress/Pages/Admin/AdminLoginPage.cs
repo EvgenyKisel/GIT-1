@@ -6,7 +6,7 @@ namespace WordPress
   /// <summary>
   /// This is class for login page.
   /// </summary>
-  class LoginPage
+  class AdminLoginPage
   {
     private static readonly string URL_LOGIN_PAGE = "http://localhost:8080/wp-login.php";
 
@@ -14,17 +14,20 @@ namespace WordPress
     private By passwordBy = By.CssSelector("#user_pass");
     public By logInButtonBy = By.XPath("//input[@type='submit']");
     public By rememberMeCheckBoxBy = By.CssSelector("#rememberme");
+    public By logInErrorBy = By.XPath("//div[@id='login_error']");
 
     public IWebDriver Browser { get; set; }
+    public User CurrentUser { get; set; }
 
     /// <summary>
     /// This is constructor for login page.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
-    public LoginPage(IWebDriver browser)
+    public AdminLoginPage(IWebDriver browser, User user)
     {
       PageFactory.InitElements(browser, this);
       Browser = browser;
+      CurrentUser = user;
     }
 
     /// <summary>
@@ -39,18 +42,18 @@ namespace WordPress
     /// This method finds position for user name and inputted it.
     /// </summary>
     /// <param name="user"> Concrete user </param>
-    public void InputUserName(User user)
+    public void InputUserName()
     {
-      Browser.FindElement(userNameBy).SendKeys(user.UserName);
+      Browser.FindElement(userNameBy).SendKeys(CurrentUser.UserName);
     }
 
     /// <summary>
     /// This method finds position for password and inputs it.
     /// </summary>
     /// <param name="user"> Concrete user </param>
-    public void InputPassword(User user)
+    public void InputPassword()
     {
-      Browser.FindElement(passwordBy).SendKeys(user.Password);
+      Browser.FindElement(passwordBy).SendKeys(CurrentUser.Password);
     }
 
     /// <summary>
@@ -64,9 +67,28 @@ namespace WordPress
     /// <summary>
     /// This method push log in button.
     /// </summary>
-    public void PushLogInButton()
+    public Pages.AdminHomePage PushLogInButton()
     {
       Browser.FindElement(logInButtonBy).Click();
+      return new Pages.AdminHomePage(Browser);
+    }
+
+    /// <summary>
+    /// This method gets url of the page.
+    /// </summary>
+    /// <returns> Url of the page </returns>
+    public string GetUrl()
+    {
+      return Browser.Url;
+    }
+
+    /// <summary>
+    /// This method catches login error.
+    /// </summary>
+    /// <returns> Error message </returns>
+    public string CatchLoginError()
+    {
+      return Browser.FindElement(logInErrorBy).Text;
     }
   }
 }

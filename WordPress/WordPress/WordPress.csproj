@@ -51,13 +51,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pages\EditPage.cs" />
-    <Compile Include="Pages\InstallPage.cs" />
+    <Compile Include="Objects\Author.cs" />
+    <Compile Include="Objects\Subscriber.cs" />
+    <Compile Include="Objects\Contributor.cs" />
+    <Compile Include="Objects\Editor.cs" />
+    <Compile Include="Objects\Admin.cs" />
+    <Compile Include="Pages\Admin\AdminLoginPage.cs" />
+    <Compile Include="Pages\Contributor\ContributorHomePage.cs" />
+    <Compile Include="Pages\Contributor\ContributorLoginPage.cs" />
+    <Compile Include="Pages\HomePages\SubscriberHomePage.cs" />
+    <Compile Include="Pages\HomePages\EditorHomePage.cs" />
+    <Compile Include="Pages\Author\AuthorHomePage.cs" />
+    <Compile Include="Pages\Admin\AdminHomePage.cs" />
+    <Compile Include="Pages\Author\EditPostPage.cs" />
+    <Compile Include="InstallPage.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Logger.cs" />
-    <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\Author\AuthorLoginPage.cs" />
     <Compile Include="Objects\Post.cs" />
-    <Compile Include="Pages\NewPostPage.cs" />
+    <Compile Include="Pages\Author\NewPostPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Objects\User.cs" />
   </ItemGroup>

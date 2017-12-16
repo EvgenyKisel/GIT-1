@@ -1,10 +1,8 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 
 namespace WordPress.Tests
 {
-  [TestClass]
   public class UserObjectNegativeTests
   {
     private static readonly string[] sourseList =
@@ -15,12 +13,11 @@ namespace WordPress.Tests
         "user*",
         "us+er"
     };
-
-    [ExpectedException(typeof(FormatException))]
-    [TestMethod, TestCaseSource("sourseList")]
+    
+    [Test, TestCaseSource("sourseList")]
     public void UserConstructor_invalidSymbols_expectedErrors(string sourseList)
     {
-      new User(sourseList, "password", "email@email.com");
+      Assert.Throws<FormatException>(()=> new Objects.Author(sourseList, "password", "email@email.com"));
     }
   }
 }

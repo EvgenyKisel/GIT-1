@@ -14,12 +14,14 @@ namespace WordPress
       IWebDriver browser = new ChromeDriver();
       browser.Manage().Window.Maximize();
       browser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-      User user = new User("admin", "password", "evgeny@gmail.com");
-      LoginPage loginPage = new LoginPage(browser);
+      User user = new Objects.Admin();
+     /* LoginPage loginPage = new LoginPage(browser, user);
       loginPage.OpenLoginPage();
-      loginPage.InputUserName(user);
-      loginPage.InputPassword(user);
-      loginPage.PushLogInButton();
+      loginPage.InputUserName();
+      loginPage.InputPassword();
+      Pages.IHomePage homePage = loginPage.PushLogInButton();
+      homePage.GoToProfileBar();
+      homePage.LogOut();*/
     }
   }
 }

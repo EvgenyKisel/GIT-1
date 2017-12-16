@@ -18,7 +18,6 @@ namespace WordPress
     private By privacyCheckBoxBy = By.XPath("//input[@type='checkbox']");
     private By installButtonBy = By.XPath("//input[@type='submit']");
 
-    private static readonly string URLPART = "install";
     private static readonly string SITE_TITLE = "Site 1";
 
     public IWebDriver Browser { get; set; }
@@ -54,23 +53,23 @@ namespace WordPress
     /// This method finds position for user name and inputs it.
     /// </summary>
     /// <param name="user"> Concrete user </param>
-    public void InputUserName(User user)
+    public void InputUserName(Objects.Admin admin)
     {
       WebElement = Browser.FindElement(userNameBy);
       WebElement.Clear();
-      WebElement.SendKeys(user.UserName);
+      WebElement.SendKeys(admin.UserName);
     }
 
     /// <summary>
     /// This method finds two positions for passwords and inputs them.
     /// </summary>
     /// <param name="user"> Concrete user </param>
-    public void InputPasswords(User user)
+    public void InputPasswords(Objects.Admin admin)
     {
       ReadOnlyCollection<IWebElement> passwordsPathes = Browser.FindElements(passwordBy);
       foreach (IWebElement passwordPath in passwordsPathes)
       {
-        passwordPath.SendKeys(user.Password);
+        passwordPath.SendKeys(admin.Password);
       }
     }
 
@@ -78,9 +77,9 @@ namespace WordPress
     /// This method finds position for email and inputs it.
     /// </summary>
     /// <param name="user"> Concrete user </param>
-    public void InputEmail(User user)
+    public void InputEmail(Objects.Admin admin)
     {
-      Browser.FindElement(emailBy).SendKeys(user.Email);
+      Browser.FindElement(emailBy).SendKeys(admin.Email);
     }
 
     /// <summary>
@@ -97,6 +96,15 @@ namespace WordPress
     public void PushSubmitButton()
     {
       Browser.FindElement(installButtonBy).Click();
+    }
+
+    /// <summary>
+    /// This method gets url of the page.
+    /// </summary>
+    /// <returns> Url of the page </returns>
+    public string GetUrl()
+    {
+      return Browser.Url;
     }
   }
 }
