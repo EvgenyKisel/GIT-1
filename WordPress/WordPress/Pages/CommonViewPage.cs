@@ -8,6 +8,7 @@ namespace WordPress.Pages
     
     private By commentBy = By.XPath("//textarea[@id='comment']");
     private By submitCommentButtonBy = By.XPath("//input[@id='submit']");
+    private By messageBy = By.ClassName("comment-awaiting-moderation");
 
     public CommonViewPage(IWebDriver browser)
     {
@@ -36,7 +37,7 @@ namespace WordPress.Pages
     /// <returns> conformation information </returns>
     public string GetMessageAboutPostedComment()
     {
-      return Browser.FindElement(By.ClassName("comment-awaiting-moderation")).Text;
+      return Browser.FindElement(messageBy).Text;
     }
   }
 }

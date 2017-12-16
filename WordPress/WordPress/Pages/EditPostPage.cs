@@ -8,7 +8,7 @@ namespace WordPress
 
     private By addNewButtonBy = By.XPath("//a[preceding-sibling::h1[@class='wp-heading-inline']]");
     private By postButtonBy = By.XPath("//tbody[@id='the-list']/tr[1]//a[@class='row-title']");
-    private By deletionMessageBy = By.XPath("//div[@id='message']/p");
+    private By messageBy = By.XPath("//div[@id='message']/p");
 
     public EditPostPage(IWebDriver browser)
     {
@@ -34,12 +34,12 @@ namespace WordPress
     }
 
     /// <summary>
-    /// This method gets deletion information.
+    /// This method gets action information.
     /// </summary>
-    /// <returns> Deletion message</returns>
-    public string GetDeletionInfirmation()
+    /// <returns> Message </returns>
+    public string GetInfirmation()
     {
-      return Browser.FindElement(deletionMessageBy).Text;
+      return Browser.FindElement(messageBy).Text;
     }
   }
 }
