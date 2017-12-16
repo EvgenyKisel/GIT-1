@@ -6,7 +6,7 @@ namespace WordPress.Pages
   public class AuthorHomePage
   {
     private By postsBy = By.XPath("//li[@class='post-count']/a");
-    private By profileBarBy = By.XPath("//*[@id='wp-admin-bar-site-name']/a");
+    private By profileBarBy = By.XPath("//*[@id='wp-admin-bar-my-account']/a");
     public By logOutBy = By.XPath("//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
 
     public IWebDriver Browser { get; set; }
@@ -33,10 +33,10 @@ namespace WordPress.Pages
     /// <summary>
     /// This method clicks on posts button.
     /// </summary>
-    public EditPostPage PushPostsButton()
+    public AuthorEditPostPage PushPostsButton()
     {
       Browser.FindElement(postsBy).Click();
-      return new EditPostPage(Browser);
+      return new AuthorEditPostPage(Browser);
     }
 
     /// <summary>

@@ -3,10 +3,10 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace WordPress.Pages
 {
-  public class AuthorHomePage
+  public class EditorHomePage
   {
     private By postsBy = By.XPath("//li[@class='post-count']/a");
-    private By profileBarBy = By.XPath("//*[@id='wp-admin-bar-site-name']/a");
+    private By profileBarBy = By.XPath("//*[@id='wp-admin-bar-my-account']/a");
     public By logOutBy = By.XPath("//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
 
     public IWebDriver Browser { get; set; }
@@ -15,7 +15,7 @@ namespace WordPress.Pages
     /// This is constructor for AuthorHomePage page.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
-    public AuthorHomePage(IWebDriver browser)
+    public EditorHomePage(IWebDriver browser)
     {
       PageFactory.InitElements(browser, this);
       Browser = browser;
@@ -33,10 +33,10 @@ namespace WordPress.Pages
     /// <summary>
     /// This method clicks on posts button.
     /// </summary>
-    public EditPostPage PushPostsButton()
+    public EditorEditPostPage PushPostsButton()
     {
       Browser.FindElement(postsBy).Click();
-      return new EditPostPage(Browser);
+      return new EditorEditPostPage(Browser);
     }
 
     /// <summary>

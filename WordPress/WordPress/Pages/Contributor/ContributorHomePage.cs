@@ -5,9 +5,7 @@ namespace WordPress.Pages
 {
   public class ContributorHomePage
   {
-    //private static readonly string URL_ADMINHOME_PAGE = "http://localhost:8080/wp-admin/";
-
-    private By profileBarBy = By.XPath("//*[@id='wp-admin-bar-site-name']/a");
+    private By profileBarBy = By.XPath("//*[@id='wp-admin-bar-my-account']/a");
     public By logOutBy = By.XPath("//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
 
     public IWebDriver Browser { get; set; }

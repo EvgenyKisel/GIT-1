@@ -14,14 +14,21 @@ namespace WordPress
       IWebDriver browser = new ChromeDriver();
       browser.Manage().Window.Maximize();
       browser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-      User user = new Objects.Admin();
-     /* LoginPage loginPage = new LoginPage(browser, user);
+      User user = new Objects.Author("Author", "author", "author@gmail.com");
+      AuthorLoginPage loginPage = new AuthorLoginPage(browser, user);
       loginPage.OpenLoginPage();
       loginPage.InputUserName();
       loginPage.InputPassword();
-      Pages.IHomePage homePage = loginPage.PushLogInButton();
+      Pages.AuthorHomePage homePage = loginPage.PushLogInButton();
+      AuthorEditPostPage editPostPage = homePage.PushPostsButton();
+     // Pages.AuthorPostPage postPage = editPostPage.GoToPost();
+     // postPage.DeletePost();
+    //  Console.WriteLine(editPostPage.GetDeletionInfirmation());
+     // newPostPage.SetPostTitle();
+     // newPostPage.InputPostContent();
+     // newPostPage.PushPublishButton();
       homePage.GoToProfileBar();
-      homePage.LogOut();*/
+      homePage.LogOut();
     }
   }
 }

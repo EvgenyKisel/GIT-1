@@ -6,7 +6,7 @@ namespace WordPress
   /// <summary>
   /// This is class for login page.
   /// </summary>
-  class AuthorLoginPage
+  class EditorLoginPage
   {
     private static readonly string URL_LOGIN_PAGE = "http://localhost:8080/wp-login.php";
 
@@ -23,7 +23,7 @@ namespace WordPress
     /// This is constructor for login page.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
-    public AuthorLoginPage(IWebDriver browser, User user)
+    public EditorLoginPage(IWebDriver browser, User user)
     {
       PageFactory.InitElements(browser, this);
       Browser = browser;
@@ -67,10 +67,10 @@ namespace WordPress
     /// <summary>
     /// This method push log in button.
     /// </summary>
-    public Pages.AuthorHomePage PushLogInButton()
+    public Pages.EditorHomePage PushLogInButton()
     {
       Browser.FindElement(logInButtonBy).Click();
-      return new Pages.AuthorHomePage(Browser);
+      return new Pages.EditorHomePage(Browser);
     }
 
     /// <summary>

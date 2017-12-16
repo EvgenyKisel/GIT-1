@@ -3,12 +3,11 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace WordPress.Pages
 {
-  public class ContributorHomePage
+  public class SubscriberHomePage
   {
-    //private static readonly string URL_ADMINHOME_PAGE = "http://localhost:8080/wp-admin/";
-
-    private By profileBarBy = By.XPath("//*[@id='wp-admin-bar-site-name']/a");
+    private By profileBarBy = By.XPath("//*[@id='wp-admin-bar-my-account']/a");
     public By logOutBy = By.XPath("//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
+    public By dashboardBy = By.XPath("//li[@id='menu - dashboard']");
 
     public IWebDriver Browser { get; set; }
 
@@ -16,7 +15,7 @@ namespace WordPress.Pages
     /// This is constructor for AdminHomePage.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
-    public ContributorHomePage(IWebDriver browser)
+    public SubscriberHomePage(IWebDriver browser)
     {
       PageFactory.InitElements(browser, this);
       Browser = browser;
@@ -45,6 +44,15 @@ namespace WordPress.Pages
     public void LogOut()
     {
       Browser.FindElement(logOutBy).Click();
+    }
+
+    /// <summary>
+    /// This method goes to dashboard.
+    /// </summary>
+    public Subscriber.DashboardPage GoToDashboard()
+    {
+      Browser.FindElement(dashboardBy).Click();
+      return new Subscriber.DashboardPage(Browser);
     }
   }
 }

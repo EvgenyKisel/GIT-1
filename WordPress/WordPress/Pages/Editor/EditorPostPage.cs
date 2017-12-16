@@ -2,15 +2,16 @@
 
 namespace WordPress.Pages
 {
-  public class NewPostPage
+  public class EditorPostPage
   {
     private By titleBy = By.CssSelector("#title");
-    private By contentBy = By.XPath("//body[@data-id='content']");
+    private By contentBy = By.XPath("//body[@id='tinymce']/p");
     private By publishButtonBy = By.XPath("//input[@type='publish']");
+    private By deleteButtonBy = By.XPath("//a[@class='submitdelete deletion']");
 
     public IWebDriver Browser { get; set; }
 
-    public NewPostPage(IWebDriver browser)
+    public EditorPostPage(IWebDriver browser)
     {
       Browser = browser;
     }
@@ -20,7 +21,7 @@ namespace WordPress.Pages
     /// </summary>
     public void SetPostTitle()
     {
-      Browser.FindElement(titleBy).SendKeys("title");
+      Browser.FindElement(titleBy).SendKeys("new post");
     }
 
     /// <summary>
@@ -37,6 +38,14 @@ namespace WordPress.Pages
     public void PushPublishButton()
     {
       Browser.FindElement(publishButtonBy).Click();
+    }
+
+    /// <summary>
+    /// This method deletes post.
+    /// </summary>
+    public void DeletePost()
+    {
+      Browser.FindElement(deleteButtonBy).Click();
     }
   }
 }
