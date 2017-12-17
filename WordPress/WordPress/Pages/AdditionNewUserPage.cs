@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.ObjectModel;
 
-namespace WordPress.Pages.Admin
+namespace WordPress.Pages
 {
   /// <summary>
   /// This is class for adding new user to the wordpress.
@@ -10,17 +10,16 @@ namespace WordPress.Pages.Admin
   public class AdditionNewUserPage
   {
     //http://localhost:8080/wp-admin/user-new.php
-    private By newUserLoginBy = By.CssSelector("#user_login");
-    private By newUserEmailBy = By.CssSelector("#email");
-    private By showPasswordButtonBy = By.XPath("//button[contains(text(), 'Show password')]");
-    private By newUserPasswordBy = By.CssSelector("#pass1-text");
-    private By weakPasswordConformationCheckBoxBy = By.CssSelector(".pw-checkbox");
-    private By newUserRoleSelectorBy = By.CssSelector("#role");
-    private By newUserRolesBy = By.XPath("//select[@name='role']/option");
-    private By addNewUserButtonBy = By.XPath("//input[@type='submit']");
+    private static By newUserLoginBy = By.CssSelector("#user_login");
+    private static By newUserEmailBy = By.CssSelector("#email");
+    private static By showPasswordButtonBy = By.XPath("//button[contains(text(), 'Show password')]");
+    private static By newUserPasswordBy = By.CssSelector("#pass1-text");
+    private static By weakPasswordConformationCheckBoxBy = By.CssSelector(".pw-checkbox");
+    private static By newUserRoleSelectorBy = By.CssSelector("#role");
+    private static By newUserRolesBy = By.XPath("//select[@name='role']/option");
+    private static By addNewUserButtonBy = By.XPath("//input[@type='submit']");
 
-    public IWebDriver Browser { get; set; }
-    public User CurrentUser { get; set; }
+    public IWebDriver Browser { get; private set; }
 
     /// <summary>
     /// This is constructor for AdditionNewUserPage.
@@ -87,24 +86,24 @@ namespace WordPress.Pages.Admin
     /// This method sets new user role.
     /// </summary>
     /// <param name="newUserRole"> User role </param>
-    public void SetNewUserRole(string newUserRole)
+    public void SetNewUserRole(Role role)
     {
       ReadOnlyCollection<IWebElement> userRoles = Browser.FindElements(newUserRolesBy);
-      switch (newUserRole.ToUpper())
+      switch (role)
       {
-        case "SUBSCRIBER":
+        case Role.SUBSCRIBER:
           userRoles[1].Click();
           break;
-        case "CONTRIBUTOR":
+        case Role.CONTRIBUTOR:
           userRoles[2].Click();
           break;
-        case "AUTHOR":
+        case Role.AUTHOR:
           userRoles[3].Click();
           break;
-        case "EDITOR":
+        case Role.EDITOR:
           userRoles[4].Click();
           break;
-        case "ADMINISTRATOR":
+        case Role.ADMINISTRATOR:
           userRoles[5].Click();
           break;
         default:

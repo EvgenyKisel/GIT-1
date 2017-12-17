@@ -8,7 +8,7 @@ namespace WordPress.Pages
   /// </summary>
   public class AdminHomePage : BasePage
   {
-    private By usersBy = By.XPath("//div[contains(text(), 'Users')]");
+    private static By usersBy = By.XPath("//div[contains(text(), 'Users')]");
 
     /// <summary>
     /// This is constructor for AdminHomePage.
@@ -23,10 +23,10 @@ namespace WordPress.Pages
     /// <summary>
     /// This method logs out drom the profile.
     /// </summary>
-    public Admin.UsersPage GoToUsers()
+    public UsersPage GoToUsers()
     {
       Browser.FindElement(usersBy).Click();
-      return new Admin.UsersPage(Browser);
+      return new UsersPage(Browser);
     }
   }
 }

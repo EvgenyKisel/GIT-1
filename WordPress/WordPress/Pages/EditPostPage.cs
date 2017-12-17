@@ -7,11 +7,11 @@ namespace WordPress
   /// </summary>
   public class EditPostPage
   {
-    private By addNewButtonBy = By.XPath("//a[preceding-sibling::h1[@class='wp-heading-inline']]");
-    private By postButtonBy = By.XPath("//tbody[@id='the-list']/tr[1]//a[@class='row-title']");
-    private By messageBy = By.XPath("//div[@id='message']/p");
+    private static By addNewButtonBy = By.XPath("//a[preceding-sibling::h1[@class='wp-heading-inline']]");
+    private static By postButtonBy = By.XPath("//tbody[@id='the-list']/tr[1]//a[@class='row-title']");
+    private static By messageBy = By.XPath("//div[@id='message']/p");
 
-    public IWebDriver Browser { get; set; }
+    public IWebDriver Browser { get; private set; }
 
     /// <summary>
     /// This is constructor for EditPostPage.

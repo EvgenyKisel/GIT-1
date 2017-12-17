@@ -20,21 +20,17 @@ namespace WordPress
       loginPage.InputUserName();
       loginPage.InputPassword();
       Pages.AdminHomePage homePage = (Pages.AdminHomePage)loginPage.PushLogInButton();
-      Pages.Admin.AdditionNewUserPage newUserPage = homePage.GoToUsers().AddNewUser();
-      newUserPage.SetNewUserLogin("newuser1");
-      newUserPage.SetNewUserEmail("newuser@gmail.com");
+      Pages.UsersPage usersPage = homePage.GoToUsers();
+      usersPage.DeleteUser("newuser");
+     /* Pages.AdditionNewUserPage newUserPage = homePage.GoToUsers().AddNewUser();
+      newUserPage.SetNewUserLogin("newuser4");
+      newUserPage.SetNewUserEmail("newuser4@gmail.com");
       newUserPage.ClickOnPasswordButton();
       newUserPage.SetNewUserPasssword("password");
       newUserPage.AcceptIfPasswordIsWeak();
       newUserPage.GoToUserRoleSelector();
-      newUserPage.SetNewUserRole("contributor");
-      newUserPage.SubmitNewUserAdding();
-      // Pages.AuthorPostPage postPage = editPostPage.GoToPost();
-      // postPage.DeletePost();
-      //  Console.WriteLine(editPostPage.GetDeletionInfirmation());
-      // newPostPage.SetPostTitle();
-      // newPostPage.InputPostContent();
-      // newPostPage.PushPublishButton();
+      newUserPage.SetNewUserRole(Role.EDITOR);
+      newUserPage.SubmitNewUserAdding();*/
       homePage.GoToProfileBar();
       homePage.LogOut();
     }

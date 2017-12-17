@@ -8,7 +8,7 @@ namespace WordPress.Pages
   /// </summary>
   public class SubscriberHomePage : BasePage
   {
-    public By dashboardBy = By.XPath("//li[@id='menu - dashboard']");
+    private static By dashboardBy = By.XPath("//li[@id='menu - dashboard']");
     
     /// <summary>
     /// This is constructor for AdminHomePage.
@@ -23,10 +23,10 @@ namespace WordPress.Pages
     /// <summary>
     /// This method goes to dashboard.
     /// </summary>
-    public Subscriber.DashboardPage GoToDashboard()
+    public DashboardPage GoToDashboard()
     {
       Browser.FindElement(dashboardBy).Click();
-      return new Subscriber.DashboardPage(Browser);
+      return new DashboardPage(Browser);
     }
   }
 }

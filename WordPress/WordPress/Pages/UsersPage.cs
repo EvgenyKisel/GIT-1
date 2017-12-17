@@ -1,19 +1,21 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
+using System;
 
-namespace WordPress.Pages.Admin
+namespace WordPress.Pages
 {
   /// <summary>
   /// This is class for users page.
   /// </summary>
   public class UsersPage
   {
-    //http://localhost:8080/wp-admin/users.php
-    private By usersBy = By.XPath("//div[contains(text(), 'Users')]");
-    private By addNewButtonBy = By.XPath("//a[contains(text(), 'Add New')][preceding-sibling::h1]");
-    private By messageBy = By.XPath("//div[@id='message']/p");
+    private static By addNewButtonBy = By.XPath("//a[contains(text(), 'Add New')][preceding-sibling::h1]");
+    private static By messageBy = By.XPath("//div[@id='message']/p");
+    private static By confirmDeletionButtonBy = By.CssSelector("#submit");
 
-    public IWebDriver Browser { get; set; }
+    public IWebDriver Browser { get; private set; }
 
     /// <summary>
     /// This is constructor for AdminHomePage.
@@ -41,6 +43,16 @@ namespace WordPress.Pages.Admin
     {
       Browser.FindElement(addNewButtonBy).Click();
       return new AdditionNewUserPage(Browser);
+    }
+
+    public void DeleteUser(string userNameForDeletion)
+    {
+      By userBy = By.XPath($"//td[@data-colname='Username']//a[contains(text(), '{userNameForDeletion}')]");
+      new Actions(Browser).MoveToElement(Browser.FindElement(userBy));
+      By deleteButtonBy = By.XPath($"//td[@data-colname='Username']//a[contains(text(), {userNameForDeletion})]/../..//span[@class='delete']");
+      new WebDriverWait(Browser, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(deleteButtonBy));
+      Browser.FindElement(deleteButtonBy).Click();
+      Browser.FindElement(confirmDeletionButtonBy).Click();
     }
 
     /// <summary>

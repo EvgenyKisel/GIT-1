@@ -1,15 +1,15 @@
 ﻿using OpenQA.Selenium;
 
-namespace WordPress.Pages.Subscriber
+namespace WordPress.Pages
 {
   /// <summary>
   /// This is class for dashboard page.
   /// </summary>
   public class DashboardPage
   {
-    private By postButtonBy = By.XPath("//div[@id='published-posts']//li[1]/a");
+    private static By postButtonBy = By.XPath("//div[@id='published-posts']//li[1]/a");
 
-    public IWebDriver Browser { get; set; }
+    public IWebDriver Browser { get; private set; }
 
     /// <summary>
     /// This is constructor for DashboardPage.

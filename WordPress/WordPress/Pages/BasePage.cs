@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
 
@@ -9,9 +10,9 @@ namespace WordPress.Pages
   /// </summary>
   public class BasePage
   {
-    private By profileBarBy = By.XPath("//*[@id='wp-admin-bar-my-account']/a");
-    private By logOutBy = By.XPath("//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
-    private By usersBy = By.XPath("//div[contains(text(), 'Users')]");
+    private static By profileBarBy = By.XPath("//*[@id='wp-admin-bar-site-name']/a");//*[@id='wp-admin-bar-my-account']/a");
+    private static By logOutBy = By.XPath("//a[contains(text(), 'Log out')]");//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
+    private static By usersBy = By.XPath("//div[contains(text(), 'Users')]");
 
     public IWebDriver Browser { get; set; }
 
@@ -25,10 +26,11 @@ namespace WordPress.Pages
     }
 
     /// <summary>
-    /// This method clicks on profile bar.
+    /// This method goes to profile bar.
     /// </summary>
     public void GoToProfileBar()
     {
+      //new Actions(Browser).MoveToElement(Browser.FindElement(profileBarBy));
       Browser.FindElement(profileBarBy).Click();
     }
 
@@ -37,7 +39,7 @@ namespace WordPress.Pages
     /// </summary>
     public void LogOut()
     {
-      new WebDriverWait(Browser, TimeSpan.FromSeconds(5)).Until(ExpectedConditions.ElementExists(logOutBy));
+      new WebDriverWait(Browser, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(logOutBy));
       Browser.FindElement(logOutBy).Click();
     }
   }

@@ -8,7 +8,7 @@ namespace WordPress.Pages
   /// </summary>
   public class AuthorHomePage : BasePage
   {
-    private By postsBy = By.XPath("//li[@class='post-count']/a");
+    private static By postsBy = By.XPath("//li[@class='post-count']/a");
     
     /// <summary>
     /// This is constructor for AuthorHomePage page.
