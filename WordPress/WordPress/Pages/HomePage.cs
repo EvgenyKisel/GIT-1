@@ -1,25 +1,26 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace WordPress.Pages
 {
-  public class SubscriberHomePage
+  public class HomePage
   {
     private By profileBarBy = By.XPath("//*[@id='wp-admin-bar-my-account']/a");
-    public By logOutBy = By.XPath("//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
-    public By dashboardBy = By.XPath("//li[@id='menu - dashboard']");
+    private By logOutBy = By.XPath("//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
+    private By usersBy = By.XPath("//div[contains(text(), 'Users')]");
 
     public IWebDriver Browser { get; set; }
 
-    /// <summary>
+   /* /// <summary>
     /// This is constructor for AdminHomePage.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
-    public SubscriberHomePage(IWebDriver browser)
+    public HomePage(IWebDriver browser)
     {
       PageFactory.InitElements(browser, this);
       Browser = browser;
-    }
+    }*/
 
     /// <summary>
     /// This method gets url of the page.
@@ -39,20 +40,12 @@ namespace WordPress.Pages
     }
 
     /// <summary>
-    /// This method log out drom the profile.s
+    /// This method logs out from the profile.
     /// </summary>
     public void LogOut()
     {
+      new WebDriverWait(Browser, TimeSpan.FromSeconds(5)).Until(ExpectedConditions.ElementExists(logOutBy));
       Browser.FindElement(logOutBy).Click();
-    }
-
-    /// <summary>
-    /// This method goes to dashboard.
-    /// </summary>
-    public Subscriber.DashboardPage GoToDashboard()
-    {
-      Browser.FindElement(dashboardBy).Click();
-      return new Subscriber.DashboardPage(Browser);
     }
   }
 }

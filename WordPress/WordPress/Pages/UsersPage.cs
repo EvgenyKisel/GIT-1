@@ -1,10 +1,5 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WordPress.Pages.Admin
 {
@@ -40,10 +35,10 @@ namespace WordPress.Pages.Admin
     /// <summary>
     /// This method clicks on add new user button.
     /// </summary>
-    public NewUserPage AddNewUser()
+    public AdditionNewUserPage AddNewUser()
     {
       Browser.FindElement(addNewButtonBy).Click();
-      return new NewUserPage(Browser);
+      return new AdditionNewUserPage(Browser);
     }
 
     /// <summary>

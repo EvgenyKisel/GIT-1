@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace WordPress.Pages.Admin
 {
-  public class NewUserPage
+  public class AdditionNewUserPage
   {
     //http://localhost:8080/wp-admin/user-new.php
     private By newUserLoginBy = By.CssSelector("#user_login");
@@ -23,7 +23,7 @@ namespace WordPress.Pages.Admin
     /// This is constructor for AdminHomePage.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
-    public NewUserPage(IWebDriver browser)
+    public AdditionNewUserPage(IWebDriver browser)
     {
       PageFactory.InitElements(browser, this);
       Browser = browser;

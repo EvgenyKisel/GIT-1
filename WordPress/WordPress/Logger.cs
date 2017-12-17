@@ -45,7 +45,7 @@ namespace WordPress
     {
       using(StreamWriter writer = new StreamWriter(FILE_PATH, true, Encoding.Default))
       {
-        writer.Write(logText + "\n");
+        writer.WriteLine(logText + "\n");
       }
     }
   }

@@ -1,12 +1,13 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using System;
 
-namespace WordPress
+namespace WordPress.Pages
 {
   /// <summary>
   /// This is class for login page.
   /// </summary>
-  public class EditorLoginPage
+  public class LoginPage
   {
     private static readonly string URL_LOGIN_PAGE = "http://localhost:8080/wp-login.php";
 
@@ -23,7 +24,7 @@ namespace WordPress
     /// This is constructor for login page.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
-    public EditorLoginPage(IWebDriver browser, User user)
+    public LoginPage(IWebDriver browser, User user)
     {
       PageFactory.InitElements(browser, this);
       Browser = browser;
@@ -67,10 +68,24 @@ namespace WordPress
     /// <summary>
     /// This method push log in button.
     /// </summary>
-    public Pages.EditorHomePage PushLogInButton()
+    public object PushLogInButton()
     {
       Browser.FindElement(logInButtonBy).Click();
-      return new Pages.EditorHomePage(Browser);
+      switch (CurrentUser.UserRole)
+      {
+        case Role.SUBSCRIBER:
+          return new SubscriberHomePage(Browser);
+        case Role.CONTRIBUTOR:
+          return new ContributorHomePage(Browser);
+        case Role.AUTHOR:
+          return new AuthorHomePage(Browser);
+        case Role.EDITOR:
+          return new EditorHomePage(Browser);
+        case Role.ADMINISTRATOR:
+          return new AdminHomePage(Browser);
+        default:
+          throw new ArgumentException();
+      }
     }
 
     /// <summary>
