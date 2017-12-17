@@ -2,12 +2,19 @@
 
 namespace WordPress.Pages.Subscriber
 {
+  /// <summary>
+  /// This is class for dashboard page.
+  /// </summary>
   public class DashboardPage
   {
-    public IWebDriver Browser { get; set; }
-
     private By postButtonBy = By.XPath("//div[@id='published-posts']//li[1]/a");
 
+    public IWebDriver Browser { get; set; }
+
+    /// <summary>
+    /// This is constructor for DashboardPage.
+    /// </summary>
+    /// <param name="browser"> Driver, with wich works </param>
     public DashboardPage(IWebDriver browser)
     {
       Browser = browser;

@@ -41,11 +41,12 @@ namespace WordPress
     /// <summary>
     /// This method writes log information to log file.
     /// </summary>
+    /// <param name="logText"> Log text </param>
     public static void PrintLogInformation(string logText)
     {
       using(StreamWriter writer = new StreamWriter(FILE_PATH, true, Encoding.Default))
       {
-        writer.WriteLine(logText + "\n");
+        writer.WriteLine(logText);
       }
     }
   }

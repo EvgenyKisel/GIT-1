@@ -4,6 +4,9 @@ using System.Collections.ObjectModel;
 
 namespace WordPress.Pages.Admin
 {
+  /// <summary>
+  /// This is class for adding new user to the wordpress.
+  /// </summary>
   public class AdditionNewUserPage
   {
     //http://localhost:8080/wp-admin/user-new.php
@@ -20,22 +23,13 @@ namespace WordPress.Pages.Admin
     public User CurrentUser { get; set; }
 
     /// <summary>
-    /// This is constructor for AdminHomePage.
+    /// This is constructor for AdditionNewUserPage.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
     public AdditionNewUserPage(IWebDriver browser)
     {
       PageFactory.InitElements(browser, this);
       Browser = browser;
-    }
-
-    /// <summary>
-    /// This method gets url of the page.
-    /// </summary>
-    /// <returns> Url of the page </returns>
-    public string GetUrl()
-    {
-      return Browser.Url;
     }
 
     /// <summary>
@@ -92,7 +86,7 @@ namespace WordPress.Pages.Admin
     /// <summary>
     /// This method sets new user role.
     /// </summary>
-    /// <param name="newUserRole"></param>
+    /// <param name="newUserRole"> User role </param>
     public void SetNewUserRole(string newUserRole)
     {
       ReadOnlyCollection<IWebElement> userRoles = Browser.FindElements(newUserRolesBy);
@@ -126,6 +120,15 @@ namespace WordPress.Pages.Admin
     public void SubmitNewUserAdding()
     {
       Browser.FindElement(addNewUserButtonBy).Click();
+    }
+
+    /// <summary>
+    /// This method gets url of the page.
+    /// </summary>
+    /// <returns> Url of the page </returns>
+    public string GetUrl()
+    {
+      return Browser.Url;
     }
   }
 }

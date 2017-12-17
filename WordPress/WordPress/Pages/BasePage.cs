@@ -4,23 +4,16 @@ using System;
 
 namespace WordPress.Pages
 {
-  public class HomePage
+  /// <summary>
+  /// This is user base page.
+  /// </summary>
+  public class BasePage
   {
     private By profileBarBy = By.XPath("//*[@id='wp-admin-bar-my-account']/a");
     private By logOutBy = By.XPath("//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
     private By usersBy = By.XPath("//div[contains(text(), 'Users')]");
 
     public IWebDriver Browser { get; set; }
-
-   /* /// <summary>
-    /// This is constructor for AdminHomePage.
-    /// </summary>
-    /// <param name="browser"> Driver, with wich works </param>
-    public HomePage(IWebDriver browser)
-    {
-      PageFactory.InitElements(browser, this);
-      Browser = browser;
-    }*/
 
     /// <summary>
     /// This method gets url of the page.

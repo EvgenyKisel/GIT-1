@@ -3,10 +3,12 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace WordPress.Pages.Admin
 {
+  /// <summary>
+  /// This is class for users page.
+  /// </summary>
   public class UsersPage
   {
     //http://localhost:8080/wp-admin/users.php
-    
     private By usersBy = By.XPath("//div[contains(text(), 'Users')]");
     private By addNewButtonBy = By.XPath("//a[contains(text(), 'Add New')][preceding-sibling::h1]");
     private By messageBy = By.XPath("//div[@id='message']/p");

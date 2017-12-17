@@ -3,12 +3,15 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace WordPress.Pages
 {
-  public class EditorHomePage : HomePage
+  /// <summary>
+  /// This is class for editor home page.
+  /// </summary>
+  public class EditorHomePage : BasePage
   {
     private By postsBy = By.XPath("//li[@class='post-count']/a");
 
     /// <summary>
-    /// This is constructor for AuthorHomePage page.
+    /// This is constructor for editor home page.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
     public EditorHomePage(IWebDriver browser)

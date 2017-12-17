@@ -3,7 +3,10 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace WordPress.Pages
 {
-  public class AdminHomePage : HomePage
+  /// <summary>
+  /// This is class for admin home page.
+  /// </summary>
+  public class AdminHomePage : BasePage
   {
     private By usersBy = By.XPath("//div[contains(text(), 'Users')]");
 
@@ -18,7 +21,7 @@ namespace WordPress.Pages
     }
 
     /// <summary>
-    /// This method log out drom the profile.s
+    /// This method logs out drom the profile.
     /// </summary>
     public Admin.UsersPage GoToUsers()
     {

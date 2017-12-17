@@ -24,6 +24,7 @@ namespace WordPress.Pages
     /// This is constructor for login page.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
+    /// <param name="user"> Current user </param>
     public LoginPage(IWebDriver browser, User user)
     {
       PageFactory.InitElements(browser, this);
@@ -42,7 +43,6 @@ namespace WordPress.Pages
     /// <summary>
     /// This method finds position for user name and inputted it.
     /// </summary>
-    /// <param name="user"> Concrete user </param>
     public void InputUserName()
     {
       Browser.FindElement(userNameBy).SendKeys(CurrentUser.UserName);
@@ -51,7 +51,6 @@ namespace WordPress.Pages
     /// <summary>
     /// This method finds position for password and inputs it.
     /// </summary>
-    /// <param name="user"> Concrete user </param>
     public void InputPassword()
     {
       Browser.FindElement(passwordBy).SendKeys(CurrentUser.Password);
@@ -66,8 +65,9 @@ namespace WordPress.Pages
     }
 
     /// <summary>
-    /// This method push log in button.
+    /// This method pushes login button.
     /// </summary>
+    /// <returns> Home page corresponding to the user </returns>
     public object PushLogInButton()
     {
       Browser.FindElement(logInButtonBy).Click();

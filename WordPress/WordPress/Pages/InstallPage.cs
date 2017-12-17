@@ -18,19 +18,19 @@ namespace WordPress
     private By privacyCheckBoxBy = By.XPath("//input[@type='checkbox']");
     private By installButtonBy = By.XPath("//input[@type='submit']");
 
-    private static readonly string SITE_TITLE = "Site 1";
-
     public IWebDriver Browser { get; set; }
     public IWebElement WebElement { get; set; }
+    public User CurrentUser { get; set; }
 
     /// <summary>
     /// This is constructor for install page.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
-    public InstallPage(IWebDriver browser)
+    public InstallPage(IWebDriver browser, User user)
     {
       PageFactory.InitElements(browser, this);
       Browser = browser;
+      CurrentUser = user;
     }
 
     /// <summary>
@@ -44,42 +44,39 @@ namespace WordPress
     /// <summary>
     /// This method finds position for site title and inputs it.
     /// </summary>
-    public void InputSiteTitle()
+    public void InputSiteTitle(string title)
     {
-      Browser.FindElement(siteTitleBy).SendKeys(SITE_TITLE);
+      Browser.FindElement(siteTitleBy).SendKeys(title);
     }
 
     /// <summary>
     /// This method finds position for user name and inputs it.
     /// </summary>
-    /// <param name="user"> Concrete user </param>
-    public void InputUserName(Objects.Admin admin)
+    public void InputUserName()
     {
       WebElement = Browser.FindElement(userNameBy);
       WebElement.Clear();
-      WebElement.SendKeys(admin.UserName);
+      WebElement.SendKeys(CurrentUser.UserName);
     }
 
     /// <summary>
     /// This method finds two positions for passwords and inputs them.
     /// </summary>
-    /// <param name="user"> Concrete user </param>
-    public void InputPasswords(Objects.Admin admin)
+    public void InputPasswords()
     {
       ReadOnlyCollection<IWebElement> passwordsPathes = Browser.FindElements(passwordBy);
       foreach (IWebElement passwordPath in passwordsPathes)
       {
-        passwordPath.SendKeys(admin.Password);
+        passwordPath.SendKeys(CurrentUser.Password);
       }
     }
 
     /// <summary>
     /// This method finds position for email and inputs it.
     /// </summary>
-    /// <param name="user"> Concrete user </param>
-    public void InputEmail(Objects.Admin admin)
+    public void InputEmail()
     {
-      Browser.FindElement(emailBy).SendKeys(admin.Email);
+      Browser.FindElement(emailBy).SendKeys(CurrentUser.Email);
     }
 
     /// <summary>

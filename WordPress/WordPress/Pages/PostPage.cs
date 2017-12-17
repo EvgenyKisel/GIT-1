@@ -2,6 +2,9 @@
 
 namespace WordPress.Pages
 {
+  /// <summary>
+  /// This is class for post page.
+  /// </summary>
   public class PostPage
   {
     private By titleBy = By.CssSelector("#title");
@@ -11,6 +14,10 @@ namespace WordPress.Pages
 
     public IWebDriver Browser { get; set; }
 
+    /// <summary>
+    /// This is constructor for post page.
+    /// </summary>
+    /// <param name="browser"> Driver, with wich works </param>
     public PostPage(IWebDriver browser)
     {
       Browser = browser;
@@ -19,17 +26,19 @@ namespace WordPress.Pages
     /// <summary>
     /// This method sets post title.
     /// </summary>
-    public void SetPostTitle()
+    /// <param name="postTitle"> Post title </param>
+    public void SetPostTitle(string postTitle)
     {
-      Browser.FindElement(titleBy).SendKeys("new post");
+      Browser.FindElement(titleBy).SendKeys(postTitle);
     }
 
     /// <summary>
     /// This method inputs post content.
     /// </summary>
-    public void InputPostContent()
+    /// <param name="postContent"> Post content </param>
+    public void InputPostContent(string postContent)
     {
-      Browser.FindElement(contentBy).SendKeys("content");
+      Browser.FindElement(contentBy).SendKeys(postContent);
     }
 
     /// <summary>

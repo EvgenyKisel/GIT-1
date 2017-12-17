@@ -10,7 +10,7 @@ namespace WordPress.Tests.PositiveTests
   {
     private static readonly string URL_HOME_PAGE = "http://localhost:8080/wp-admin/";
     private IWebDriver Browser { get; set; }
-    private Pages.HomePage HomePage { get; set; }
+    private Pages.BasePage HomePage { get; set; }
 
     [TestInitialize]
     public void TestInitialize()

@@ -3,10 +3,13 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace WordPress.Pages
 {
-  public class ContributorHomePage : HomePage
+  /// <summary>
+  /// This is class for contributor home page.
+  /// </summary>
+  public class ContributorHomePage : BasePage
   {
     /// <summary>
-    /// This is constructor for AdminHomePage.
+    /// This is constructor for ContributorHomePage.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
     public ContributorHomePage(IWebDriver browser)

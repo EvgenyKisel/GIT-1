@@ -2,14 +2,21 @@
 
 namespace WordPress
 {
+  /// <summary>
+  /// This is class for edit post page.
+  /// </summary>
   public class EditPostPage
   {
-    public IWebDriver Browser { get; set; }
-
     private By addNewButtonBy = By.XPath("//a[preceding-sibling::h1[@class='wp-heading-inline']]");
     private By postButtonBy = By.XPath("//tbody[@id='the-list']/tr[1]//a[@class='row-title']");
     private By messageBy = By.XPath("//div[@id='message']/p");
 
+    public IWebDriver Browser { get; set; }
+
+    /// <summary>
+    /// This is constructor for EditPostPage.
+    /// </summary>
+    /// <param name="browser"></param>
     public EditPostPage(IWebDriver browser)
     {
       Browser = browser;
@@ -37,7 +44,7 @@ namespace WordPress
     /// This method gets action information.
     /// </summary>
     /// <returns> Message </returns>
-    public string GetInfirmation()
+    public string GetInfirmationWindowMessage()
     {
       return Browser.FindElement(messageBy).Text;
     }

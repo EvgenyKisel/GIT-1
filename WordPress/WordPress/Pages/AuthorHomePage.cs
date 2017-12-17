@@ -3,7 +3,10 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace WordPress.Pages
 {
-  public class AuthorHomePage : HomePage
+  /// <summary>
+  /// This is class for author home page.
+  /// </summary>
+  public class AuthorHomePage : BasePage
   {
     private By postsBy = By.XPath("//li[@class='post-count']/a");
     

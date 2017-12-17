@@ -3,7 +3,10 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace WordPress.Pages
 {
-  public class SubscriberHomePage : HomePage
+  /// <summary>
+  /// This is class for subscriber home page.
+  /// </summary>
+  public class SubscriberHomePage : BasePage
   {
     public By dashboardBy = By.XPath("//li[@id='menu - dashboard']");
     

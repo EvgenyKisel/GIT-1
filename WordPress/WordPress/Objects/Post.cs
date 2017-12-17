@@ -1,15 +1,15 @@
 ﻿namespace WordPress
 {
   /// <summary>
-  /// This is class with posy description.
+  /// This is class with post description.
   /// </summary>
-  class Post
+  public class Post
   {
     public string TitleName { get; set; }
     public string Content { get; set; }
 
     /// <summary>
-    /// This is constructor for User class.
+    /// This is constructor for Post class.
     /// </summary>
     /// <param name="titleName"> Title name </param>
     /// <param name="content"> Content </param>

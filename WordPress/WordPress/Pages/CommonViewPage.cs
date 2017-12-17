@@ -2,6 +2,9 @@
 
 namespace WordPress.Pages
 {
+  /// <summary>
+  /// This is class for common view page.
+  /// </summary>
   public class CommonViewPage
   {
     public IWebDriver Browser { get; set; }
@@ -10,6 +13,10 @@ namespace WordPress.Pages
     private By submitCommentButtonBy = By.XPath("//input[@id='submit']");
     private By messageBy = By.ClassName("comment-awaiting-moderation");
 
+    /// <summary>
+    /// This is constructor for CommonViewPage.
+    /// </summary>
+    /// <param name="browser"> Driver, with wich works </param>
     public CommonViewPage(IWebDriver browser)
     {
       Browser = browser;
@@ -18,9 +25,9 @@ namespace WordPress.Pages
     /// <summary>
     /// This method adds comment.
     /// </summary>
-    public void AddComment()
+    public void AddComment(string comment)
     {
-      Browser.FindElement(commentBy).SendKeys("comment");
+      Browser.FindElement(commentBy).SendKeys(comment);
     }
 
     /// <summary>
