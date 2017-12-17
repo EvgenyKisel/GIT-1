@@ -1,14 +1,17 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 
 namespace WordPress
 {
   /// <summary>
   /// This is logger class with singleton pattern.
   /// </summary>
-  class Logger
+  public class Logger
   {
     public static Logger logger;
-    public string LogText { get; set; }
+    private static object syncRoot = new Object();
+    private static readonly string FILE_PATH = "D:\\TAT\\GIT-1\\WordPress\\WordPress\\LOG.txt";
 
     /// <summary>
     /// This is closed constructor.
@@ -19,23 +22,31 @@ namespace WordPress
     /// This is method, that initialize logger object, or get this object,
     /// if it had been initialized in the past.
     /// </summary>
-    /// <param name="logText"> Text for logger </param>
     /// <returns> Logger instance </returns>
-    public Logger GetLoggerInstance(string logText)
+    public static Logger GetLoggerInstance()
     {
       if (logger == null)
       {
-        logger = new Logger();
+        lock (syncRoot)
+        {
+          if (logger == null)
+          {
+            logger = new Logger();
+          }
+        }
       }
       return logger;
     }
 
     /// <summary>
-    /// This method outputs log information on console.
+    /// This method writes log information to log file.
     /// </summary>
-    public void PrintLogInformation()
+    public static void PrintLogInformation(string logText)
     {
-      Console.WriteLine(LogText);
+      using(StreamWriter writer = new StreamWriter(FILE_PATH, true, Encoding.Default))
+      {
+        writer.Write(logText + "\n");
+      }
     }
   }
 }

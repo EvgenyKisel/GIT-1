@@ -6,7 +6,7 @@ namespace WordPress
   /// <summary>
   /// This is class for login page.
   /// </summary>
-  class AuthorLoginPage
+  public class AuthorLoginPage
   {
     private static readonly string URL_LOGIN_PAGE = "http://localhost:8080/wp-login.php";
 
