@@ -5,10 +5,9 @@ namespace WordPress.Pages
 {
   public class AdminHomePage
   {
-    //private static readonly string URL_ADMINHOME_PAGE = "http://localhost:8080/wp-admin/";
-
     private By profileBarBy = By.XPath("//*[@id='wp-admin-bar-my-account']/a");
-    public By logOutBy = By.XPath("//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
+    private By logOutBy = By.XPath("//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
+    private By usersBy = By.XPath("//div[contains(text(), 'Users')]");
 
     public IWebDriver Browser { get; set; }
 
@@ -40,11 +39,20 @@ namespace WordPress.Pages
     }
 
     /// <summary>
-    /// This method log out drom the profile.s
+    /// This method logs out from the profile.s
     /// </summary>
     public void LogOut()
     {
       Browser.FindElement(logOutBy).Click();
+    }
+
+    /// <summary>
+    /// This method log out drom the profile.s
+    /// </summary>
+    public Admin.UsersPage GoToUsers()
+    {
+      Browser.FindElement(usersBy).Click();
+      return new Admin.UsersPage(Browser);
     }
   }
 }

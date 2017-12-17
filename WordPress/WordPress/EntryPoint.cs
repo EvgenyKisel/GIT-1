@@ -14,13 +14,21 @@ namespace WordPress
       IWebDriver browser = new ChromeDriver();
       browser.Manage().Window.Maximize();
       browser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-      User user = new Objects.Author("Author", "author", "author@gmail.com");
-      AuthorLoginPage loginPage = new AuthorLoginPage(browser, user);
+      User user = new Objects.Admin();
+      AdminLoginPage loginPage = new AdminLoginPage(browser, user);
       loginPage.OpenLoginPage();
       loginPage.InputUserName();
       loginPage.InputPassword();
-      Pages.AuthorHomePage homePage = loginPage.PushLogInButton();
-      EditPostPage editPostPage = homePage.PushPostsButton();
+      Pages.AdminHomePage homePage = loginPage.PushLogInButton();
+      Pages.Admin.NewUserPage newUserPage = homePage.GoToUsers().AddNewUser();
+      newUserPage.SetNewUserLogin("newuser");
+      newUserPage.SetNewUserEmail("newuser@gmail.com");
+      newUserPage.ClickOnPasswordButton();
+      newUserPage.SetNewUserPasssword("password");
+      newUserPage.AcceptIfPasswordIsWeak();
+      newUserPage.GoToUserRoleSelector();
+      newUserPage.SetNewUserRole("contributor");
+      newUserPage.SubmitNewUserAdding();
      // Pages.AuthorPostPage postPage = editPostPage.GoToPost();
      // postPage.DeletePost();
     //  Console.WriteLine(editPostPage.GetDeletionInfirmation());
@@ -28,6 +36,7 @@ namespace WordPress
      // newPostPage.InputPostContent();
      // newPostPage.PushPublishButton();
       homePage.GoToProfileBar();
+
       homePage.LogOut();
     }
   }

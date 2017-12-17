@@ -1,5 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace WordPress.Pages
 {
@@ -48,10 +50,11 @@ namespace WordPress.Pages
     }
 
     /// <summary>
-    /// This method log out drom the profile.s
+    /// This method log out drom the profile.
     /// </summary>
     public void LogOut()
     {
+      new WebDriverWait(Browser, TimeSpan.FromSeconds(5)).Until(ExpectedConditions.ElementExists(logOutBy));
       Browser.FindElement(logOutBy).Click();
     }
   }

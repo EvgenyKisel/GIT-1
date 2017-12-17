@@ -1,1 +1,11 @@
 Correct url of author home page.
+Correct url of editor+ home page.
+Correct url of subscriber home page.
+Correct url of contributor home page.
+
+Correct url of author home page.
+Correct url of editor+ home page.
+Correct url of subscriber home page.
+Correct url of contributor home page.
+
+Correct url of author home page.

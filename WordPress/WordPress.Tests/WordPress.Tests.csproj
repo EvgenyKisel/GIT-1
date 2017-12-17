@@ -60,6 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NegativeTests\UserObjectNegativeTests.cs" />
+    <Compile Include="PositiveTests\EditorHomePageTests.cs" />
+    <Compile Include="PositiveTests\SubscriberHomePageTests.cs" />
+    <Compile Include="PositiveTests\ContributorHomePageTests.cs" />
+    <Compile Include="PositiveTests\AdminHomePageTests.cs" />
     <Compile Include="PositiveTests\AuthorHomePageTests.cs" />
     <Compile Include="PositiveTests\UserObjectPositiveTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

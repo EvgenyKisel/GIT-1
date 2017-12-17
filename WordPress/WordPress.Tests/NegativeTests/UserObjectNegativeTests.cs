@@ -14,10 +14,10 @@ namespace WordPress.Tests
         "us+er"
     };
     
-    [Test, TestCaseSource("sourseList")]
+  /*  [Test, TestCaseSource("sourseList")]
     public void UserConstructor_invalidSymbols_expectedErrors(string sourseList)
     {
       Assert.Throws<FormatException>(()=> new Objects.Author(sourseList, "password", "email@email.com"));
-    }
+    }*/
   }
 }

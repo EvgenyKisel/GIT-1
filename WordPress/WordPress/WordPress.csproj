@@ -57,6 +57,8 @@
     <Compile Include="Objects\Editor.cs" />
     <Compile Include="Objects\Admin.cs" />
     <Compile Include="Pages\Admin\AdminLoginPage.cs" />
+    <Compile Include="Pages\Admin\NewUserPage.cs" />
+    <Compile Include="Pages\Admin\UsersPage.cs" />
     <Compile Include="Pages\EditPostPage.cs" />
     <Compile Include="Pages\PostPage.cs" />
     <Compile Include="Pages\CommonViewPage.cs" />
