@@ -31,8 +31,8 @@ namespace WordPress
       newUserPage.GoToUserRoleSelector();
       newUserPage.SetNewUserRole(Role.EDITOR);
       newUserPage.SubmitNewUserAdding();*/
-      homePage.GoToProfileBar();
-      homePage.LogOut();
+     // homePage.GoToProfileBar();
+     // homePage.LogOut();
     }
   }
 }

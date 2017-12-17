@@ -10,8 +10,8 @@ namespace WordPress.Pages
   /// </summary>
   public class BasePage
   {
-    private static By profileBarBy = By.XPath("//*[@id='wp-admin-bar-site-name']/a");//*[@id='wp-admin-bar-my-account']/a");
-    private static By logOutBy = By.XPath("//a[contains(text(), 'Log out')]");//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
+    private static By profileBarBy = By.XPath("//*[@id='wp-admin-bar-my-account']/a");
+    private static By logOutBy = By.XPath("//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
     private static By usersBy = By.XPath("//div[contains(text(), 'Users')]");
 
     public IWebDriver Browser { get; set; }
@@ -30,8 +30,7 @@ namespace WordPress.Pages
     /// </summary>
     public void GoToProfileBar()
     {
-      //new Actions(Browser).MoveToElement(Browser.FindElement(profileBarBy));
-      Browser.FindElement(profileBarBy).Click();
+      new Actions(Browser).MoveToElement(Browser.FindElement(profileBarBy)).Perform();
     }
 
     /// <summary>

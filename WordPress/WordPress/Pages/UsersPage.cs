@@ -11,9 +11,11 @@ namespace WordPress.Pages
   /// </summary>
   public class UsersPage
   {
-    private static By addNewButtonBy = By.XPath("//a[contains(text(), 'Add New')][preceding-sibling::h1]");
-    private static By messageBy = By.XPath("//div[@id='message']/p");
-    private static By confirmDeletionButtonBy = By.CssSelector("#submit");
+    private By addNewButtonBy = By.XPath("//a[contains(text(), 'Add New')][preceding-sibling::h1]");
+    private By messageBy = By.XPath("//div[@id='message']/p");
+    private By confirmDeletionButtonBy = By.CssSelector("#submit");
+    private string pathToUser = "//td[@data-colname='Username']//a[contains(text(), '{0}')]";
+    private string pathToDeleteButton = "//td[@data-colname='Username']//a[contains(text(), '{0}')]/../..//span[@class='delete']/a";
 
     public IWebDriver Browser { get; private set; }
 
@@ -45,11 +47,14 @@ namespace WordPress.Pages
       return new AdditionNewUserPage(Browser);
     }
 
+    /// <summary>
+    /// This method deletes user.
+    /// </summary>
+    /// <param name="userNameForDeletion"> inputted name </param>
     public void DeleteUser(string userNameForDeletion)
     {
-      By userBy = By.XPath($"//td[@data-colname='Username']//a[contains(text(), '{userNameForDeletion}')]");
-      new Actions(Browser).MoveToElement(Browser.FindElement(userBy));
-      By deleteButtonBy = By.XPath($"//td[@data-colname='Username']//a[contains(text(), {userNameForDeletion})]/../..//span[@class='delete']");
+      new Actions(Browser).MoveToElement(Browser.FindElement(By.XPath(String.Format(pathToUser, userNameForDeletion)))).Perform();
+      By deleteButtonBy = By.XPath(String.Format(pathToDeleteButton, userNameForDeletion));
       new WebDriverWait(Browser, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(deleteButtonBy));
       Browser.FindElement(deleteButtonBy).Click();
       Browser.FindElement(confirmDeletionButtonBy).Click();
