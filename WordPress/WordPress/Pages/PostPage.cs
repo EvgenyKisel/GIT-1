@@ -5,23 +5,18 @@ namespace WordPress.Pages
   /// <summary>
   /// This is class for post page.
   /// </summary>
-  public class PostPage
+  public class PostPage : BasePage
   {
     private By titleBy = By.CssSelector("#title");
     private By contentBy = By.XPath("//body[@id='tinymce']/p");
     private By publishButtonBy = By.XPath("//input[@type='publish']");
     private By deleteButtonBy = By.XPath("//a[@class='submitdelete deletion']");
 
-    public IWebDriver Browser { get; private set; }
-
     /// <summary>
     /// This is constructor for post page.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
-    public PostPage(IWebDriver browser)
-    {
-      Browser = browser;
-    }
+    public PostPage(IWebDriver browser) : base(browser) { }
 
     /// <summary>
     /// This method sets post title.

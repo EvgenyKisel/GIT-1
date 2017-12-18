@@ -1,16 +1,17 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 
 namespace WordPress.Tests.PositiveTests
 {
   [TestClass]
-  public class AdminHomePageTests
+  public class HomePageTests
   {
-    private static readonly string URL_HOME_PAGE = "http://localhost:8080/wp-admin/";
+    private static readonly string URL_LOGINPAHE_PAGE_AFTER_LOGGEOUT = "http://localhost:8080/wp-login.php?loggedout=true";
     private IWebDriver Browser { get; set; }
     private Pages.AdminHomePage HomePage { get; set; }
+    private Pages.LoginPage LoginPage { get; set; }
 
     [TestInitialize]
     public void TestInitialize()
@@ -19,11 +20,11 @@ namespace WordPress.Tests.PositiveTests
       Browser.Manage().Window.Maximize();
       Browser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
       User user = new User("admin", "password", "evgeny@gmail.com", Role.ADMINISTRATOR);
-      Pages.LoginPage loginPage = new Pages.LoginPage(Browser, user);
-      loginPage.OpenLoginPage();
-      loginPage.InputUserName();
-      loginPage.InputPassword();
-      HomePage  = (Pages.AdminHomePage)loginPage.PushLogInButton();
+      LoginPage = new Pages.LoginPage(Browser, user);
+      LoginPage.OpenLoginPage();
+      LoginPage.InputUserName();
+      LoginPage.InputPassword();
+      HomePage = (Pages.AdminHomePage)LoginPage.PushLogInButton();
     }
 
     [TestCleanup]
@@ -33,9 +34,11 @@ namespace WordPress.Tests.PositiveTests
     }
 
     [TestMethod]
-    public void TestCorrectURLofAdminHomePage()
+    public void TestCorrectLogOut()
     {
-      Assert.AreEqual(URL_HOME_PAGE, HomePage.GetUrl());
+      HomePage.GoToProfileBar();
+      HomePage.LogOut();
+      Assert.AreEqual(URL_LOGINPAHE_PAGE_AFTER_LOGGEOUT, Browser.Url);
       Logger.PrintLogInformation(new TestResult().LogOutput);
     }
   }

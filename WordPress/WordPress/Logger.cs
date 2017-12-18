@@ -25,14 +25,11 @@ namespace WordPress
     /// <returns> Logger instance </returns>
     public static Logger GetLoggerInstance()
     {
-      if (logger == null)
+      lock (syncRoot)
       {
-        lock (syncRoot)
+        if (logger == null)
         {
-          if (logger == null)
-          {
-            logger = new Logger();
-          }
+          logger = new Logger();
         }
       }
       return logger;
@@ -44,7 +41,7 @@ namespace WordPress
     /// <param name="logText"> Log text </param>
     public static void PrintLogInformation(string logText)
     {
-      using(StreamWriter writer = new StreamWriter(FILE_PATH, true, Encoding.Default))
+      using (StreamWriter writer = new StreamWriter(FILE_PATH, true, Encoding.Default))
       {
         writer.WriteLine(logText);
       }

@@ -5,21 +5,16 @@ namespace WordPress.Pages
   /// <summary>
   /// This is class for dashboard page.
   /// </summary>
-  public class DashboardPage
+  public class DashboardPage : BasePage
   {
     private By postButtonBy = By.XPath("//div[@id='published-posts']//li[1]/a");
-
-    public IWebDriver Browser { get; private set; }
 
     /// <summary>
     /// This is constructor for DashboardPage.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
-    public DashboardPage(IWebDriver browser)
-    {
-      Browser = browser;
-    }
-    
+    public DashboardPage(IWebDriver browser) : base(browser) { }
+
     /// <summary>
     /// This method goes to post.
     /// </summary>

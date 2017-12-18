@@ -5,16 +5,19 @@ using System;
 
 namespace WordPress.Pages
 {
-  /// <summary>
-  /// This is user base page.
-  /// </summary>
-  public class BasePage
+  public abstract class BasePage
   {
+
     private By profileBarBy = By.XPath("//*[@id='wp-admin-bar-my-account']/a");
     private By logOutBy = By.XPath("//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
     private By usersBy = By.XPath("//div[contains(text(), 'Users')]");
 
-    public IWebDriver Browser { get; set; }
+    internal IWebDriver Browser { get; }
+
+    public BasePage(IWebDriver webDriver)
+    {
+      Browser = webDriver;
+    }
 
     /// <summary>
     /// This method gets url of the page.

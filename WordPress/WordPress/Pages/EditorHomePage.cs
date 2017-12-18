@@ -1,12 +1,11 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
 
 namespace WordPress.Pages
 {
   /// <summary>
   /// This is class for editor home page.
   /// </summary>
-  public class EditorHomePage : BasePage
+  public class EditorHomePage : HomePage
   {
     private By postsBy = By.XPath("//li[@class='post-count']/a");
 
@@ -14,11 +13,7 @@ namespace WordPress.Pages
     /// This is constructor for editor home page.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
-    public EditorHomePage(IWebDriver browser)
-    {
-      PageFactory.InitElements(browser, this);
-      Browser = browser;
-    }
+    public EditorHomePage(IWebDriver browser) : base(browser) { }
 
     /// <summary>
     /// This method clicks on posts button.

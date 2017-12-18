@@ -1,43 +1,38 @@
 ﻿using OpenQA.Selenium;
 
-namespace WordPress
+namespace WordPress.Pages
 {
   /// <summary>
   /// This is class for edit post page.
   /// </summary>
-  public class EditPostPage
+  public class EditPostPage : BasePage
   {
     private By addNewButtonBy = By.XPath("//a[preceding-sibling::h1[@class='wp-heading-inline']]");
     private By postButtonBy = By.XPath("//tbody[@id='the-list']/tr[1]//a[@class='row-title']");
     private By messageBy = By.XPath("//div[@id='message']/p");
 
-    public IWebDriver Browser { get; private set; }
-
     /// <summary>
     /// This is constructor for EditPostPage.
     /// </summary>
     /// <param name="browser"></param>
-    public EditPostPage(IWebDriver browser)
-    {
-      Browser = browser;
-    }
+    public EditPostPage(IWebDriver browser) : base(browser) { }
 
     /// <summary>
     /// This method clicks on posts button.
     /// </summary>
-    public Pages.PostPage GoToPost()
+    public PostPage GoToPost()
     {
       Browser.FindElement(postButtonBy).Click();
-      return new Pages.PostPage(Browser);
+      return new PostPage(Browser);
     }
 
     /// <summary>
     /// This method clicks on submit post button.
     /// </summary>
-    public Pages.PostPage PushAddNewButton()
+    public PostPage PushAddNewButton()
     {
       Browser.FindElement(addNewButtonBy).Click();
-      return new Pages.PostPage(Browser);
+      return new PostPage(Browser);
     }
 
     /// <summary>

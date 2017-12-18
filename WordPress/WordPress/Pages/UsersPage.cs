@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using System;
 
@@ -9,7 +8,7 @@ namespace WordPress.Pages
   /// <summary>
   /// This is class for users page.
   /// </summary>
-  public class UsersPage
+  public class UsersPage : BasePage
   {
     private By addNewButtonBy = By.XPath("//a[contains(text(), 'Add New')][preceding-sibling::h1]");
     private By messageBy = By.XPath("//div[@id='message']/p");
@@ -17,26 +16,11 @@ namespace WordPress.Pages
     private string pathToUser = "//td[@data-colname='Username']//a[contains(text(), '{0}')]";
     private string pathToDeleteButton = "//td[@data-colname='Username']//a[contains(text(), '{0}')]/../..//span[@class='delete']/a";
 
-    public IWebDriver Browser { get; private set; }
-
     /// <summary>
     /// This is constructor for AdminHomePage.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
-    public UsersPage(IWebDriver browser)
-    {
-      PageFactory.InitElements(browser, this);
-      Browser = browser;
-    }
-
-    /// <summary>
-    /// This method gets url of the page.
-    /// </summary>
-    /// <returns> Url of the page </returns>
-    public string GetUrl()
-    {
-      return Browser.Url;
-    }
+    public UsersPage(IWebDriver browser) : base(browser) { }
 
     /// <summary>
     /// This method clicks on add new user button.

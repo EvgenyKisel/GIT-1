@@ -7,7 +7,7 @@ namespace WordPress.Pages
   /// <summary>
   /// This is class for install page.
   /// </summary>
-  class InstallPage
+  class InstallWordPressPage
   {
     private static readonly string URL_INSTALL_PAGE = "http://localhost:8080/wp-admin/install.php";
 
@@ -18,7 +18,7 @@ namespace WordPress.Pages
     private By privacyCheckBoxBy = By.XPath("//input[@type='checkbox']");
     private By installButtonBy = By.XPath("//input[@type='submit']");
 
-    public IWebDriver Browser { get; private set; }
+    public IWebDriver Browser { get; }
     public IWebElement WebElement { get; private set; }
     public User CurrentUser { get; private set; }
 
@@ -26,7 +26,7 @@ namespace WordPress.Pages
     /// This is constructor for install page.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
-    public InstallPage(IWebDriver browser, User user)
+    public InstallWordPressPage(IWebDriver browser, User user)
     {
       PageFactory.InitElements(browser, this);
       Browser = browser;

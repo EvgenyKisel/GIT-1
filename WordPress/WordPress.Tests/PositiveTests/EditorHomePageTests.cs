@@ -15,7 +15,6 @@ namespace WordPress.Tests.PositiveTests
     [TestInitialize]
     public void TestInitialize()
     {
-      Logger.GetLoggerInstance();
       Browser = new ChromeDriver();
       Browser.Manage().Window.Maximize();
       Browser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);

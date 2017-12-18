@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.ObjectModel;
 
 namespace WordPress.Pages
@@ -7,9 +6,8 @@ namespace WordPress.Pages
   /// <summary>
   /// This is class for adding new user to the wordpress.
   /// </summary>
-  public class AdditionNewUserPage
+  public class AdditionNewUserPage : BasePage
   {
-    //http://localhost:8080/wp-admin/user-new.php
     private By newUserLoginBy = By.CssSelector("#user_login");
     private By newUserEmailBy = By.CssSelector("#email");
     private By showPasswordButtonBy = By.XPath("//button[contains(text(), 'Show password')]");
@@ -19,17 +17,11 @@ namespace WordPress.Pages
     private By newUserRolesBy = By.XPath("//select[@name='role']/option");
     private By addNewUserButtonBy = By.XPath("//input[@type='submit']");
 
-    public IWebDriver Browser { get; private set; }
-
     /// <summary>
     /// This is constructor for AdditionNewUserPage.
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
-    public AdditionNewUserPage(IWebDriver browser)
-    {
-      PageFactory.InitElements(browser, this);
-      Browser = browser;
-    }
+    public AdditionNewUserPage(IWebDriver browser) : base(browser) { }
 
     /// <summary>
     /// This method sets new user's login.
@@ -119,15 +111,6 @@ namespace WordPress.Pages
     public void SubmitNewUserAdding()
     {
       Browser.FindElement(addNewUserButtonBy).Click();
-    }
-
-    /// <summary>
-    /// This method gets url of the page.
-    /// </summary>
-    /// <returns> Url of the page </returns>
-    public string GetUrl()
-    {
-      return Browser.Url;
     }
   }
 }

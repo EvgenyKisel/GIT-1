@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
 using System;
 
 namespace WordPress.Pages
@@ -7,7 +6,7 @@ namespace WordPress.Pages
   /// <summary>
   /// This is class for login page.
   /// </summary>
-  public class LoginPage
+  public class LoginPage : BasePage
   {
     private static readonly string URL_LOGIN_PAGE = "http://localhost:8080/wp-login.php";
 
@@ -16,8 +15,8 @@ namespace WordPress.Pages
     private By logInButtonBy = By.XPath("//input[@type='submit']");
     private By rememberMeCheckBoxBy = By.CssSelector("#rememberme");
     private By logInErrorBy = By.XPath("//div[@id='login_error']");
+    private By messageBy = By.CssSelector(".message");
 
-    public IWebDriver Browser { get; private set; }
     public User CurrentUser { get; private set; }
 
     /// <summary>
@@ -25,10 +24,8 @@ namespace WordPress.Pages
     /// </summary>
     /// <param name="browser"> Driver, with wich works </param>
     /// <param name="user"> Current user </param>
-    public LoginPage(IWebDriver browser, User user)
+    public LoginPage(IWebDriver browser, User user) : base(browser)
     {
-      PageFactory.InitElements(browser, this);
-      Browser = browser;
       CurrentUser = user;
     }
 
@@ -68,7 +65,7 @@ namespace WordPress.Pages
     /// This method pushes login button.
     /// </summary>
     /// <returns> Home page corresponding to the user </returns>
-    public object PushLogInButton()
+    public HomePage PushLogInButton()
     {
       Browser.FindElement(logInButtonBy).Click();
       switch (CurrentUser.UserRole)
@@ -89,21 +86,21 @@ namespace WordPress.Pages
     }
 
     /// <summary>
-    /// This method gets url of the page.
-    /// </summary>
-    /// <returns> Url of the page </returns>
-    public string GetUrl()
-    {
-      return Browser.Url;
-    }
-
-    /// <summary>
     /// This method catches login error.
     /// </summary>
     /// <returns> Error message </returns>
-    public string CatchLoginError()
+    public string CatchLoginErrorIfPresence()
     {
       return Browser.FindElement(logInErrorBy).Text;
+    }
+
+    /// <summary>
+    /// This method gets action information.
+    /// </summary>
+    /// <returns> Message </returns>
+    public string GetInfirmationWindowMessage()
+    {
+      return Browser.FindElement(messageBy).Text;
     }
   }
 }
