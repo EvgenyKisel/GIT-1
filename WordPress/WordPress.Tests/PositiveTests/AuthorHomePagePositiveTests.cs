@@ -3,7 +3,7 @@
 namespace WordPress.Tests.PositiveTests
 {
   [TestClass]
-  public class AuthorHomePageTests : HomePageTests
+  public class AuthorHomePagePositiveTests : HomePageTests
   {
     [TestInitialize]
     public void TestInitialize()

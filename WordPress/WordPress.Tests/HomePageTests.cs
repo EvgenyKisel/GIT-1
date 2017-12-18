@@ -15,7 +15,7 @@ namespace WordPress.Tests.PositiveTests
       HomePage.GoToProfileBar();
       HomePage.LogOut();
       Assert.AreEqual(URL_LOGINPAHE_PAGE_AFTER_LOGGEOUT, Browser.Url);
-      Logger.PrintLogInformation(new TestResult().LogOutput);
+      Logger.PrintLogInformation(new TestResult().TestContextMessages);
     }
   }
 }

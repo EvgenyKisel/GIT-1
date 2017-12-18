@@ -3,7 +3,7 @@
 namespace WordPress.Tests.PositiveTests
 {
   [TestClass]
-  public class SubscriberHomePageTests : HomePageTests
+  public class SubscriberHomePagePositiveTests : HomePageTests
   {
     private new readonly string URL_HOME_PAGE = "http://localhost:8080/wp-admin/profile.php";
 

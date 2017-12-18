@@ -9,6 +9,7 @@ namespace WordPress.Tests
   public abstract class BasePageTests
   {
     protected IWebDriver Browser { get; private set; }
+    protected Pages.LoginPage LoginPage { get; set; }
 
     [TestInitialize]
     public void BaseInitialize()
@@ -31,11 +32,16 @@ namespace WordPress.Tests
     /// <returns> User home page </returns>
     protected Pages.HomePage LogInAs(User user)
     {
-      Pages.LoginPage loginPage = new Pages.LoginPage(Browser, user);
-      loginPage.OpenLoginPage();
-      loginPage.InputUserName();
-      loginPage.InputPassword();
-      return loginPage.PushLogInButton();
+      if (Browser == null)
+      {
+        Browser = new ChromeDriver();
+        Browser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      }
+      LoginPage = new Pages.LoginPage(Browser, user);
+      LoginPage.OpenLoginPage();
+      LoginPage.InputUserName();
+      LoginPage.InputPassword();
+      return LoginPage.PushLogInButton();
     }
   }
 }

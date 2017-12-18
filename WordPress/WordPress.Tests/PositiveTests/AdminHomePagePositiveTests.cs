@@ -3,17 +3,17 @@
 namespace WordPress.Tests.PositiveTests
 {
   [TestClass]
-  public class EditorHomePageTests : HomePageTests
+  public class AdminHomePagePositiveTests : HomePageTests
   {
     [TestInitialize]
     public void TestInitialize()
     {
-      User user = new User("Editor", "editor", "editor@gmail.com", Role.EDITOR);
-      HomePage = LogInAs(user) as Pages.EditorHomePage;
+      User user = new User("admin", "password", "evgeny@gmail.com", Role.ADMINISTRATOR);
+      HomePage = LogInAs(user) as Pages.AdminHomePage;
     }
 
     [TestMethod]
-    public void TestHomePageUrlForEditor()
+    public void TestHomePageUrlForAdmin()
     {
       Assert.AreEqual(URL_HOME_PAGE, HomePage.GetUrl());
       Logger.PrintLogInformation(new TestResult().LogOutput);
