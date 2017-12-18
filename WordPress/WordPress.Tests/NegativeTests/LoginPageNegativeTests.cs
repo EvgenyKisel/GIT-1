@@ -1,16 +1,11 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System;
 
 namespace WordPress.Tests
 {
   [TestFixture]
-  public class LoginPageNegativeTests
+  public class LoginPageNegativeTests : BasePageTests
   {
-    private static readonly string URL_LOG_PAGE = "http://localhost:8080/wp-login.php";
-    private IWebDriver Browser { get; set; }
-    private Pages.LoginPage LoginPage { get; set; }
+    private static readonly string URL_LOGIN_PAGE = "http://localhost:8080/wp-login.php";
 
     private static readonly User[] sourceListWithInvalidUsers =
     {
@@ -22,40 +17,13 @@ namespace WordPress.Tests
        new User("Subscriber", "password", "subscriber@gmail.com", Role.SUBSCRIBER)
     };
 
-    [SetUp]
-    public void Initialize()
-    {
-      Browser = new ChromeDriver();
-      Browser.Manage().Window.Maximize();
-      Browser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-    }
-
-    [TearDown]
-    public void CleanUp()
-    {
-      Browser.Close();
-    }
-
-    /// <summary>
-    /// This method inputs user info on the site.
-    /// </summary>
-    /// <param name="user"> User </param>
-    private void LogInAs(User user)
-    {
-      LoginPage = new Pages.LoginPage(Browser, user);
-      LoginPage.OpenLoginPage();
-      LoginPage.InputUserName();
-      LoginPage.InputPassword();
-      LoginPage.PushLogInButton();
-    }
-
     [Test, TestCaseSource("sourceListWithInvalidUsers")]
     public void TestLogIn_uncorrectUserLogin_errorExpected(User sourceListWithInvalidUsers)
     {
       User user = sourceListWithInvalidUsers;
       LogInAs(user);
       Assert.AreEqual(true, LoginPage.CatchLoginErrorIfPresence().Contains("ERROR"));
-      Assert.AreEqual(URL_LOG_PAGE, Browser.Url);
+      Assert.AreEqual(URL_LOGIN_PAGE, Browser.Url);
     }
   }
 }

@@ -1,17 +1,17 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace WordPress.Tests
 {
-  [TestClass]
+  [TestFixture]
   public class UserPositiveTests
   {
-    [TestMethod]
+    [Test]
     public void UserConstructor_validUserName_successfulInitialization()
     {
       Assert.AreEqual("u-s _e@.r", new User("u-s _e@.r", "password", "email@email.com", Role.ADMINISTRATOR).UserName);
     }
 
-    [TestMethod]
+    [Test]
     public void UserConstructor_validEmail_successfulInitialization()
     {
       Assert.AreEqual("email.em-a_il@email.com", new User("user", "password", "email.em-a_il@email.com", Role.ADMINISTRATOR).Email);

@@ -1,25 +1,24 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace WordPress.Tests.PositiveTests
 {
-  [TestClass]
+  [TestFixture]
   public class ContributorHomePagePositiveTests : HomePageTests
   {
-    [TestInitialize]
+    [SetUp]
     public void TestInitialize()
     {
       User user = new User("Contributor", "contributor", "contributor@gmail.com", Role.CONTRIBUTOR);
       HomePage = LogInAs(user) as Pages.ContributorHomePage;
     }
 
-    [TestMethod]
+    [Test]
     public void TestHomePageUrlForContributor()
     {
       Assert.AreEqual(URL_HOME_PAGE, HomePage.GetUrl());
-      Logger.PrintLogInformation(new TestResult().LogOutput);
     }
 
-    [TestMethod]
+    [Test]
     public void TestContributorLogOut()
     {
       TestCorrectLogOut();

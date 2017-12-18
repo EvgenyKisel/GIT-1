@@ -1,8 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace WordPress.Tests.PositiveTests
 {
-  [TestClass]
+  [TestFixture]
   public abstract class HomePageTests : BasePageTests
   {
     protected static readonly string URL_HOME_PAGE = "http://localhost:8080/wp-admin/";
@@ -17,7 +17,6 @@ namespace WordPress.Tests.PositiveTests
       HomePage.GoToProfileBar();
       HomePage.LogOut();
       Assert.AreEqual(URL_LOGINPAHE_PAGE_AFTER_LOGGEOUT, Browser.Url);
-      Logger.PrintLogInformation(new TestResult().TestContextMessages);
     }
   }
 }

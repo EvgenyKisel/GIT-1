@@ -66,7 +66,7 @@ namespace WordPress.Pages
     public CommonViewPage ViewPost(string postNameForView)
     {
       new Actions(Browser).MoveToElement(Browser.FindElement(By.XPath(String.Format(pathToPost, postNameForView)))).Perform();
-      By viewButtonBy = By.XPath(String.Format(pathToEditPostButton, postNameForView));
+      By viewButtonBy = By.XPath(String.Format(pathToViewPostButton, postNameForView));
       new WebDriverWait(Browser, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(viewButtonBy));
       Browser.FindElement(viewButtonBy).Click();
       return new CommonViewPage(Browser);

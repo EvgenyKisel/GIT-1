@@ -23,7 +23,7 @@ namespace WordPress.Tests
     [Test, TestCaseSource("sourceListWithInvalidEmails")]
     public void UserConstructor_invalidEmail_expectedErrors(string sourceListWithInvalidEmails)
     {
-      Assert.Throws<FormatException>(()=> new User("user", "password", sourceListWithInvalidEmails, Role.ADMINISTRATOR));
+      Assert.Throws<FormatException>(() => new User("user", "password", sourceListWithInvalidEmails, Role.ADMINISTRATOR));
     }
 
     [Test, TestCaseSource("sourceListWithInvalidNames")]

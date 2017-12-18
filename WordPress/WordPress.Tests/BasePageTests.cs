@@ -1,17 +1,17 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace WordPress.Tests
 {
-  [TestClass]
+  [TestFixture]
   public abstract class BasePageTests
   {
     protected IWebDriver Browser { get; private set; }
     protected Pages.LoginPage LoginPage { get; set; }
 
-    [TestInitialize]
+    [SetUp]
     public void BaseInitialize()
     {
       Browser = new ChromeDriver();
@@ -19,7 +19,7 @@ namespace WordPress.Tests
       Browser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
     }
 
-    [TestCleanup]
+    [TearDown]
     public void TestCleanup()
     {
       Browser.Close();
