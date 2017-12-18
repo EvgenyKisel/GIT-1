@@ -1,37 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System;
 
 namespace WordPress.Tests.PositiveTests
 {
   [TestClass]
-  public class HomePageTests
+  public abstract class HomePageTests : BasePageTests
   {
+    protected static readonly string URL_HOME_PAGE = "http://localhost:8080/wp-admin/";
     private static readonly string URL_LOGINPAHE_PAGE_AFTER_LOGGEOUT = "http://localhost:8080/wp-login.php?loggedout=true";
-    private IWebDriver Browser { get; set; }
-    private Pages.AdminHomePage HomePage { get; set; }
-    private Pages.LoginPage LoginPage { get; set; }
-
-    [TestInitialize]
-    public void TestInitialize()
-    {
-      Browser = new ChromeDriver();
-      Browser.Manage().Window.Maximize();
-      Browser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-      User user = new User("admin", "password", "evgeny@gmail.com", Role.ADMINISTRATOR);
-      LoginPage = new Pages.LoginPage(Browser, user);
-      LoginPage.OpenLoginPage();
-      LoginPage.InputUserName();
-      LoginPage.InputPassword();
-      HomePage = (Pages.AdminHomePage)LoginPage.PushLogInButton();
-    }
-
-    [TestCleanup]
-    public void TestCleanup()
-    {
-      Browser.Close();
-    }
+    protected Pages.HomePage HomePage { get; set; }
 
     [TestMethod]
     public void TestCorrectLogOut()

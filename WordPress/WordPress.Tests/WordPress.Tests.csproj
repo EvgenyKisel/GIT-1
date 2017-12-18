@@ -68,6 +68,7 @@
     <Compile Include="PositiveTests\AuthorHomePageTests.cs" />
     <Compile Include="PositiveTests\UserPositiveTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BasePageTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
