@@ -34,10 +34,10 @@ namespace WordPress.Pages
     }
 
     /// <summary>
-    /// This method gets infrormation about inputted comment.
+    /// This method gets infrormation about some actions on the page.
     /// </summary>
-    /// <returns> conformation information </returns>
-    public string GetMessageAboutPostedComment()
+    /// <returns> Message </returns>
+    public string GetInfirmationWindowMessage()
     {
       return Browser.FindElement(messageBy).Text;
     }

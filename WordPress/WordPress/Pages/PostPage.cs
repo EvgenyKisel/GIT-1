@@ -11,6 +11,8 @@ namespace WordPress.Pages
     private By contentBy = By.XPath("//body[@id='tinymce']/p");
     private By publishButtonBy = By.XPath("//input[@type='publish']");
     private By deleteButtonBy = By.XPath("//a[@class='submitdelete deletion']");
+    private By updateAndSubmitForReviewButtonBy = By.XPath("//div[@id='publishing-action']/input[@type='submit']");
+    private By messageBy = By.XPath("//div[@id='message']/p");
 
     /// <summary>
     /// This is constructor for post page.
@@ -33,6 +35,7 @@ namespace WordPress.Pages
     /// <param name="postContent"> Post content </param>
     public void InputPostContent(string postContent)
     {
+      Browser.FindElement(contentBy).Clear();
       Browser.FindElement(contentBy).SendKeys(postContent);
     }
 
@@ -50,6 +53,23 @@ namespace WordPress.Pages
     public void DeletePost()
     {
       Browser.FindElement(deleteButtonBy).Click();
+    }
+
+    /// <summary>
+    /// This method clicks on update/submit/publish post button. Te type depends on user type.
+    /// </summary>
+    public void PushUpdatePublishSubmitPostButton()
+    {
+      Browser.FindElement(updateAndSubmitForReviewButtonBy).Click();
+    }
+
+    /// <summary>
+    /// This method gets action information.
+    /// </summary>
+    /// <returns> Message </returns>
+    public string GetInfirmationWindowMessage()
+    {
+      return Browser.FindElement(messageBy).Text;
     }
   }
 }

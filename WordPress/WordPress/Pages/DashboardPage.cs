@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using System;
 
 namespace WordPress.Pages
 {
@@ -7,7 +8,7 @@ namespace WordPress.Pages
   /// </summary>
   public class DashboardPage : BasePage
   {
-    private By postButtonBy = By.XPath("//div[@id='published-posts']//li[1]/a");
+    private string pathToPost = "//div[@id='published-posts']//li[1]/a[contains(text(), '{0}')]";
 
     /// <summary>
     /// This is constructor for DashboardPage.
@@ -18,9 +19,10 @@ namespace WordPress.Pages
     /// <summary>
     /// This method goes to post.
     /// </summary>
-    public CommonViewPage GoToPost()
+    public CommonViewPage GoToPost(string postName)
     {
-      Browser.FindElement(postButtonBy).Click();
+      By postBy = By.XPath(String.Format(pathToPost, postName));
+      Browser.FindElement(postBy).Click();
       return new CommonViewPage(Browser);
     }
   }

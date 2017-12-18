@@ -7,7 +7,8 @@ namespace WordPress.Pages
   /// </summary>
   public class EditorHomePage : HomePage
   {
-    private By postsBy = By.XPath("//li[@class='post-count']/a");
+    private By postsBy = By.XPath("//div[contains(text(), 'Posts')]");
+    private By commentsBy = By.XPath("//div[contains(text(), 'Comments')]");
 
     /// <summary>
     /// This is constructor for editor home page.
@@ -22,6 +23,15 @@ namespace WordPress.Pages
     {
       Browser.FindElement(postsBy).Click();
       return new EditPostPage(Browser);
+    }
+
+    /// <summary>
+    /// This method clicks on comments button.
+    /// </summary>
+    public CommentsPage PushCommentsButton()
+    {
+      Browser.FindElement(commentsBy).Click();
+      return new CommentsPage(Browser);
     }
   }
 }

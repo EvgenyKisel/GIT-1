@@ -14,7 +14,7 @@ namespace WordPress.Pages
     private By messageBy = By.XPath("//div[@id='message']/p");
     private By confirmDeletionButtonBy = By.CssSelector("#submit");
     private string pathToUser = "//td[@data-colname='Username']//a[contains(text(), '{0}')]";
-    private string pathToDeleteButton = "//td[@data-colname='Username']//a[contains(text(), '{0}')]/../..//span[@class='delete']/a";
+    private string pathToDeleteButton = "//td[@data-colname='Username']//a[contains(text(), '{0}')]/ancestor::td//span[@class='delete']/a";
 
     /// <summary>
     /// This is constructor for AdminHomePage.
