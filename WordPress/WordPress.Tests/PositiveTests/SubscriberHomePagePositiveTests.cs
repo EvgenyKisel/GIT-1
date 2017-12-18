@@ -20,5 +20,11 @@ namespace WordPress.Tests.PositiveTests
       Assert.AreEqual(URL_HOME_PAGE, HomePage.GetUrl());
       Logger.PrintLogInformation(new TestResult().LogOutput);
     }
+
+    [TestMethod]
+    public void TestSubscriberLogOut()
+    {
+      TestCorrectLogOut();
+    }
   }
 }

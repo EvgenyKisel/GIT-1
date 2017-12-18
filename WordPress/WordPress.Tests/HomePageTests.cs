@@ -9,8 +9,10 @@ namespace WordPress.Tests.PositiveTests
     private static readonly string URL_LOGINPAHE_PAGE_AFTER_LOGGEOUT = "http://localhost:8080/wp-login.php?loggedout=true";
     protected Pages.HomePage HomePage { get; set; }
 
-    [TestMethod]
-    public void TestCorrectLogOut()
+    /// <summary>
+    /// This method exits from current user profile.
+    /// </summary>
+    protected void TestCorrectLogOut()
     {
       HomePage.GoToProfileBar();
       HomePage.LogOut();
