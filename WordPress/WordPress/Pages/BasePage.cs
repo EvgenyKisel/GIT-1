@@ -10,9 +10,9 @@ namespace WordPress.Pages
   /// </summary>
   public class BasePage
   {
-    private static By profileBarBy = By.XPath("//*[@id='wp-admin-bar-my-account']/a");
-    private static By logOutBy = By.XPath("//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
-    private static By usersBy = By.XPath("//div[contains(text(), 'Users')]");
+    private By profileBarBy = By.XPath("//*[@id='wp-admin-bar-my-account']/a");
+    private By logOutBy = By.XPath("//*[@id='wp-admin-bar-logout']/a[contains(text(),'Log Out')]");
+    private By usersBy = By.XPath("//div[contains(text(), 'Users')]");
 
     public IWebDriver Browser { get; set; }
 

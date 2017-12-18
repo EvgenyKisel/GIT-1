@@ -11,12 +11,12 @@ namespace WordPress.Pages
   {
     private static readonly string URL_INSTALL_PAGE = "http://localhost:8080/wp-admin/install.php";
 
-    private static By siteTitleBy = By.XPath("//input[@name='weblog_title']");
-    private static By userNameBy = By.XPath("//input[@name ='user_name']");
-    private static By passwordBy = By.CssSelector("[type=password]");
-    private static By emailBy = By.XPath("//input[contains(@name,'email')]");
-    private static By privacyCheckBoxBy = By.XPath("//input[@type='checkbox']");
-    private static By installButtonBy = By.XPath("//input[@type='submit']");
+    private By siteTitleBy = By.XPath("//input[@name='weblog_title']");
+    private By userNameBy = By.XPath("//input[@name ='user_name']");
+    private By passwordBy = By.CssSelector("[type=password]");
+    private By emailBy = By.XPath("//input[contains(@name,'email')]");
+    private By privacyCheckBoxBy = By.XPath("//input[@type='checkbox']");
+    private By installButtonBy = By.XPath("//input[@type='submit']");
 
     public IWebDriver Browser { get; private set; }
     public IWebElement WebElement { get; private set; }

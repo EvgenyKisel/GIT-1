@@ -9,9 +9,9 @@ namespace WordPress.Pages
   {
     public IWebDriver Browser { get; private set; }
     
-    private static By commentBy = By.XPath("//textarea[@id='comment']");
-    private static By submitCommentButtonBy = By.XPath("//input[@id='submit']");
-    private static By messageBy = By.ClassName("comment-awaiting-moderation");
+    private By commentBy = By.XPath("//textarea[@id='comment']");
+    private By submitCommentButtonBy = By.XPath("//input[@id='submit']");
+    private By messageBy = By.ClassName("comment-awaiting-moderation");
 
     /// <summary>
     /// This is constructor for CommonViewPage.

@@ -19,12 +19,12 @@ namespace WordPress.Tests.PositiveTests
       Browser = new ChromeDriver();
       Browser.Manage().Window.Maximize();
       Browser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-      User user = new Objects.Author("Contributor", "contributor", "contributor@gmail.com");
-      ContributorLoginPage loginPage = new ContributorLoginPage(Browser, user);
+      User user = new User("Contributor", "contributor", "contributor@gmail.com", Role.CONTRIBUTOR);
+      Pages.LoginPage loginPage = new Pages.LoginPage(Browser, user);
       loginPage.OpenLoginPage();
       loginPage.InputUserName();
       loginPage.InputPassword();
-      HomePage = loginPage.PushLogInButton();
+      HomePage = (Pages.ContributorHomePage)loginPage.PushLogInButton();
     }
 
     [TestCleanup]
@@ -37,7 +37,7 @@ namespace WordPress.Tests.PositiveTests
     public void TestCorrectURLofContributorHomePage()
     {
       Assert.AreEqual(URL_HOME_PAGE, HomePage.GetUrl());
-      Logger.PrintLogInformation("Correct url of contributor home page.");
+      Logger.PrintLogInformation(new TestResult().LogOutput);
     }
   }
 }

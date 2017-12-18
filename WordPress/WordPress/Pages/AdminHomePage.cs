@@ -8,7 +8,7 @@ namespace WordPress.Pages
   /// </summary>
   public class AdminHomePage : BasePage
   {
-    private static By usersBy = By.XPath("//div[contains(text(), 'Users')]");
+    private By usersBy = By.XPath("//div[contains(text(), 'Users')]");
 
     /// <summary>
     /// This is constructor for AdminHomePage.

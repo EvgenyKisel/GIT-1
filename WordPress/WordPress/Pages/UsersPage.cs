@@ -50,7 +50,7 @@ namespace WordPress.Pages
     /// <summary>
     /// This method deletes user.
     /// </summary>
-    /// <param name="userNameForDeletion"> inputted name </param>
+    /// <param name="userNameForDeletion"> Inputted name </param>
     public void DeleteUser(string userNameForDeletion)
     {
       new Actions(Browser).MoveToElement(Browser.FindElement(By.XPath(String.Format(pathToUser, userNameForDeletion)))).Perform();
@@ -64,7 +64,7 @@ namespace WordPress.Pages
     /// This method gets action information.
     /// </summary>
     /// <returns> Message </returns>
-    public string GetInfirmation()
+    public string GetInfirmationWindowMessage()
     {
       return Browser.FindElement(messageBy).Text;
     }

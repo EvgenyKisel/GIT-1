@@ -7,10 +7,10 @@ namespace WordPress.Pages
   /// </summary>
   public class PostPage
   {
-    private static By titleBy = By.CssSelector("#title");
-    private static By contentBy = By.XPath("//body[@id='tinymce']/p");
-    private static By publishButtonBy = By.XPath("//input[@type='publish']");
-    private static By deleteButtonBy = By.XPath("//a[@class='submitdelete deletion']");
+    private By titleBy = By.CssSelector("#title");
+    private By contentBy = By.XPath("//body[@id='tinymce']/p");
+    private By publishButtonBy = By.XPath("//input[@type='publish']");
+    private By deleteButtonBy = By.XPath("//a[@class='submitdelete deletion']");
 
     public IWebDriver Browser { get; private set; }
 

@@ -7,7 +7,7 @@ namespace WordPress.Pages
   /// </summary>
   public class DashboardPage
   {
-    private static By postButtonBy = By.XPath("//div[@id='published-posts']//li[1]/a");
+    private By postButtonBy = By.XPath("//div[@id='published-posts']//li[1]/a");
 
     public IWebDriver Browser { get; private set; }
 

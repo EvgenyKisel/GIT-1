@@ -19,12 +19,12 @@ namespace WordPress.Tests.PositiveTests
       Browser = new ChromeDriver();
       Browser.Manage().Window.Maximize();
       Browser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-      User user = new Objects.Author("Subscriber", "subscriber", "subscriber@gmail.com");
-      SubscriberLoginPage loginPage = new SubscriberLoginPage(Browser, user);
+      User user = new User("Subscriber", "subscriber", "subscriber@gmail.com", Role.SUBSCRIBER);
+      Pages.LoginPage loginPage = new Pages.LoginPage(Browser, user);
       loginPage.OpenLoginPage();
       loginPage.InputUserName();
       loginPage.InputPassword();
-      HomePage = loginPage.PushLogInButton();
+      HomePage = (Pages.SubscriberHomePage)loginPage.PushLogInButton();
     }
 
     [TestCleanup]
@@ -37,7 +37,7 @@ namespace WordPress.Tests.PositiveTests
     public void TestCorrectURLofSubscriberHomePage()
     {
       Assert.AreEqual(URL_HOME_PAGE, HomePage.GetUrl());
-      Logger.PrintLogInformation("Correct url of subscriber home page.");
+      Logger.PrintLogInformation(new TestResult().LogOutput);
     }
   }
 }

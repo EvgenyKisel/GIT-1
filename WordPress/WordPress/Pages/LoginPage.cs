@@ -11,11 +11,11 @@ namespace WordPress.Pages
   {
     private static readonly string URL_LOGIN_PAGE = "http://localhost:8080/wp-login.php";
 
-    private static By userNameBy = By.CssSelector("#user_login");
-    private static By passwordBy = By.CssSelector("#user_pass");
-    private static By logInButtonBy = By.XPath("//input[@type='submit']");
-    private static By rememberMeCheckBoxBy = By.CssSelector("#rememberme");
-    private static By logInErrorBy = By.XPath("//div[@id='login_error']");
+    private By userNameBy = By.CssSelector("#user_login");
+    private By passwordBy = By.CssSelector("#user_pass");
+    private By logInButtonBy = By.XPath("//input[@type='submit']");
+    private By rememberMeCheckBoxBy = By.CssSelector("#rememberme");
+    private By logInErrorBy = By.XPath("//div[@id='login_error']");
 
     public IWebDriver Browser { get; private set; }
     public User CurrentUser { get; private set; }

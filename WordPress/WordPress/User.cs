@@ -34,14 +34,11 @@ namespace WordPress
       }
       set
       {
-        if (Regex.IsMatch(value, "[0-9a-zA-Z.-_@ ]+"))
-        {
-          userName = value;
-        }
-        else
+        if (!Regex.IsMatch(value, "[0-9a-zA-Z.-_@ ]+"))
         {
           throw new FormatException();
         }
+        userName = value;
       }
     }
 
@@ -56,14 +53,11 @@ namespace WordPress
       }
       set
       {
-        if (Regex.IsMatch(value, "[0-9a-zA-Z.-_]+@[a-zA-Z.]+"))
-        {
-          email = value;
-        }
-        else
+        if (!Regex.IsMatch(value, "[0-9a-zA-Z.-_]+@[a-zA-Z]+.[a-zA-Z]"))
         {
           throw new FormatException();
         }
+        email = value;
       }
     }
 

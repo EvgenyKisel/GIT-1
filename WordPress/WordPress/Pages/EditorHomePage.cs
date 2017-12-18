@@ -8,7 +8,7 @@ namespace WordPress.Pages
   /// </summary>
   public class EditorHomePage : BasePage
   {
-    private static By postsBy = By.XPath("//li[@class='post-count']/a");
+    private By postsBy = By.XPath("//li[@class='post-count']/a");
 
     /// <summary>
     /// This is constructor for editor home page.

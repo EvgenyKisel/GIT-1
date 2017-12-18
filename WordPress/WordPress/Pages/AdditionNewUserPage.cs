@@ -10,14 +10,14 @@ namespace WordPress.Pages
   public class AdditionNewUserPage
   {
     //http://localhost:8080/wp-admin/user-new.php
-    private static By newUserLoginBy = By.CssSelector("#user_login");
-    private static By newUserEmailBy = By.CssSelector("#email");
-    private static By showPasswordButtonBy = By.XPath("//button[contains(text(), 'Show password')]");
-    private static By newUserPasswordBy = By.CssSelector("#pass1-text");
-    private static By weakPasswordConformationCheckBoxBy = By.CssSelector(".pw-checkbox");
-    private static By newUserRoleSelectorBy = By.CssSelector("#role");
-    private static By newUserRolesBy = By.XPath("//select[@name='role']/option");
-    private static By addNewUserButtonBy = By.XPath("//input[@type='submit']");
+    private By newUserLoginBy = By.CssSelector("#user_login");
+    private By newUserEmailBy = By.CssSelector("#email");
+    private By showPasswordButtonBy = By.XPath("//button[contains(text(), 'Show password')]");
+    private By newUserPasswordBy = By.CssSelector("#pass1-text");
+    private By weakPasswordConformationCheckBoxBy = By.CssSelector(".pw-checkbox");
+    private By newUserRoleSelectorBy = By.CssSelector("#role");
+    private By newUserRolesBy = By.XPath("//select[@name='role']/option");
+    private By addNewUserButtonBy = By.XPath("//input[@type='submit']");
 
     public IWebDriver Browser { get; private set; }
 

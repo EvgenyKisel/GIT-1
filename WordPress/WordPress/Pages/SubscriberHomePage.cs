@@ -8,7 +8,7 @@ namespace WordPress.Pages
   /// </summary>
   public class SubscriberHomePage : BasePage
   {
-    private static By dashboardBy = By.XPath("//li[@id='menu - dashboard']");
+    private By dashboardBy = By.XPath("//li[@id='menu - dashboard']");
     
     /// <summary>
     /// This is constructor for AdminHomePage.

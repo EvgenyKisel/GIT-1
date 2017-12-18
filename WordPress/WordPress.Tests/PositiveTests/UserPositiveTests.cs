@@ -3,18 +3,18 @@
 namespace WordPress.Tests
 {
   [TestClass]
-  public class UserObjectPositiveTests
+  public class UserPositiveTests
   {
     [TestMethod]
     public void UserConstructor_validUserName_successfulInitialization()
     {
-      Assert.AreEqual("u-s _e@.r", new Objects.Author("u-s _e@.r", "password", "email@email.com").UserName);
+      Assert.AreEqual("u-s _e@.r", new User("u-s _e@.r", "password", "email@email.com", Role.ADMINISTRATOR).UserName);
     }
 
     [TestMethod]
     public void UserConstructor_validEmail_successfulInitialization()
     {
-      Assert.AreEqual("email.em-a_il@email.com", new Objects.Author("user", "password", "email.em-a_il@email.com").Email);
+      Assert.AreEqual("email.em-a_il@email.com", new User("user", "password", "email.em-a_il@email.com", Role.ADMINISTRATOR).Email);
     }
   }
 }

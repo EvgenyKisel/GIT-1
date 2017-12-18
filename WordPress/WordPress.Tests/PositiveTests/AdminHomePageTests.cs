@@ -10,7 +10,7 @@ namespace WordPress.Tests.PositiveTests
   {
     private static readonly string URL_HOME_PAGE = "http://localhost:8080/wp-admin/";
     private IWebDriver Browser { get; set; }
-    private Pages.BasePage HomePage { get; set; }
+    private Pages.AdminHomePage HomePage { get; set; }
 
     [TestInitialize]
     public void TestInitialize()
@@ -19,12 +19,12 @@ namespace WordPress.Tests.PositiveTests
       Browser = new ChromeDriver();
       Browser.Manage().Window.Maximize();
       Browser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-      User user = new Objects.Admin();
-      LoginPage loginPage = new LoginPage(Browser, user);
+      User user = new User("admin", "password", "evgeny@gmail.com", Role.ADMINISTRATOR);
+      Pages.LoginPage loginPage = new Pages.LoginPage(Browser, user);
       loginPage.OpenLoginPage();
       loginPage.InputUserName();
       loginPage.InputPassword();
-      HomePage = loginPage.PushLogInButton();
+      HomePage  = (Pages.AdminHomePage)loginPage.PushLogInButton();
     }
 
     [TestCleanup]
