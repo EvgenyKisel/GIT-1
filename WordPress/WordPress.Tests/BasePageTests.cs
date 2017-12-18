@@ -32,11 +32,6 @@ namespace WordPress.Tests
     /// <returns> User home page </returns>
     protected Pages.HomePage LogInAs(User user)
     {
-      if (Browser == null)
-      {
-        Browser = new ChromeDriver();
-        Browser.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-      }
       LoginPage = new Pages.LoginPage(Browser, user);
       LoginPage.OpenLoginPage();
       LoginPage.InputUserName();
