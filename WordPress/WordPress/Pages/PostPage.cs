@@ -9,9 +9,8 @@ namespace WordPress.Pages
   {
     private By titleBy = By.CssSelector("#title");
     private By contentBy = By.XPath("//body[@id='tinymce']/p");
-    private By publishButtonBy = By.XPath("//input[@type='publish']");
     private By deleteButtonBy = By.XPath("//a[@class='submitdelete deletion']");
-    private By updateAndSubmitForReviewButtonBy = By.XPath("//div[@id='publishing-action']/input[@type='submit']");
+    private By publishUpdateAndSubmitForReviewButtonBy = By.XPath("//div[@id='publishing-action']/input[@type='submit']");
     private By messageBy = By.XPath("//div[@id='message']/p");
 
     /// <summary>
@@ -35,16 +34,17 @@ namespace WordPress.Pages
     /// <param name="postContent"> Post content </param>
     public void InputPostContent(string postContent)
     {
-      Browser.FindElement(contentBy).Clear();
-      Browser.FindElement(contentBy).SendKeys(postContent);
+      IWebElement postContentElement = Browser.FindElement(contentBy);
+      postContentElement.Clear();
+      postContentElement.SendKeys(postContent);
     }
 
     /// <summary>
     /// This method clicks on publish button.
     /// </summary>
-    public void PushPublishButton()
+    public void ClickPublishButton()
     {
-      Browser.FindElement(publishButtonBy).Click();
+      Browser.FindElement(publishUpdateAndSubmitForReviewButtonBy).Click();
     }
 
     /// <summary>
@@ -56,11 +56,11 @@ namespace WordPress.Pages
     }
 
     /// <summary>
-    /// This method clicks on update/submit/publish post button. Te type depends on user type.
+    /// This method clicks on update/submit/publish post button. The type depends on user type.
     /// </summary>
-    public void PushUpdatePublishSubmitPostButton()
+    public void ClickUpdatePublishSubmitPostButton()
     {
-      Browser.FindElement(updateAndSubmitForReviewButtonBy).Click();
+      Browser.FindElement(publishUpdateAndSubmitForReviewButtonBy).Click();
     }
 
     /// <summary>

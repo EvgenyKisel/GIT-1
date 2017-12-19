@@ -59,15 +59,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminActionsTests.cs" />
+    <Compile Include="PositiveTests\AuthorTests\AuthorActionsPositiveTests.cs" />
+    <Compile Include="PositiveTests\AuthorTests\AuthorActionsTests.cs" />
+    <Compile Include="PositiveTests\AdminTests\AdminActionsTests.cs" />
     <Compile Include="NegativeTests\UserNegativeTests.cs" />
-    <Compile Include="PositiveTests\AdminActionsPositiveTests.cs" />
+    <Compile Include="PositiveTests\AdminTests\AdminActionsPositiveTests.cs" />
     <Compile Include="PositiveTests\EditorHomePagePositiveTests.cs" />
     <Compile Include="HomePageTests.cs" />
     <Compile Include="PositiveTests\SubscriberHomePagePositiveTests.cs" />
     <Compile Include="PositiveTests\ContributorHomePagePositiveTests.cs" />
-    <Compile Include="PositiveTests\AdminHomePagePositiveTests.cs" />
-    <Compile Include="PositiveTests\AuthorHomePagePositiveTests.cs" />
+    <Compile Include="PositiveTests\AdminTests\AdminHomePagePositiveTests.cs" />
+    <Compile Include="PositiveTests\AuthorTests\AuthorHomePagePositiveTests.cs" />
     <Compile Include="PositiveTests\UserConstructorPositiveTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BasePageTests.cs" />
