@@ -1,5 +1,7 @@
 ﻿using OpenQA.Selenium;
-using System.Collections.ObjectModel;
+using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace WordPress.Pages
 {
@@ -14,7 +16,11 @@ namespace WordPress.Pages
     private By newUserPasswordBy = By.CssSelector("#pass1-text");
     private By weakPasswordConformationCheckBoxBy = By.CssSelector(".pw-checkbox");
     private By newUserRoleSelectorBy = By.CssSelector("#role");
-    private By newUserRolesBy = By.XPath("//select[@name='role']/option");
+    private By newUserSubscriberRoleBy = By.XPath("//select[@name='role']/option[contains(@value, 'subscriber')]");
+    private By newUserContributorRoleBy = By.XPath("//select[@name='role']/option[contains(@value, 'contributor')]");
+    private By newUserAuthorRoleBy = By.XPath("//select[@name='role']/option[contains(@value, 'author')]");
+    private By newUserEditorRoleBy = By.XPath("//select[@name='role']/option[contains(@value, 'editor')]");
+    private By newUserAdministratorRoleBy = By.XPath("//select[@name='role']/option[contains(@value, 'administrator')]");
     private By addNewUserButtonBy = By.XPath("//input[@type='submit']");
 
     /// <summary>
@@ -71,6 +77,7 @@ namespace WordPress.Pages
     /// </summary>
     public void GoToUserRoleSelector()
     {
+      new Actions(Browser).MoveToElement(Browser.FindElement(newUserRoleSelectorBy)).Perform();
       Browser.FindElement(newUserRoleSelectorBy).Click();
     }
 
@@ -80,23 +87,23 @@ namespace WordPress.Pages
     /// <param name="newUserRole"> User role </param>
     public void SetNewUserRole(Role role)
     {
-      ReadOnlyCollection<IWebElement> userRoles = Browser.FindElements(newUserRolesBy);
+      new WebDriverWait(Browser, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(newUserAdministratorRoleBy));
       switch (role)
       {
         case Role.SUBSCRIBER:
-          userRoles[1].Click();
+          Browser.FindElement(newUserSubscriberRoleBy).Click();
           break;
         case Role.CONTRIBUTOR:
-          userRoles[2].Click();
+          Browser.FindElement(newUserContributorRoleBy).Click();
           break;
         case Role.AUTHOR:
-          userRoles[3].Click();
+          Browser.FindElement(newUserAuthorRoleBy).Click();
           break;
         case Role.EDITOR:
-          userRoles[4].Click();
+          Browser.FindElement(newUserEditorRoleBy).Click();
           break;
         case Role.ADMINISTRATOR:
-          userRoles[5].Click();
+          Browser.FindElement(newUserAdministratorRoleBy).Click();
           break;
         default:
           Logger.GetLoggerInstance();

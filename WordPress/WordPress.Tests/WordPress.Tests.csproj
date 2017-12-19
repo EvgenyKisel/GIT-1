@@ -59,7 +59,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminActionsTests.cs" />
     <Compile Include="NegativeTests\UserNegativeTests.cs" />
+    <Compile Include="PositiveTests\AdminActionsPositiveTests.cs" />
     <Compile Include="PositiveTests\EditorHomePagePositiveTests.cs" />
     <Compile Include="HomePageTests.cs" />
     <Compile Include="PositiveTests\SubscriberHomePagePositiveTests.cs" />
