@@ -7,7 +7,7 @@ namespace WordPress.Tests.PositiveTests
   {
     private Pages.CommonViewPage CommonViewPage { get; set; }
     private static readonly string postTitle = "Hello world!";
-    private static readonly string commentPost = "testcontent";
+    private static readonly string commentPost = "testcontent1";
 
     [Test]
     public void TestSubscriberAbilityToAddComments()

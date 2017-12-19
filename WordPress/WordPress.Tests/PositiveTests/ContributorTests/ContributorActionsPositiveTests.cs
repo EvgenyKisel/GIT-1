@@ -8,8 +8,8 @@ namespace WordPress.Tests.PositiveTests
     private Pages.CommonViewPage CommonViewPage { get; set; }
     private Pages.PostPage PostPage { get; set; }
     private static readonly string postTitle = "Hello world!";
-    private static readonly string commentPost = "testcontentbycontributor";
-    private static readonly string newPostTitle = "contributortesttitle";
+    private static readonly string commentPost = "testcontentbycontributor1";
+    private static readonly string newPostTitle = "contributortesttitle1";
     //private static readonly string newPostContent = "testcontent";
 
     [Test]

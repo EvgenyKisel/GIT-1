@@ -6,7 +6,7 @@ namespace WordPress.Tests.PositiveTests
   public class SubscriberHomePagePositiveTests : HomePageTests
   {
     private new readonly string URL_HOME_PAGE = "http://localhost:8080/wp-admin/profile.php";
-    protected static readonly string URL_DASHBOARD_PAGE = "http://localhost:8080/wp-admin/index.php";
+    private static readonly string URL_DASHBOARD_PAGE = "http://localhost:8080/wp-admin/index.php";
 
     [SetUp]
     public void TestInitialize()

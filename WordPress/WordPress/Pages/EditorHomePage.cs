@@ -19,7 +19,7 @@ namespace WordPress.Pages
     /// <summary>
     /// This method clicks on posts button.
     /// </summary>
-    public EditPostPage PushPostsButton()
+    public EditPostPage GoToPosts()
     {
       Browser.FindElement(postsBy).Click();
       return new EditPostPage(Browser);
@@ -28,7 +28,7 @@ namespace WordPress.Pages
     /// <summary>
     /// This method clicks on comments button.
     /// </summary>
-    public CommentsPage PushCommentsButton()
+    public CommentsPage GoToComments()
     {
       Browser.FindElement(commentsBy).Click();
       return new CommentsPage(Browser);
