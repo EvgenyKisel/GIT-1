@@ -5,7 +5,7 @@ namespace WordPress.Tests.PositiveTests
   [TestFixture]
   public class AdminHomePagePositiveTests : HomePageTests
   {
-    protected static readonly string URL_USERS_PAGE = "http://localhost:8080/wp-admin/users.php";
+    private static readonly string URL_USERS_PAGE = "http://localhost:8080/wp-admin/users.php";
 
     [SetUp]
     public void TestInitialize()
@@ -21,7 +21,7 @@ namespace WordPress.Tests.PositiveTests
     }
 
     [Test]
-    public void TestAdminAbilityGoToUsers()
+    public void TestAdminAbilityToGoToUsers()
     {
       Pages.AdminHomePage AdminHomePage = HomePage as Pages.AdminHomePage;
       AdminHomePage.GoToUsers();

@@ -5,7 +5,7 @@ namespace WordPress.Tests.PositiveTests
   [TestFixture]
   public class AuthorHomePagePositiveTests : HomePageTests
   {
-    protected static readonly string URL_POSTS_PAGE = "http://localhost:8080/wp-admin/edit.php?post_type=post";
+    private static readonly string URL_POSTS_PAGE = "http://localhost:8080/wp-admin/edit.php?post_type=post";
 
     [SetUp]
     public void TestInitialize()
@@ -27,7 +27,7 @@ namespace WordPress.Tests.PositiveTests
     }
 
     [Test]
-    public void TestAuthorAbilityGoToPosts()
+    public void TestAuthorAbilityToGoToPosts()
     {
       Pages.AuthorHomePage AuthorHomePage = HomePage as Pages.AuthorHomePage;
       AuthorHomePage.GoToPosts();
