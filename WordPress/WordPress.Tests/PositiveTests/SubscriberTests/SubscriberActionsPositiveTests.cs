@@ -13,7 +13,7 @@ namespace WordPress.Tests.PositiveTests
     public void TestSubscriberAbilityToAddComments()
     {
       CommonViewPage = DashboardPage.GoToPost(postTitle);
-      CommonViewPage.AddComment(commentPost);
+      CommonViewPage.InputCommentContent(commentPost);
       CommonViewPage.ClickPostCommentButton();
       Assert.AreEqual(true, CommonViewPage.FindSubscriberComment(commentPost));
     }

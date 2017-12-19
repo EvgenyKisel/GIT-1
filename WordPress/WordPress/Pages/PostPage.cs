@@ -40,14 +40,6 @@ namespace WordPress.Pages
     }
 
     /// <summary>
-    /// This method clicks on publish button.
-    /// </summary>
-    public void ClickPublishButton()
-    {
-      Browser.FindElement(publishUpdateAndSubmitForReviewButtonBy).Click();
-    }
-
-    /// <summary>
     /// This method deletes post.
     /// </summary>
     public void DeletePost()

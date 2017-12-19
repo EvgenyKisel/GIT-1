@@ -12,10 +12,10 @@ namespace WordPress.Tests.PositiveTests
     [Test]
     public void TestAuthorAbilityToAddNewPost()
     {
-      PostPage = EditPostPage.PushAddNewButton();
+      PostPage = EditPostPage.ClickAddNewButton();
       PostPage.SetPostTitle(postTitle);
      // PostPage.InputPostContent(postContent); ERROR DETECTED. WHY???
-      PostPage.ClickPublishButton();
+      PostPage.ClickUpdatePublishSubmitPostButton();
       Assert.AreEqual(true, PostPage.GetInfirmationWindowMessage().Contains("Post published"));
     }
   }

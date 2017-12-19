@@ -18,7 +18,7 @@ namespace WordPress.Pages
     /// <summary>
     /// This method clicks on posts button.
     /// </summary>
-    public EditPostPage PushPostsButton()
+    public EditPostPage GoToPosts()
     {
       Browser.FindElement(postsBy).Click();
       return new EditPostPage(Browser);

@@ -12,6 +12,7 @@ namespace WordPress.Pages
     private By postCommentButtonBy = By.XPath("//input[@id='submit']");
     private By messageBy = By.ClassName("comment-awaiting-moderation");
     private static readonly string pathToSubscriberComment = "//section[@class='comment-content comment']/p[contains(text(), '{0}')]";
+    private static readonly string pathToContributorUnapprovedComment = "//p[@class='comment-awaiting-moderation']/following-sibling::section/p[contains(text(), '{0}')]";
 
     /// <summary>
     /// This is constructor for CommonViewPage.
@@ -20,9 +21,9 @@ namespace WordPress.Pages
     public CommonViewPage(IWebDriver browser) : base(browser) { }
 
     /// <summary>
-    /// This method adds comment.
+    /// This method inputs comment content comment.
     /// </summary>
-    public void AddComment(string comment)
+    public void InputCommentContent(string comment)
     {
       Browser.FindElement(commentBy).SendKeys(comment);
     }
@@ -44,6 +45,21 @@ namespace WordPress.Pages
     {
       bool result = false;
       if(Browser.FindElement(By.XPath(String.Format(pathToSubscriberComment, comment))).Displayed)
+      {
+        result = true;
+      }
+      return result;
+    }
+
+    /// <summary>
+    /// This method searches contributor unapproved comment.
+    /// </summary>
+    /// <param name="comment"> Comment content </param>
+    /// <returns> True, if comment exists, and false, if doesn't </returns>
+    public bool FindContributorUnapprovedComment(string comment)
+    {
+      bool result = false;
+      if (Browser.FindElement(By.XPath(String.Format(pathToContributorUnapprovedComment, comment))).Displayed)
       {
         result = true;
       }

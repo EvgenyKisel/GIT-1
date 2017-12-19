@@ -11,11 +11,12 @@ namespace WordPress.Pages
   public class EditPostPage : BasePage
   {
     private By addNewButtonBy = By.XPath("//a[preceding-sibling::h1[@class='wp-heading-inline']]");
-    private string pathToPost = "//td[@data-colname='Title']//a[contains(text(), '{0}')]";
+    private string pathToPost = "//tr[contains(@id, 'post')]//strong[contains(text(), '{0}')]";
     private By messageBy = By.XPath("//div[@id='message']/p");
+    private By allPostsBy = By.XPath("//li[@class='all']/a");
     private string pathToDeletePostButton = "//a[contains(text(), '{0}')]/parent::strong/following-sibling::div[@class='row-actions']//span[@class='trash']/a";
     private string pathToEditPostButton = "//a[contains(text(), '{0}')]/parent::strong/following-sibling::div[@class='row-actions']//span[@class='edit']/a";
-    private string pathToViewPostButton = "//a[contains(text(), '{0}')]/parent::strong/following-sibling::div[@class='row-actions']//span[@class='view']/a";
+    private string pathToViewPostButton = "//tr[contains(@id, 'post')]//strong[contains(text(), '{0}')]/following-sibling::div[@class='row-actions']//span[@class='view']/a";
 
     /// <summary>
     /// This is constructor for EditPostPage.
@@ -26,10 +27,18 @@ namespace WordPress.Pages
     /// <summary>
     /// This method clicks on submit post button.
     /// </summary>
-    public PostPage PushAddNewButton()
+    public PostPage ClickAddNewButton()
     {
       Browser.FindElement(addNewButtonBy).Click();
       return new PostPage(Browser);
+    }
+
+    /// <summary>
+    /// This method clicks on all posts button.
+    /// </summary>
+    public void ClickAllPostsButton()
+    {
+      Browser.FindElement(allPostsBy).Click();
     }
 
     /// <summary>

@@ -64,12 +64,14 @@
     <Compile Include="PositiveTests\AdminTests\AdminActionsTests.cs" />
     <Compile Include="NegativeTests\UserNegativeTests.cs" />
     <Compile Include="PositiveTests\AdminTests\AdminActionsPositiveTests.cs" />
+    <Compile Include="PositiveTests\ContributorTests\ContributorActionsTests.cs" />
+    <Compile Include="PositiveTests\ContributorTests\ContributorActionsPositiveTests.cs" />
     <Compile Include="PositiveTests\EditorHomePagePositiveTests.cs" />
     <Compile Include="HomePageTests.cs" />
     <Compile Include="PositiveTests\SubscriberTests\SubscriberActionsPositiveTests.cs" />
     <Compile Include="PositiveTests\SubscriberTests\SubscriberActionsTests.cs" />
     <Compile Include="PositiveTests\SubscriberTests\SubscriberHomePagePositiveTests.cs" />
-    <Compile Include="PositiveTests\ContributorHomePagePositiveTests.cs" />
+    <Compile Include="PositiveTests\ContributorTests\ContributorHomePagePositiveTests.cs" />
     <Compile Include="PositiveTests\AdminTests\AdminHomePagePositiveTests.cs" />
     <Compile Include="PositiveTests\AuthorTests\AuthorHomePagePositiveTests.cs" />
     <Compile Include="PositiveTests\UserConstructorPositiveTests.cs" />
