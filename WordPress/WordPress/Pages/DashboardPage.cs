@@ -8,7 +8,7 @@ namespace WordPress.Pages
   /// </summary>
   public class DashboardPage : BasePage
   {
-    private string pathToPost = "//div[@id='published-posts']//li[1]/a[contains(text(), '{0}')]";
+    private string pathToPost = "//div[@id='published-posts']//a[contains(text(), '{0}')]";
 
     /// <summary>
     /// This is constructor for DashboardPage.

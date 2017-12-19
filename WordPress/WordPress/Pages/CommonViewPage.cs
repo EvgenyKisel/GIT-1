@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using System;
 
 namespace WordPress.Pages
 {
@@ -8,8 +9,9 @@ namespace WordPress.Pages
   public class CommonViewPage : BasePage
   {
     private By commentBy = By.XPath("//textarea[@id='comment']");
-    private By submitCommentButtonBy = By.XPath("//input[@id='submit']");
+    private By postCommentButtonBy = By.XPath("//input[@id='submit']");
     private By messageBy = By.ClassName("comment-awaiting-moderation");
+    private static readonly string pathToSubscriberComment = "//section[@class='comment-content comment']/p[contains(text(), '{0}')]";
 
     /// <summary>
     /// This is constructor for CommonViewPage.
@@ -26,11 +28,26 @@ namespace WordPress.Pages
     }
 
     /// <summary>
-    /// This method potsts comment.
+    /// This method posts comment.
     /// </summary>
-    public void PostComment()
+    public void ClickPostCommentButton()
     {
-      Browser.FindElement(submitCommentButtonBy).Click();
+      Browser.FindElement(postCommentButtonBy).Click();
+    }
+
+    /// <summary>
+    /// This method searches subscriber comment.
+    /// </summary>
+    /// <param name="comment"> Comment content </param>
+    /// <returns> True, if comment exists, and false, if doesn't </returns>
+    public bool FindSubscriberComment(string comment)
+    {
+      bool result = false;
+      if(Browser.FindElement(By.XPath(String.Format(pathToSubscriberComment, comment))).Displayed)
+      {
+        result = true;
+      }
+      return result;
     }
 
     /// <summary>
