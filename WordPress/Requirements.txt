@@ -1,0 +1,17 @@
+Administrator can:
+1. create users
+2. delete users
+Editor can:
+1. edit post
+2. delete the post
+3. confirm contributor posts
+4. approve comments
+5. unapprove comments
+6. delete comments
+Author can:
+1. create posts
+Contributor can:
+1. create posts(require editor confirmation)
+2. comments posts
+Subscriber can:
+1. comments posts
